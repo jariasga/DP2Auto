@@ -1,0 +1,2 @@
+android.app.Application
+com.companyname.DP2_Auto_App
