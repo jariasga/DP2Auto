@@ -13,5 +13,10 @@ namespace DP2_Auto_App
         {
             InitializeComponent();
         }
+
+        private void toLogin(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new Contents.Login();            
+        }
     }
 }

@@ -15,3 +15,4 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.pdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.Login.xaml.g.cs
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.Bluetooth.xaml.g.cs

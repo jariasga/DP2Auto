@@ -1,6 +1,8 @@
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.Android.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\FormsViewGroup.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Plugin.BLE.Abstractions.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Plugin.BLE.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Android.Support.Annotations.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll
@@ -30,9 +32,13 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.ComponentModel.Composition.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Diagnostics.Tools.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Collections.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Threading.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Text.Encoding.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Linq.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.ObjectModel.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Globalization.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.ComponentModel.dll
@@ -41,9 +47,6 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.IO.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Threading.dll
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Linq.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Net.Http.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll

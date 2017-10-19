@@ -4,10 +4,9 @@
              xmlns:local="clr-namespace:DP2_Auto_App"
              x:Class="DP2_Auto_App.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to DP2 !"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Bienvenido a la aplicación para el Vehículo eléctrico" />
+            <Button Text="Iniciar sesión" Clicked="toLogin"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

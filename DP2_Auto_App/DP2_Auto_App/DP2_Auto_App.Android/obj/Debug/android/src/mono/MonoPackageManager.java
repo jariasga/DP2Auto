@@ -109,6 +109,8 @@ class MonoPackageManager_Resources {
 		"DP2_Auto_App.Android.dll",
 		"DP2_Auto_App.dll",
 		"FormsViewGroup.dll",
+		"Plugin.BLE.Abstractions.dll",
+		"Plugin.BLE.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Annotations.dll",
 		"Xamarin.Android.Support.Compat.dll",

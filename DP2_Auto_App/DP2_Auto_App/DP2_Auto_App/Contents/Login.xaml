@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.Login">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Entry x:Name="label_Username" Placeholder="Usuario@DP2.com"/>
+            <Entry x:Name="label_Password" Placeholder="Password" IsPassword="True"/>
+            <Button x:Name="button_SignIn" Text="--->" Clicked="button_SignIn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

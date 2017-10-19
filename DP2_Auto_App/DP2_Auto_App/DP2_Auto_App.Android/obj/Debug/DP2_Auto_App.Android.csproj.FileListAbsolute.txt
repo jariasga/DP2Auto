@@ -55,3 +55,13 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.Abstractions.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.dll
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.pdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.xml
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.Abstractions.pdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.Abstractions.xml
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Plugin.BLE.Abstractions.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Plugin.BLE.Abstractions.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Plugin.BLE.dll.mdb
