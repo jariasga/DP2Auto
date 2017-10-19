@@ -3,40 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.Bluetooth">
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <StackLayout>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
                 <Button x:Name="btnStatus" Text="Status" Clicked="btnStatus_Clicked"/>
                 <Button x:Name="btnScanDev" Text="Scan" Clicked="btnScanDev_Clicked"/>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Button x:Name="btnConnect" Text="Connect" Clicked="btnConnect_Clicked"/>
                 <Button x:Name="btnConnectKnow" Text="Connect Know" Clicked="btnConnectKnow_Clicked"/>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Button x:Name="btnGetSrvs" Text="Get Services" Clicked="btnGetSrvs_Clicked"/>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Button x:Name="btnGetCaract" Text="Obtain Caracteristics" Clicked="btnGetCaract_Clicked"/>
                 <Button x:Name="btnGetRW" Text="Read/Write" Clicked="btnGetRW_Clicked"/>
                 <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"/>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Orientation="Horizontal">
                 <Button x:Name="btnGetDescriptors" Text="Obtain Descriptors" Clicked="btnGetDescriptors_Clicked"/>
                 <Button x:Name="btnGetDecsRW" Text="Read/Write D." Clicked="btnGetDecsRW_Clicked"/>
-            </StackLayout>
-        </StackLayout>
+            </StackLayout>        
         
-        <ListView x:Name="lv" ItemSelected="lv_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>                        
-                        <StackLayout>
-                            <Label Text="{Binding NativeDevice.Id}"/>
-                            <Label Text="{Binding NativeDevice.Name}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <ListView x:Name="lv" ItemSelected="lv_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>                        
+                            <StackLayout>
+                                <Label Text="{Binding NativeDevice.Id}"/>
+                                <Label Text="{Binding NativeDevice.Name}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
