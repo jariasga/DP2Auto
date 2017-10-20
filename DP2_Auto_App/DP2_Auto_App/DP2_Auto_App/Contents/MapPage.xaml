@@ -10,7 +10,8 @@
             x:Name="map"
             IsShowingUser="true"
             MapType="Street"
-        />
+            />
+            <Slider x:Name="map_slider" ValueChanged="map_slider_ValueChanged" IsVisible="True"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

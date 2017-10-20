@@ -28,12 +28,6 @@ namespace DP2_Auto_App.Contents
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
             */
-            var slider = new Slider(1, 18, 1);
-            slider.ValueChanged += (sender, e) => {
-                var zoomLevel = e.NewValue; // between 1 and 18
-                var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
-            };
 
             var position = new Position(-12.0689857, -77.078947); // Latitude, Longitude
             var pin = new Pin
@@ -54,6 +48,13 @@ namespace DP2_Auto_App.Contents
             var stack = new StackLayout { Spacing = 0 };
             stack.Children.Add(map);
             Content = stack;
+        }
+
+        private void map_slider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            var zoomLevel = e.NewValue; // between 1 and 18
+            var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
+            map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
         }
     }
 }
