@@ -22,3 +22,4 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Platform.pdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Xaml.xml
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MainMenu.xaml.g.cs

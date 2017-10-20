@@ -27,13 +27,13 @@ namespace DP2_Auto_App.Contents
                 DisplayAlert("Login", "Correcto", "Ok");
                 App.Current.MainPage = new Contents.Bluetooth();
             }
-            else DisplayAlert("Login", "Incorrecto", "Ok");
+            else DisplayAlert("Error", "Usuario incorrecto", "Ok");
         }
 
         private bool authenticate()
         {
             // Deberá leer los datos de una BD y comparar password encriptados
-            if (user.Username.Equals("test") && user.Password.Equals("test")) return true;
+            if (user.Username.Equals(".") && user.Password.Equals(".")) return true;
             else return false;
         }
     }
