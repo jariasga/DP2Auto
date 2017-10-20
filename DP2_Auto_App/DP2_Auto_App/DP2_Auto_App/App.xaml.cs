@@ -14,6 +14,7 @@ namespace DP2_Auto_App
             InitializeComponent();
 
             MainPage = new DP2_Auto_App.MainPage();
+
         }
 
         protected override void OnStart()

@@ -47,6 +47,16 @@
     <Compile Include="Contents\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\MainMenuDetail.xaml.cs">
+      <DependentUpon>MainMenuDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\MainMenuMaster.xaml.cs">
+      <DependentUpon>MainMenuMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\MainMenuMenuItem.cs" />
+    <Compile Include="Contents\Parking.xaml.cs">
+      <DependentUpon>Parking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -97,6 +107,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\MainMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\MainMenuMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\MainMenuDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\Parking.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
