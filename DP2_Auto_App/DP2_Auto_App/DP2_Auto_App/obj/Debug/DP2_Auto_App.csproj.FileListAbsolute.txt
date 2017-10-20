@@ -26,3 +26,6 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MainMenuMaster.xaml.g.cs
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MainMenuDetail.xaml.g.cs
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.Parking.xaml.g.cs
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Maps.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Maps.xml
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapPage.xaml.g.cs

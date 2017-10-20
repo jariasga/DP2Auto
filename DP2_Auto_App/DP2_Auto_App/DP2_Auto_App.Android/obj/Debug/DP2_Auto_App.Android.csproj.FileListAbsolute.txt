@@ -65,3 +65,11 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.Android.Support.Transition.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.Android.Support.v7.Palette.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.Forms.Maps.Android.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.Forms.Maps.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.GooglePlayServices.Base.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.GooglePlayServices.Maps.dll
+D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\Xamarin.Forms.Maps.xml

@@ -4,6 +4,6 @@
              x:Class="DP2_Auto_App.Contents.MainMenuDetail"
              Title="Detail">
   <StackLayout Padding="10">
-    <Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Master' page with an Icon that references it."/>
+    <Label Text="DP2 Detailed content building in progress ...."/>
   </StackLayout>
 </ContentPage>

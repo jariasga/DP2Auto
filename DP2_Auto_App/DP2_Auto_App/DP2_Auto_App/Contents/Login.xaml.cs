@@ -25,7 +25,7 @@ namespace DP2_Auto_App.Contents
             if (authenticate())
             {
                 DisplayAlert("Login", "Correcto", "Ok");
-                App.Current.MainPage = new Contents.Bluetooth();
+                App.Current.MainPage = new Contents.MainMenu();
             }
             else DisplayAlert("Error", "Usuario incorrecto", "Ok");
         }

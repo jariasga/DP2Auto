@@ -16,8 +16,7 @@ namespace DP2_Auto_App
 
         private void toLogin(object sender, EventArgs e)
         {
-            //App.Current.MainPage = new Contents.Login();
-            App.Current.MainPage = new Contents.MainMenu();
+            App.Current.MainPage = new Contents.Login();
         }
     }
 }
