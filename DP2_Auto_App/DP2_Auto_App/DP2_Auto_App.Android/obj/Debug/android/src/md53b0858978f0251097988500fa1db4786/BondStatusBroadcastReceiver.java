@@ -16,7 +16,7 @@ public class BondStatusBroadcastReceiver
 	}
 
 
-	public BondStatusBroadcastReceiver ()
+	public BondStatusBroadcastReceiver () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == BondStatusBroadcastReceiver.class)

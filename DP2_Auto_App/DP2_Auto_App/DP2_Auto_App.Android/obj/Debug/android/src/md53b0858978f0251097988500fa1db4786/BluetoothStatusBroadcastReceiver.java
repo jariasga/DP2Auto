@@ -16,7 +16,7 @@ public class BluetoothStatusBroadcastReceiver
 	}
 
 
-	public BluetoothStatusBroadcastReceiver ()
+	public BluetoothStatusBroadcastReceiver () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == BluetoothStatusBroadcastReceiver.class)

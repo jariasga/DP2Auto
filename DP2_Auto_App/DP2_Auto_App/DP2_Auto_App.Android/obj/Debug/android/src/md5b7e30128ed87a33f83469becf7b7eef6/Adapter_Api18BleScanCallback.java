@@ -17,7 +17,7 @@ public class Adapter_Api18BleScanCallback
 	}
 
 
-	public Adapter_Api18BleScanCallback ()
+	public Adapter_Api18BleScanCallback () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == Adapter_Api18BleScanCallback.class)

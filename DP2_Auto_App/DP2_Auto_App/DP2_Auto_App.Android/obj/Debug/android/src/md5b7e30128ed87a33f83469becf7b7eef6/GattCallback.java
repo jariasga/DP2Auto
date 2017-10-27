@@ -25,7 +25,7 @@ public class GattCallback
 	}
 
 
-	public GattCallback ()
+	public GattCallback () throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == GattCallback.class)

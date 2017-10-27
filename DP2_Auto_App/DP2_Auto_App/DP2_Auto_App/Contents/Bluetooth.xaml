@@ -5,36 +5,16 @@
              Title="BlueTooth">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="btnStatus" Text="Status" Clicked="btnStatus_Clicked"/>
-                <Button x:Name="btnScanDev" Text="Scan" Clicked="btnScanDev_Clicked"/>
+            <StackLayout>
+                <Button x:Name="btnConnect" Text="Status" Clicked="btnConnect_Clicked"/>
+                <Button x:Name="btnListDevices" Text="Scan" Clicked="btnListDevices_Clicked"/>
+                <Button x:Name="btnDisconnect" Text="Scan" Clicked="btnDisconnect_Clicked"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="btnConnect" Text="Connect" Clicked="btnConnect_Clicked"/>
-                <Button x:Name="btnConnectKnow" Text="Connect Know" Clicked="btnConnectKnow_Clicked"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="btnGetSrvs" Text="Get Services" Clicked="btnGetSrvs_Clicked"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="btnGetCaract" Text="Obtain Caracteristics" Clicked="btnGetCaract_Clicked"/>
-                <Button x:Name="btnGetRW" Text="Read/Write" Clicked="btnGetRW_Clicked"/>
-                <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="btnGetDescriptors" Text="Obtain Descriptors" Clicked="btnGetDescriptors_Clicked"/>
-                <Button x:Name="btnGetDecsRW" Text="Read/Write D." Clicked="btnGetDecsRW_Clicked"/>
-            </StackLayout>        
-        
-            <ListView x:Name="lv" ItemSelected="lv_ItemSelected">
+            
+            <ListView x:Name="lv">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>                        
-                            <StackLayout>
-                                <Label Text="{Binding NativeDevice.Id}"/>
-                                <Label Text="{Binding NativeDevice.Name}"/>
-                            </StackLayout>
-                        </ViewCell>
+                        <TextCell Text="{Binding PairedDevices}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
