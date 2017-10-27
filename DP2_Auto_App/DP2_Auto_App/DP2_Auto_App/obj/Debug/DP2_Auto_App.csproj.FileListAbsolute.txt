@@ -60,3 +60,5 @@ D:\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\
 \\Imperius\D$\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapPage.xaml.g.cs
 \\Imperius\D$\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.dll
 \\Imperius\D$\Users\JArias\Documents\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.pdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapTabbedPage.xaml.g.cs
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapStatisticsPage.xaml.g.cs

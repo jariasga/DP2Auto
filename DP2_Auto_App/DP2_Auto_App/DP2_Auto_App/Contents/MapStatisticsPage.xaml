@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.MapStatisticsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Principales estadísticas de recorrido"></Label>
+            <TableView>
+                <TableView.Root>
+                    <TableSection Title="Resumen">
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Recorrido"></Label>
+                                    <Label Text="53.3 km" HorizontalOptions="End"></Label>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Tiempo total:"></Label>
+                                    <Label Text="4:24:00 h" HorizontalOptions="End"></Label>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </TableSection>
+                </TableView.Root>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -57,6 +57,12 @@
     <Compile Include="Contents\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\MapStatisticsPage.xaml.cs">
+      <DependentUpon>MapStatisticsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\MapTabbedPage.xaml.cs">
+      <DependentUpon>MapTabbedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\Parking.xaml.cs">
       <DependentUpon>Parking.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\MapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\MapTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\MapStatisticsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

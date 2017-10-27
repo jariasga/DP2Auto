@@ -17,8 +17,8 @@
   <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
   <application android:label="DP2_Auto_App.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
     <!--<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBLvdVRRcx3gXxiG-hWCdCglG6e6g4oUQw" />-->
-    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCyg78z412NKzmCFumcj7P-EhCVXrvQyfY" />
     <!--<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />-->
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCyg78z412NKzmCFumcj7P-EhCVXrvQyfY" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="DP2_Auto_App" android:theme="@style/MainTheme" android:name="md50137d8cc0e43d57389b86a46d7750f68.MainActivity">
       <intent-filter>
