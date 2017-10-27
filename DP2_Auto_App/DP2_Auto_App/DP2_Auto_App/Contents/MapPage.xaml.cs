@@ -43,6 +43,7 @@ namespace DP2_Auto_App.Contents
                 MapSpan.FromCenterAndRadius(
                 new Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
 
+
             //map.MapType == MapType.Street;
 
             var stack = new StackLayout { Spacing = 0 };
