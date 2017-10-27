@@ -4,26 +4,27 @@
              x:Class="DP2_Auto_App.Contents.MapStatisticsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Principales estadísticas de recorrido"></Label>
             <TableView>
                 <TableView.Root>
-                    <TableSection Title="Resumen">
+                    <TableSection Title="Resumen histórico">
+                        <TextCell Text="Recorrido" Detail="53.4 km"></TextCell>
+                        <TextCell Text="Tiempo" Detail="4:32:13 h"></TextCell>
+                    </TableSection>
+                    <TableSection Title="Resumen por viaje">
+                        <SwitchCell Text="GPS"></SwitchCell>
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Recorrido"></Label>
-                                    <Label Text="53.3 km" HorizontalOptions="End"></Label>
-                                </StackLayout>
+                                <Picker x:Name="pickerRecorridos" Title="Seleccione un viaje" HorizontalOptions="FillAndExpand">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Viaje 1</x:String>
+                                            <x:String>Viaje 2</x:String>
+                                            <x:String>Viaje 3</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
                             </ViewCell.View>
-                        </ViewCell>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Tiempo total:"></Label>
-                                    <Label Text="4:24:00 h" HorizontalOptions="End"></Label>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
+                        </ViewCell>                        
                     </TableSection>
                 </TableView.Root>
             </TableView>
