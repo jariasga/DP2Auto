@@ -11,6 +11,7 @@ using Plugin.BLE.Abstractions.Contracts;
 using Plugin.BLE;
 using System.Collections.ObjectModel;
 using Plugin.BLE.Abstractions.Exceptions;
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
@@ -42,6 +43,7 @@ namespace DP2_Auto_App.Contents
         {
             // Check BlueTooth Status: BluetoothState.Off
             this.DisplayAlert("Estado", ble.State.ToString(), "Ok");
+            Debug.WriteLine($"The bluetooth state changed to {ble.State}");
         }
 
         private async void btnScanDev_Clicked(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace DP2_Auto_App.Contents
             adapter.DeviceDiscovered += (s, a) =>
             {
                 deviceList.Add(a.Device);
-                //a.Device.Id
+                Debug.WriteLine($"New device found {a.Device.Name}");
             };
             await adapter.StartScanningForDevicesAsync();
             //await adapter.StopScanningForDevicesAsync();
