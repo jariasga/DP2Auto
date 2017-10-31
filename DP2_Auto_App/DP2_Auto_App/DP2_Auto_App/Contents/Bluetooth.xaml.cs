@@ -33,6 +33,7 @@ namespace DP2_Auto_App.Contents
             catch (Exception e)
             {
                 DisplayAlert("Atención", e.Message, "OK");
+                DisplayAlert("Atención", e.Message, "OK"); //Nuevo cambio
             }
         }
 
