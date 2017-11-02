@@ -21,7 +21,7 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
-            rest = new RestService();
+            /*rest = new RestService();
             Users user = new Users();
             user.email = label_Username.Text;
             user.password = label_Password.Text;
@@ -29,10 +29,10 @@ namespace DP2_Auto_App.Contents
             rest.createUserData(user, false);
             if (authenticate())
             {
-                DisplayAlert("Login", "Correcto", "Ok");
+                */DisplayAlert("Login", "Correcto", "Ok");
                 App.Current.MainPage = new Contents.MainMenu();
-            }
-            else DisplayAlert("Error", "Usuario incorrecto", "Ok");
+            /*}
+            else DisplayAlert("Error", "Usuario incorrecto", "Ok");*/
         }
 
         private bool authenticate()
