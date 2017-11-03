@@ -4,8 +4,8 @@
              x:Class="DP2_Auto_App.Contents.Login">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Entry x:Name="label_Username" Placeholder="Usuario@DP2.com"/>
-            <Entry x:Name="label_Password" Placeholder="Password" IsPassword="True"/>
+            <Entry x:Name="label_Username" Placeholder="Usuario@DP2.com" Text="jarias@pucp.edu.pe"/>
+            <Entry x:Name="label_Password" Placeholder="Password" IsPassword="True" Text="123456"/>
             <Button x:Name="button_SignIn" Text="--->" Clicked="button_SignIn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
