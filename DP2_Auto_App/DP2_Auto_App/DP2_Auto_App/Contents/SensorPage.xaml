@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.SensorPage"
+             Title="Sensor">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Sensores"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Actualizar"
+            	VerticalOptions="Start"
+            	HorizontalOptions="FillAndExpand" />
+            <Image Source="sensorSpeed.png" />
+            <Label Text="45 km/h"/>
+            <Image Source="sensorTemperature.png" />
+            <Label Text="45 C"/>
+            <Image Source="sensorWeight.png" />
+            <Label Text="30 kg"/>
+            <Image Source="sensorHeart.png" />
+            <Label Text="105 p/m"/>
+            <Image Source="sensorProximity.png" />
+            <Label Text="3 metros"/>
+            <Image Source="sensorBattery.png" />
+            <Label Text="50%"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
