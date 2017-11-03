@@ -18,7 +18,11 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+<<<<<<< HEAD
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+=======
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+>>>>>>> 034dd08eb6530f4cd98d9b81d50da9add09e18e6
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <JavaMaximumHeapSize />

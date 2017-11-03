@@ -1,4 +1,4 @@
-﻿using DP2_Auto_App.Models;
+﻿using DP2_Auto_App.Models.RestServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        User user;
+        RestService rest;
         public Login()
         {
             InitializeComponent();
@@ -21,20 +21,25 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
-            user = new User(label_Username.Text, label_Password.Text);
+            /*rest = new RestService();
+            Users user = new Users();
+            user.email = label_Username.Text;
+            user.password = label_Password.Text;
+
+            rest.createUserData(user, false);
             if (authenticate())
             {
-                DisplayAlert("Login", "Correcto", "Ok");
+                */DisplayAlert("Login", "Correcto", "Ok");
                 App.Current.MainPage = new Contents.MainMenu();
-            }
-            else DisplayAlert("Error", "Usuario incorrecto", "Ok");
+            /*}
+            else DisplayAlert("Error", "Usuario incorrecto", "Ok");*/
         }
 
         private bool authenticate()
         {
             // Deberá leer los datos de una BD y comparar password encriptados
-            if (user.Username.Equals(".") && user.Password.Equals(".")) return true;
-            else return false;
+            //if (user.Username.Equals(".") && user.Password.Equals(".")) return true;
+            /*else */return false;
         }
     }
 }
