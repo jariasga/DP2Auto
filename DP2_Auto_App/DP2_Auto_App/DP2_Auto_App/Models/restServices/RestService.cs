@@ -32,18 +32,23 @@ namespace DP2_Auto_App.Models.RestServices
 
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            
-            var response = await client.PostAsync(uri, content);
 
-            var rString = await response.Content.ReadAsStringAsync();
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                Debug.WriteLine(@"                      Login successfull !!.");
-                return rString.ToString();
+                var response = await client.PostAsync(uri, content);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"                      Login successfull !!.");
+                    return rString;
+                }
+            }catch (Exception ex)
+            {
+                return "connectionProblem";
             }
-            else return "error";
-            
+            return null;
         }
     }
 }

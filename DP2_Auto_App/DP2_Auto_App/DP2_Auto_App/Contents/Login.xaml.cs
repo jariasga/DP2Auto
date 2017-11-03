@@ -41,6 +41,7 @@ namespace DP2_Auto_App.Contents
                 await DisplayAlert("Login", "Correcto", "Ok");
                 App.Current.MainPage = new Contents.MainMenu();
             }
+            else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
             else await DisplayAlert("Error", "Usuario incorrecto", "Ok");
         }
     }
