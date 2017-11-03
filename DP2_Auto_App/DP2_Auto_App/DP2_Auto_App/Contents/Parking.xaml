@@ -4,9 +4,26 @@
              x:Class="DP2_Auto_App.Contents.Parking"
              Title="Estacionamiento">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-            <Label x:Name="label_parking" Text="{Binding IsToggled, Source={x:Reference switch_parking}}"/>
-            <Switch x:Name="switch_parking"/>
+        <StackLayout Padding="10" Spacing="10">
+
+            <Label Text="Temperatura     --> 30°" FontSize="Medium"/>
+            <Label Text="Luminosidad     --> 500" FontSize="Medium"/>
+            <Label Text="UV              --> 200" FontSize="Medium"/>
+
+            <Label Text = "Escribe el Angulo de Inclinación"
+                    />
+            <Entry x:Name="angulo" Placeholder="0° - 90°" Keyboard="Numeric" 
+                    />
+            <Button x:Name="btn_angulo" Text="Modificar Persiana" BackgroundColor="AliceBlue"
+                    />
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Opciones">
+                        <SwitchCell Text="Modo Automatico" 
+                                    />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

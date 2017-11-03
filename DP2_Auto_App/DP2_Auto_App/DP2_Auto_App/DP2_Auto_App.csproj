@@ -38,9 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contents\Bluetooth.xaml.cs">
-      <DependentUpon>Bluetooth.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Contents\Bluetooth.cs" />
     <Compile Include="Contents\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -66,13 +64,17 @@
     <Compile Include="Contents\Parking.xaml.cs">
       <DependentUpon>Parking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\Recordatorios.xaml.cs">
+      <DependentUpon>Recordatorios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\SecurityPage.xaml.cs">
       <DependentUpon>SecurityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\IBT.cs" />
+    <Compile Include="Models\BluetoothViewModel.cs" />
+    <Compile Include="Models\IBth.cs" />
     <Compile Include="Models\RestServices\IRestService.cs" />
     <Compile Include="Models\RestServices\JSON_Classes.cs" />
     <Compile Include="Models\RestServices\RestService.cs" />
@@ -121,12 +123,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Contents\Bluetooth.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Contents\MainMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -170,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\SecurityPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\Recordatorios.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

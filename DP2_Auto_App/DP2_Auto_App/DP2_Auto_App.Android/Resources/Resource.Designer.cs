@@ -2450,16 +2450,6 @@ namespace DP2_Auto_App.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-<<<<<<< HEAD
-			// aapt resource value: 0x7f02013a
-			public const int avd_hide_password_1 = 2130837818;
-			
-			// aapt resource value: 0x7f02013b
-			public const int avd_hide_password_2 = 2130837819;
-			
-			// aapt resource value: 0x7f02013c
-			public const int avd_hide_password_3 = 2130837820;
-=======
 			// aapt resource value: 0x7f020147
 			public const int avd_hide_password_1 = 2130837831;
 			
@@ -2468,21 +2458,10 @@ namespace DP2_Auto_App.Droid
 			
 			// aapt resource value: 0x7f020149
 			public const int avd_hide_password_3 = 2130837833;
->>>>>>> 034dd08eb6530f4cd98d9b81d50da9add09e18e6
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-<<<<<<< HEAD
-			// aapt resource value: 0x7f02013d
-			public const int avd_show_password_1 = 2130837821;
-			
-			// aapt resource value: 0x7f02013e
-			public const int avd_show_password_2 = 2130837822;
-			
-			// aapt resource value: 0x7f02013f
-			public const int avd_show_password_3 = 2130837823;
-=======
 			// aapt resource value: 0x7f02014a
 			public const int avd_show_password_1 = 2130837834;
 			
@@ -2491,7 +2470,6 @@ namespace DP2_Auto_App.Droid
 			
 			// aapt resource value: 0x7f02014c
 			public const int avd_show_password_3 = 2130837836;
->>>>>>> 034dd08eb6530f4cd98d9b81d50da9add09e18e6
 			
 			// aapt resource value: 0x7f020055
 			public const int common_full_open_on_phone = 2130837589;
