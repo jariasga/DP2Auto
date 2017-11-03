@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.GoalsAchieved">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+        <StackLayout Margin="20, 10, 0, 0">
+            <Label Text="Objetivos alcanzados"
                 HorizontalOptions="CenterAndExpand" />
+            <Label WidthRequest="70" Text="Kilómetros recorridos"/>
+            <Label Text="100%"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
