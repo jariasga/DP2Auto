@@ -28,9 +28,11 @@ namespace DP2_Auto_App.Contents
         private async void authenticateAsync()
         {
             rest = new RestService();
-            Users user = new Users();
-            user.email = label_Username.Text;
-            user.password = label_Password.Text;
+            Users user = new Users
+            {
+                email = label_Username.Text,
+                password = label_Password.Text
+            };
 
             string saber = await rest.createUserData(user);
 
