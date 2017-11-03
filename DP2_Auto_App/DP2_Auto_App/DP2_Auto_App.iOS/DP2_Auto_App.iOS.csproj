@@ -168,6 +168,30 @@
   <ItemGroup>
     <BundleResource Include="Resources\Lock.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\estacionamiento.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorBattery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorProximity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorSpeed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorTemperature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorWeight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -2,27 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.SensorPage"
-             Title="Sensor">
+             Title="Estado del auto">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Sensores"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Actualizar"
-            	VerticalOptions="Start"
-            	HorizontalOptions="FillAndExpand" />
-            <Image Source="sensorSpeed.png" />
-            <Label Text="45 km/h"/>
-            <Image Source="sensorTemperature.png" />
-            <Label Text="45 C"/>
-            <Image Source="sensorWeight.png" />
-            <Label Text="30 kg"/>
-            <Image Source="sensorHeart.png" />
-            <Label Text="105 p/m"/>
-            <Image Source="sensorProximity.png" />
-            <Label Text="3 metros"/>
-            <Image Source="sensorBattery.png" />
-            <Label Text="50%"/>
+        <StackLayout Margin="20, 10, 0, 0">
+            <Label Text="Sensores" />
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorSpeed.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="45 km/h" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Red"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="sensorTemperature.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="19 C" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="sensorWeight.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="21 kg" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="sensorHeart.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="103 p/m" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="sensorProximity.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="2 m" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="sensorBattery.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Text="15 %" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

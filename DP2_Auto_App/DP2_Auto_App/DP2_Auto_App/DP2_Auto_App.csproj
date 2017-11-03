@@ -66,6 +66,9 @@
     <Compile Include="Contents\Parking.xaml.cs">
       <DependentUpon>Parking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\ReminderPage.xaml.cs">
+      <DependentUpon>ReminderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\SecurityPage.xaml.cs">
       <DependentUpon>SecurityPage.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\SensorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ReminderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
