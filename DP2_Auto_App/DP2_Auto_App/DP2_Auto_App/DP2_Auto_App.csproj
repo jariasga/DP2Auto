@@ -41,6 +41,9 @@
     <Compile Include="Contents\Bluetooth.xaml.cs">
       <DependentUpon>Bluetooth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\GoalsPage.xaml.cs">
+      <DependentUpon>GoalsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\ReminderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

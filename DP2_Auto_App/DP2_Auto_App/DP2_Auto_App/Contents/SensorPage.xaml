@@ -10,38 +10,43 @@
                 <Image Source="sensorSpeed.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="45 km/h" VerticalTextAlignment="Center"/>
-                <Button IsEnabled="False" BackgroundColor="Red"/>
+                <Label WidthRequest="80" Text="45 km/h" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorTemperature.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="19 C" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="80" Text="19 C" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorWeight.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="21 kg" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="80" Text="21 kg" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorHeart.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="103 p/m" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="80" Text="103 p/m" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorProximity.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="2 m" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="80" Text="2 m" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorBattery.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Text="15 %" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="80" Text="15 %" VerticalTextAlignment="Center"/>
+                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15"/>
         </StackLayout>
