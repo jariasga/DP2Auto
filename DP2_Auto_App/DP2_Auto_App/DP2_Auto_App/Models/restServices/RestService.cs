@@ -17,7 +17,6 @@ namespace DP2_Auto_App.Models.RestServices
     {
         HttpClient client;
         Uri baseAddress, uri;
-        private Users user;
 
         public RestService()
         {
@@ -27,25 +26,24 @@ namespace DP2_Auto_App.Models.RestServices
             client.BaseAddress = baseAddress;
         }
 
-        public async Task<string> createUserData(Users user, bool isNewUser)
+        public async Task<string> createUserData(Users user)
         {
             uri = new Uri(baseAddress, "login");
 
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             
-            HttpResponseMessage response = null;
-            if (isNewUser)
-            {
-                response = await client.PostAsync(uri, content);
-                return response.ToString();
-            }
+            var response = await client.PostAsync(uri, content);
+
+            var rString = await response.Content.ReadAsStringAsync();
+
             if (response.IsSuccessStatusCode)
             {
-                Debug.WriteLine(@"             TodoItem successfully saved.");
-                return "Exception";
+                Debug.WriteLine(@"                      Login successfull !!.");
+                return rString.ToString();
             }
-            return "null";
+            else return "error";
+            
         }
     }
 }

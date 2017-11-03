@@ -22,27 +22,26 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
+            authenticateAsync();
+        }
+
+        private async void authenticateAsync()
+        {
             rest = new RestService();
             Users user = new Users();
             user.email = label_Username.Text;
             user.password = label_Password.Text;
 
-            Task<string> saber = rest.createUserData(user, true);
+            string saber = await rest.createUserData(user);
+
             Debug.WriteLine(saber);
-            /*if (authenticate())
+
+            if (saber.Contains("token"))
             {
-                DisplayAlert("Login", "Correcto", "Ok");
+                await DisplayAlert("Login", "Correcto", "Ok");
                 App.Current.MainPage = new Contents.MainMenu();
             }
-            else DisplayAlert("Error", "Usuario incorrecto", "Ok");*/
-        }
-
-        private bool authenticate()
-        {
-            // Deberá leer los datos de una BD y comparar password encriptados
-            //if (user.Username.Equals(".") && user.Password.Equals(".")) return true;
-            /*else return false;*/
-            return true;
+            else await DisplayAlert("Error", "Usuario incorrecto", "Ok");
         }
     }
 }
