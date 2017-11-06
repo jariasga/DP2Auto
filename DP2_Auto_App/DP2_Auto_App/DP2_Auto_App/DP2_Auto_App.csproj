@@ -41,6 +41,18 @@
     <Compile Include="Contents\Bluetooth.xaml.cs">
       <DependentUpon>Bluetooth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\GoalsAchieved.xaml.cs">
+      <DependentUpon>GoalsAchieved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\GoalsActual.xaml.cs">
+      <DependentUpon>GoalsActual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\GoalsNew.xaml.cs">
+      <DependentUpon>GoalsNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\GoalsPage.xaml.cs">
+      <DependentUpon>GoalsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -66,8 +78,14 @@
     <Compile Include="Contents\Parking.xaml.cs">
       <DependentUpon>Parking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\ReminderPage.xaml.cs">
+      <DependentUpon>ReminderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\SecurityPage.xaml.cs">
       <DependentUpon>SecurityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\SensorPage.xaml.cs">
+      <DependentUpon>SensorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -170,6 +188,42 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\SecurityPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\SensorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ReminderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsAchieved.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsNew.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsActual.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
