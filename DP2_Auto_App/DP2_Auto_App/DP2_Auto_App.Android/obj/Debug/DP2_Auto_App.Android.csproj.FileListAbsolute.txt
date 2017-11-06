@@ -199,14 +199,6 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Base.dll.stamp
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Maps.dll.stamp
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\dc663e480.txt
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\dc663e48.proguard.stamp
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\0757626b0.txt
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\0757626b.proguard.stamp
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\2f4d086a0.txt
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\2f4d086a.proguard.stamp
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\ea5c07c40.txt
-D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\ea5c07c4.proguard.stamp
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.Android.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.Android.pdb
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\com.companyname.DP2_Auto_App.apk
@@ -283,3 +275,11 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorweight.png
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\R.cs.flag
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\uploadflags.txt
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.Android.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.Android.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb

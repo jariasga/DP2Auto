@@ -4,9 +4,16 @@
              x:Class="DP2_Auto_App.Contents.ReminderPage"
              Title="Recordatorios">
     <ContentPage.Content>
-        <StackLayout Margin="10, 10, 0, 0">
-            <Label Text="prueba" />
+        <StackLayout Padding="10" Spacing="10">
+            <Label FontSize="Large" XAlign="End">Lunes 5/11/2017</Label>
+            <Label FontSize="Medium" XAlign="Start">-> Llevar a Mantenimiento el vehiculo</Label>
+            <Label FontSize="Medium" XAlign="Start">-> Llevar a Mantenimiento el vehiculo</Label>
 
+            <Label FontSize="Large" XAlign="End">Viernes 10/11/2017</Label>
+            <Label FontSize="Medium" XAlign="Start">-> Llevar a Mantenimiento el vehiculo</Label>
+
+            <Label FontSize="Large" XAlign="End">Jueves 16/11/2017</Label>
+            <Label FontSize="Medium" XAlign="Start">-> Llevar a Mantenimiento el vehiculo</Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
