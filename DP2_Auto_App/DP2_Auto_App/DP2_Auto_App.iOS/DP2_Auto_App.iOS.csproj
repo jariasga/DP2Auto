@@ -131,6 +131,9 @@
     <Reference Include="Plugin.BLE.Abstractions, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.BLE.1.3.0\lib\Xamarin.iOS10\Plugin.BLE.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\Xamarin.iOS10\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
@@ -167,6 +170,30 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Lock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\estacionamiento.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorBattery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorProximity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorSpeed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorTemperature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sensorWeight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />

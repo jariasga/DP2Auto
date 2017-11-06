@@ -8,6 +8,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace DP2_Auto_App.Models.RestServices
 {
@@ -15,52 +17,38 @@ namespace DP2_Auto_App.Models.RestServices
     {
         HttpClient client;
         Uri baseAddress, uri;
-        private Users user;
 
         public RestService()
         {
             baseAddress = new Uri("http://dp2.iamallama.com/api/");
             client = new HttpClient();
             client.MaxResponseContentBufferSize = 256000;
+            client.BaseAddress = baseAddress;
         }
 
-        public async void retrieveData()
-        {
-            user = new Users();
-            uri = new Uri(baseAddress, "login");
-            try
-            {
-                var response = await client.GetAsync(uri);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    user = JsonConvert.DeserializeObject <Users>(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(@"				ERROR {0}", ex.Message);
-            }            
-        }
-
-        public async void createUserData(Users user, bool isNewUser)
+        public async Task<string> createUserData(Users user)
         {
             uri = new Uri(baseAddress, "login");
 
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            if (isNewUser)
+            try
             {
-                response = await client.PostAsync(uri, content);
-            }
-            if (response.IsSuccessStatusCode)
-            {
-                Debug.WriteLine(@"             TodoItem successfully saved.");
+                var response = await client.PostAsync(uri, content);
 
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"                      Login successfull !!.");
+                    return rString;
+                }
+            }catch (Exception ex)
+            {
+                return "connectionProblem";
             }
+            return null;
         }
     }
 }

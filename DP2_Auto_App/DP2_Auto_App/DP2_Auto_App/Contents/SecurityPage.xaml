@@ -4,7 +4,9 @@
              x:Class="DP2_Auto_App.Contents.SecurityPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="Lock.jpg" />
+            <Image Source="Lock.jpg"  WidthRequest="80" HeightRequest="80"/>
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

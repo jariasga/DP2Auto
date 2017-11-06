@@ -1,6 +1,7 @@
 ﻿using DP2_Auto_App.Models.RestServices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,25 +22,29 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
-            /*rest = new RestService();
-            Users user = new Users();
-            user.email = label_Username.Text;
-            user.password = label_Password.Text;
-
-            rest.createUserData(user, false);
-            if (authenticate())
-            {
-                */DisplayAlert("Login", "Correcto", "Ok");
-                App.Current.MainPage = new Contents.MainMenu();
-            /*}
-            else DisplayAlert("Error", "Usuario incorrecto", "Ok");*/
+            authenticateAsync();
         }
 
-        private bool authenticate()
+        private async void authenticateAsync()
         {
-            // Deberá leer los datos de una BD y comparar password encriptados
-            //if (user.Username.Equals(".") && user.Password.Equals(".")) return true;
-            /*else */return false;
+            rest = new RestService();
+            Users user = new Users
+            {
+                email = label_Username.Text,
+                password = label_Password.Text
+            };
+
+            string saber = await rest.createUserData(user);
+
+            Debug.WriteLine(saber);
+
+            if (saber.Contains("token"))
+            {
+                await DisplayAlert("Login", "Correcto", "Ok");
+                App.Current.MainPage = new Contents.MainMenu();
+            }
+            else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
+            else await DisplayAlert("Error", "Usuario incorrecto", "Ok");
         }
     }
 }
