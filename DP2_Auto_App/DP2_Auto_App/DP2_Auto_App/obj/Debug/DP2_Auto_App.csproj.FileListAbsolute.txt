@@ -133,3 +133,5 @@ D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Xaml.xml
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.dll
 D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.pdb
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.csprojResolveAssemblyReference.cache
+D:\Users\JArias\Documents\GitHub\DP2AUto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.UserPage.xaml.g.cs
