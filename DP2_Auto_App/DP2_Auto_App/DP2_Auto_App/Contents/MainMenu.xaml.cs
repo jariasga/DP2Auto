@@ -34,7 +34,6 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Objetivos y logros")) Detail = pages[1];
             else if (item.Title.Equals("Estacionamiento")) Detail = pages[2];
             else if (item.Title.Equals("Navegación y Viajes")) Detail = pages[3];
-            else if (item.Title.Equals("Estado del Auto")) Detail = new NavigationPage(page);
             else if (item.Title.Equals("Recordatorios")) Detail = pages[5];
             else if (item.Title.Equals("Estado del Auto")) Detail = pages[6];
             else if (item.Title.Equals("Seguridad")) Detail = pages[7];
@@ -54,7 +53,6 @@ namespace DP2_Auto_App.Contents
             pages[1] = new NavigationPage(new Contents.GoalsPage());
             pages[2] = new NavigationPage(new Contents.Parking());
             pages[3] = new NavigationPage(new Contents.MapTabbedPage());
-            //pages[4] = new NavigationPage(new Contents.CarStatus());
             pages[5] = new NavigationPage(new Contents.ReminderPage());
             pages[6] = new NavigationPage(new Contents.SensorPage());
             pages[7] = new NavigationPage(new Contents.SecurityPage());
