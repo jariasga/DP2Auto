@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.Parking"
+             Title="Estacionamiento">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+            <Image Source="estacionamiento.jpg" 
+                   HeightRequest="150"
+                   WidthRequest="150"/>
+            <Label x:Name="label_parking" 
+                   Text="{Binding IsToggled, Source={x:Reference switch_parking}}"
+                   HorizontalTextAlignment="Center" Margin="0, 10, 0, 0"/>
+            <Switch x:Name="switch_parking"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
