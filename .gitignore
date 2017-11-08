@@ -10,6 +10,9 @@
 *.sln.docstates
 *.mdb
 *.pdb
+DP2_Auto_App/DP2_Auto_App/DP2_Auto_App.Android/obj/Debug/
+DP2_Auto_App/DP2_Auto_App/DP2_Auto_App.Android/bin/Debug/
+*.suo
 
 # Build results
 
