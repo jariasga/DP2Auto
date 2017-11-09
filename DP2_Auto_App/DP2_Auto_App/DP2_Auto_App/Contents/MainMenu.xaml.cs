@@ -37,6 +37,7 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Recordatorios")) Detail = pages[5];
             else if (item.Title.Equals("Estado del Auto")) Detail = pages[6];
             else if (item.Title.Equals("Seguridad")) Detail = pages[7];
+            else if (item.Title.Equals("Alertas")) Detail = pages[9];
             else if (item.Title.Equals("Bluetooth")) Detail = pages[8];
             else Detail = new NavigationPage(page);
 
@@ -48,7 +49,7 @@ namespace DP2_Auto_App.Contents
 
         private void initizalizePages()
         {
-            pages = new NavigationPage[9];
+            pages = new NavigationPage[10];
             pages[0] = new NavigationPage(new Contents.UserPage());
             pages[1] = new NavigationPage(new Contents.GoalsPage());
             pages[2] = new NavigationPage(new Contents.Parking());
@@ -57,6 +58,7 @@ namespace DP2_Auto_App.Contents
             pages[6] = new NavigationPage(new Contents.SensorPage());
             pages[7] = new NavigationPage(new Contents.SecurityPage());
             pages[8] = new NavigationPage(new Bluetooth());
+            pages[9] = new NavigationPage(new Contents.WarningPage());
         }
     }
 }

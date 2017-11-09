@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.WarningPage"
+             Title="Alertas">
+    <ContentPage.Content>
+        <StackLayout Margin="20, 10, 0, 0">
+            <Label Text="Alertas"/>
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorBelt.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Cinturón" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Spacing="5">
+                <Switch Toggled="SwitchBelt"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorDoor.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Puertas" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Spacing="5">
+                <Switch Toggled="SwitchDoor"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorBattery.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Bateria" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Spacing="5">
+                <Switch Toggled="SwitchBattery"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorProximity.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Proximidad" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Spacing="5">
+                <Switch Toggled="SwitchProximity"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="sensorHeart.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Ritmo Cardíaco" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Spacing="5">
+                <Switch Toggled="SwitchHeart"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
