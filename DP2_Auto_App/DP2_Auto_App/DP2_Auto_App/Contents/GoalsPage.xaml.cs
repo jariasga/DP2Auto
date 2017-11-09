@@ -22,11 +22,6 @@ namespace DP2_Auto_App.Contents
             App.Current.MainPage = new Contents.GoalsAchieved();
         }
 
-        private void buttonClickedActualGoals(object sender, EventArgs e)
-        {
-            App.Current.MainPage = new Contents.GoalsActual();
-        }
-
         private void buttonClickedNewGoals(object sender, EventArgs e)
         {
             App.Current.MainPage = new Contents.GoalsNew();

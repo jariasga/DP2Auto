@@ -4,15 +4,23 @@
              x:Class="DP2_Auto_App.Contents.GoalsPage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="check.jpg"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Kilómetros recorridos"/>
+                <Label WidthRequest="80" Text="Se deben recorrer los kilómetros necesarios!"/>
+                <Label WidthRequest="80" Text="========================= 15/20"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout>
             <Label Text="Logros y objetivos"
-                VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Objetivos logrados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+            <Button Text="Objetivos completados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
                     Clicked="buttonClickedAchievedGoals"/>
-            <Button Text="Objetivos trazados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
-                    Clicked="buttonClickedActualGoals"/>
             <Button Text="Nuevo objetivo" HorizontalOptions="Center" Margin="0, 0, 0, 15"
                     Clicked="buttonClickedNewGoals"/>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

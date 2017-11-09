@@ -42,9 +42,6 @@
     <Compile Include="Contents\GoalsAchieved.xaml.cs">
       <DependentUpon>GoalsAchieved.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contents\GoalsActual.xaml.cs">
-      <DependentUpon>GoalsActual.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Contents\GoalsNew.xaml.cs">
       <DependentUpon>GoalsNew.xaml</DependentUpon>
     </Compile>
@@ -214,12 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\GoalsNew.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Contents\GoalsActual.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
