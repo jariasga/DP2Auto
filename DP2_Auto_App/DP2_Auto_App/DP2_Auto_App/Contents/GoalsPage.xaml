@@ -5,15 +5,13 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal" >
-                <Image Source="check.jpg"
+                <Image Source="check.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="Kilómetros recorridos"/>
                 <Label WidthRequest="80" Text="Se deben recorrer los kilómetros necesarios!"/>
                 <Label WidthRequest="80" Text="========================= 15/20"/>
             </StackLayout>
-        </StackLayout>
-        <StackLayout>
             <Label Text="Logros y objetivos"
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Objetivos completados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
