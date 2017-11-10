@@ -4,16 +4,17 @@
              x:Class="DP2_Auto_App.Contents.UserPage"
              Title="Usuario">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10,0,0,0">
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" x:Name="label_Name"/>
-                <Label FontSize="Large" x:Name="label_LastName"/>
+                <Label Font="Bold" FontSize="Large" x:Name="label_Name"/>
+                <Label Font="Bold" FontSize="Large" x:Name="label_LastName"/>
             </StackLayout>
             <Label FontSize="Medium" x:Name="label_Email"/>
             <Label FontSize="Medium" x:Name="label_Phone"/>
             <Label FontSize="Medium" x:Name="label_Rating"/>
             <Label FontSize="Small" x:Name="label_Created"/>
             <Label FontSize="Small" x:Name="label_Updated"/>
+            <Image Source="work.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

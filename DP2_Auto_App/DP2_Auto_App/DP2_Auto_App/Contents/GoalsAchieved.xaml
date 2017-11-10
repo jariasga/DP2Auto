@@ -4,10 +4,27 @@
              x:Class="DP2_Auto_App.Contents.GoalsAchieved">
     <ContentPage.Content>
         <StackLayout Margin="20, 10, 0, 0">
-            <Label Text="Objetivos alcanzados"
-                HorizontalOptions="CenterAndExpand" />
-            <Label WidthRequest="70" Text="Kilómetros recorridos"/>
-            <Label Text="100%"/>
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Image Source="check.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Image Source="equis.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Margin="10,0,0,0" WidthRequest="80" Text="Ventas alcanzadas" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="50" Text=" 3/5" VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Image Source="equis.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label Margin="10,0,0,0" WidthRequest="80" Text="Velocidad máxima" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="50" Text="30km/h" VerticalTextAlignment="Center"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
