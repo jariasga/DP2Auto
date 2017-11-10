@@ -17,10 +17,11 @@ namespace DP2_Auto_App.Droid.BlueTooth
         private CancellationTokenSource _ct { get; set; }
 
         public string MessageToSend { get; set; }
-        
+        DP2_Auto_App.Models.BTMessages mensajes;
         public Bth()
         {
             _ct = new CancellationTokenSource();
+            mensajes = new Models.BTMessages();
         }
 
         public void Connect(string name)
@@ -130,6 +131,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
                                             string valor = System.Text.Encoding.ASCII.GetString(buffer);
                                             System.Diagnostics.Debug.WriteLine("Valor Encontrado" + valor); //Imprimir valores que envian del bluetooth
 
+                                            mensajes.received.Add(valor);
 
                                             //Para andrioid interfaz xml
 

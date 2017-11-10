@@ -113,6 +113,7 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Maps.xml
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\bin\Debug\Xamarin.Forms.Xaml.xml
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.csprojResolveAssemblyReference.cache
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.csproj.CoreCompileInputs.cache
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.MainPage.xaml.g.cs
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.App.xaml.g.cs
@@ -125,6 +126,11 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapTabbedPage.xaml.g.cs
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.MapStatisticsPage.xaml.g.cs
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.SecurityPage.xaml.g.cs
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.Recordatorios.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.SensorPage.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.ReminderPage.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.GoalsPage.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.GoalsAchieved.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.GoalsNew.xaml.g.cs
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.Contents.UserPage.xaml.g.cs
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.dll
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App\obj\Debug\DP2_Auto_App.pdb

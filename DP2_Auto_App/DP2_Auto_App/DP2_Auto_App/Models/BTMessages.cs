@@ -8,8 +8,8 @@ namespace DP2_Auto_App.Models
 {
     public class BTMessages
     {
-        List<string> received{ get; set; }
-        List<string> send { get; set; }
+        public List<string> received{ get; set; }   //  Recibidos por el sensor
+        public List<string> send { get; set; }      //  Para enviar al sensor
         public BTMessages()
         {
             received = new List<string>();

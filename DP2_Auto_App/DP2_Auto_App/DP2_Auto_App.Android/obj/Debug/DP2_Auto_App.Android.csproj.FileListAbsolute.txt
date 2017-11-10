@@ -227,5 +227,17 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\l
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\values\styles.xml
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\moto.jpg
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\lock.jpg
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\alert.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\estacionamiento.jpg
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorbattery.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorheart.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorproximity.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorspeed.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensortemperature.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\sensorweight.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\check.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\equis.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\auto.png
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\work.png
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\R.cs.flag
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\uploadflags.txt
