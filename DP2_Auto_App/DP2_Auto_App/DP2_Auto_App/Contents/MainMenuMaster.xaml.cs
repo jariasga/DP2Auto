@@ -40,6 +40,7 @@ namespace DP2_Auto_App.Contents
                     new MainMenuMenuItem { Id = 4, Title = "Recordatorios" },
                     new MainMenuMenuItem { Id = 5, Title = "Estado del Auto" },
                     new MainMenuMenuItem { Id = 6, Title = "Seguridad" },
+                    new MainMenuMenuItem { Id = 8, Title = "Alertas"},
                     new MainMenuMenuItem { Id = 7, Title = "Bluetooth" },
                 });
             }
