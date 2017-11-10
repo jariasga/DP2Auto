@@ -77,4 +77,4 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\andro
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Mono.CSharp.dll
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Mono.Security.dll

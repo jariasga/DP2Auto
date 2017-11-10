@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.Bluetooth;
 using DP2_Auto_App.Droid.BlueTooth;
-using Java.IO;
 using Java.Util;
 using Application = Xamarin.Forms.Application;
+using System.IO;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Bth))]
 namespace DP2_Auto_App.Droid.BlueTooth
@@ -43,6 +43,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
         private async Task ConnectDevice(string name)
         {
             BluetoothDevice device = null;
+            Stream inStream = null;//add
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
             BluetoothSocket bthSocket = null;
             while (_ct.IsCancellationRequested == false)
@@ -105,6 +106,53 @@ namespace DP2_Auto_App.Droid.BlueTooth
                                     }
                                 }
                             }
+
+                            //Busqueda de los mensajes de bluetooth
+                            try
+                            {
+                                inStream = bthSocket.InputStream;
+                            }
+                            catch (IOException ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine(ex.Message);
+                            }
+                            await Task.Factory.StartNew(() =>
+                            {
+                                byte[] buffer = new byte[1024];
+                                int bytes;
+                                while (true)
+                                {
+                                    try
+                                    {
+                                        bytes = inStream.Read(buffer, 0, buffer.Length);
+                                        if (bytes > 0)
+                                        {
+                                            string valor = System.Text.Encoding.ASCII.GetString(buffer);
+                                            System.Diagnostics.Debug.WriteLine("Valor Encontrado" + valor); //Imprimir valores que envian del bluetooth
+
+
+                                            //Para andrioid interfaz xml
+
+                                            //aquí recibirías la información enviada por el serial Bluetooth
+                                            //RunOnUiThread(() => {
+                                            //    string valor = System.Text.Encoding.ASCII.GetString(buffer);
+                                            //    Result.Text = Result.Text + "\n" + valor;
+                                            //});
+                                        }
+                                    }
+                                    catch (Java.IO.IOException)
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("Error");
+
+                                        //Para andrioid interfaz xml
+
+                                        //RunOnUiThread(() => {
+                                        //    Result.Text = string.Empty;
+                                        //});
+                                        //break;
+                                    }
+                                }
+                            });
                         }
                     }
                 }
