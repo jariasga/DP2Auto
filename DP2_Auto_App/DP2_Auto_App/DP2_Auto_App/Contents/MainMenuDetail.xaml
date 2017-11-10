@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.MainMenuDetail"
-             Title="Detail">
-    <StackLayout Padding="10">
-        <Label Text="DP2 Detailed content building in progress ...."/>
-        <Image Source="Moto.jpg" />
+             Title="Vehículo Eléctrico">
+    <StackLayout Padding="10" VerticalOptions="Center">
+        <Label HorizontalOptions="Center"  Text="Hombres trabajando" Font="Bold,20"/>
+        <Image Source="work.png" HeightRequest="150" WidthRequest="150" />
     </StackLayout>
 </ContentPage>

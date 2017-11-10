@@ -201,6 +201,12 @@
   <ItemGroup>
     <BundleResource Include="Resources\equis.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\auto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\work.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
