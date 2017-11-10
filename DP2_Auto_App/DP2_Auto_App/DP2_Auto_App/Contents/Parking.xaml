@@ -6,9 +6,9 @@
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
 
-            <Label Text="Temperatura     --> 30°" FontSize="Medium"/>
+            <Label Text="Temperatura      --> 30°" FontSize="Medium"/>
             <Label Text="Luminosidad     --> 500" FontSize="Medium"/>
-            <Label Text="UV              --> 200" FontSize="Medium"/>
+            <Label Text="UV                     --> 200" FontSize="Medium"/>
 
             <Label Text = "Escribe el Angulo de Inclinación"
                     />
