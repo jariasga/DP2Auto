@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.GoalsPage"
+             Title="Objetivos y Logros">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="check.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="80" Text="Kilómetros recorridos"/>
+                <Label WidthRequest="80" Text="Se deben recorrer los kilómetros necesarios!"/>
+                <Label WidthRequest="80" Text="========================= 15/20"/>
+            </StackLayout>
+            <Label Text="Logros y objetivos"
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Objetivos completados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedAchievedGoals"/>
+            <Button Text="Nuevo objetivo" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedNewGoals"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
