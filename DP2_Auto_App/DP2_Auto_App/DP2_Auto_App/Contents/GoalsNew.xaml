@@ -6,6 +6,7 @@
         <StackLayout>
             <Label Text="Nuevo logro"
                 HorizontalOptions="CenterAndExpand" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -29,7 +29,25 @@
                            Keyboard="Numeric" 
                            LabelColor="Blue"
                            />
+           </TableSection>
+        </TableRoot>
+    </TableView>
 
+    <Label Text="Temperatura      --> 30°" FontSize="Medium"/>
+    <Label Text="Luminosidad     --> 500" FontSize="Medium"/>
+    <Label Text="UV                     --> 200" FontSize="Medium"/>
+
+    <Label Text = "Escribe el Angulo de Inclinación"
+            />
+    <Entry x:Name="angulo" Placeholder="0° - 90°" Keyboard="Numeric" 
+            />
+    <Button x:Name="btn_angulo" Text="Modificar Persiana" BackgroundColor="AliceBlue"
+            />
+    <TableView Intent="Settings">
+        <TableRoot>
+            <TableSection Title="Opciones">
+                <SwitchCell Text="Modo Automatico" 
+                            />
             </TableSection>
         </TableRoot>
     </TableView>
