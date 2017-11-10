@@ -11,7 +11,8 @@
 namespace DP2_Auto_App {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\GitHub\\DP2Auto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\MainPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Users\\JArias\\Documents\\GitHub\\DP2AUto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\M" +
+        "ainPage.xaml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

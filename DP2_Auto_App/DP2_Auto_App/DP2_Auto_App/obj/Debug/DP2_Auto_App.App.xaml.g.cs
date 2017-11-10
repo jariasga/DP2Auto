@@ -11,7 +11,8 @@
 namespace DP2_Auto_App {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\GitHub\\DP2Auto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Users\\JArias\\Documents\\GitHub\\DP2AUto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\A" +
+        "pp.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

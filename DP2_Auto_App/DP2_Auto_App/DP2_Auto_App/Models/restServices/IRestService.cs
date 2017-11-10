@@ -8,7 +8,6 @@ namespace DP2_Auto_App.Models.RestServices
 {
     public interface IRestService
     {
-        void retrieveData();
-        void createUserData(Users user, bool isNew);
+        Task<string> createUserData(Users user);
     }
 }

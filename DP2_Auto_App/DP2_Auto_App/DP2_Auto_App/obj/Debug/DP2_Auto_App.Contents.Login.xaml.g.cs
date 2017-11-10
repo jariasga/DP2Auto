@@ -11,7 +11,8 @@
 namespace DP2_Auto_App.Contents {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\GitHub\\DP2Auto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\Contents\\Login.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("D:\\Users\\JArias\\Documents\\GitHub\\DP2AUto\\DP2_Auto_App\\DP2_Auto_App\\DP2_Auto_App\\C" +
+        "ontents\\Login.xaml")]
     public partial class Login : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
