@@ -31,6 +31,7 @@ namespace DP2_Auto_App.Models.RestServices
             webClient.BaseAddress = baseAddress;
 
             client = new Client();
+            travels = new List<Travel>();
         }
 
         public async Task<string> getLoginToken(Users user)
@@ -53,7 +54,7 @@ namespace DP2_Auto_App.Models.RestServices
                 }
             }catch (Exception ex)
             {
-                return "connectionProblem";
+                return "connectionProblem: " + ex.Message;
             }
             return null;
         }
@@ -141,11 +142,12 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> endTravel(startTravel travel)
+        public async Task<string> endTravel(startTravel start)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            uri = new Uri(baseAddress, "travels/" + travel.id);
-                        
+            uri = new Uri(baseAddress, "travels/" + start.id);
+
+            endTravel end = new endTravel();
             var content = new StringContent("", Encoding.UTF8, "application/json");
 
             try
@@ -156,7 +158,69 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    travel = JsonConvert.DeserializeObject<Travel>(rString);
+                    end = JsonConvert.DeserializeObject<endTravel>(rString);
+                    Travel travel = new Travel
+                    {
+                        started = start,
+                        ended = end
+                    };
+                    travels.Add(travel);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<string> storeReadings(int sId, float value)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "readings");
+
+            Readings read = new Readings()
+            {
+                sensor_id = sId,
+                value = value
+            };
+
+            var json = JsonConvert.SerializeObject(read);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    read = JsonConvert.DeserializeObject<Readings>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<string> getReadingInfo(int readingID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("readings/" + readingID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Readings r = new Readings();
+                    r = JsonConvert.DeserializeObject<Readings>(rString);
                     return rString;
                 }
             }

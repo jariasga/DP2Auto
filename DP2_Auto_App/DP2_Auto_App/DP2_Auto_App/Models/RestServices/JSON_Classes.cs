@@ -74,4 +74,14 @@ namespace DP2_Auto_App.Models.RestServices
         public startTravel started { get; set; }
         public endTravel ended { get; set; }
     }
+
+    public class Readings
+    {
+        public double value { get; set; }
+        public int travel_id { get; set; }
+        public int sensor_id { get; set; }
+        public string updated_at { get; set; }
+        public string created_at { get; set; }
+        public int id { get; set; }
+    }
 }
