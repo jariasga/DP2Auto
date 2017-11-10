@@ -89,6 +89,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BluetoothViewModel.cs" />
+    <Compile Include="Models\BTMessages.cs" />
     <Compile Include="Models\IBth.cs" />
     <Compile Include="Models\RestServices\IRestService.cs" />
     <Compile Include="Models\RestServices\JSON_Classes.cs" />

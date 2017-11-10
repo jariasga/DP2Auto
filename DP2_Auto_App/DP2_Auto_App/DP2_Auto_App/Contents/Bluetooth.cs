@@ -39,8 +39,6 @@ namespace DP2_Auto_App
             };
             connectButton.Clicked += ConnectButton_Clicked;
 
-
-
             var patternPicker = new Picker
             {
                 Items = { "Color Wipe", "Theater Chase", "Rainbow Cycle", "Rainbow Chase", "Stop" }
@@ -58,8 +56,6 @@ namespace DP2_Auto_App
             };
             disconnectButton.Clicked += DisconnectButton_Clicked;
 
-
-
             return new StackLayout
             {
                 Children =
@@ -72,10 +68,6 @@ namespace DP2_Auto_App
                     disconnectButton,
                 }
             };
-
-
-
-
         }
 
 
@@ -85,7 +77,7 @@ namespace DP2_Auto_App
         private void PatternPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var patternPicker = (Picker)sender;
-            ViewModel.Message = patternPicker.SelectedIndex.ToString();
+            //ViewModel.Message = patternPicker.SelectedIndex.ToString();
         }
         private void ConnectButton_Clicked(object sender, EventArgs e)
         {
