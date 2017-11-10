@@ -10,5 +10,6 @@ namespace DP2_Auto_App.Models.RestServices
     {
         Task<string> getLoginToken(Users user);
         Task<string> getClientInfo();
+        Task<string> updateClientInfo();
     }
 }
