@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.UserPage"
+             Title="Usuario">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" x:Name="label_Name"/>
+                <Label FontSize="Large" x:Name="label_LastName"/>
+            </StackLayout>
+            <Label FontSize="Medium" x:Name="label_Email"/>
+            <Label FontSize="Medium" x:Name="label_Phone"/>
+            <Label FontSize="Medium" x:Name="label_Rating"/>
+            <Label FontSize="Small" x:Name="label_Created"/>
+            <Label FontSize="Small" x:Name="label_Updated"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

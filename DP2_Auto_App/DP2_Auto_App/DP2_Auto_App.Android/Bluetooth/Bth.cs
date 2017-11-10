@@ -25,7 +25,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
 
         public void Connect(string name)
         {
-            Task.Run(async () => ConnectDevice(name));
+            Task.Run(async () => await ConnectDevice(name));
         }
         public void Disconnect()
         {

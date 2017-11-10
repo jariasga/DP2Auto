@@ -34,13 +34,12 @@ namespace DP2_Auto_App.Contents
                 password = label_Password.Text
             };
 
-            string saber = await rest.createUserData(user);
+            string saber = await rest.getLoginToken(user);
 
-            Debug.WriteLine(saber);
-
-            if (saber.Contains("token"))
+            if (saber.Equals("loginSuccess"))
             {
                 await DisplayAlert("Login", "Correcto", "Ok");
+                await rest.getClientInfo();
                 App.Current.MainPage = new Contents.MainMenu();
             }
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");

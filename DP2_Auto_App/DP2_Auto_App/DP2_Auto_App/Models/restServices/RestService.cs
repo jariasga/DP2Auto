@@ -15,38 +15,63 @@ namespace DP2_Auto_App.Models.RestServices
 {
     public class RestService : IRestService
     {
-        HttpClient client;
+        HttpClient webClient;
         Uri baseAddress, uri;
+        public static Client client { get; private set; }
 
         public RestService()
         {
             baseAddress = new Uri("http://dp2.iamallama.com/api/");
-            client = new HttpClient();
-            client.MaxResponseContentBufferSize = 256000;
-            client.BaseAddress = baseAddress;
+            webClient = new HttpClient();
+            webClient.MaxResponseContentBufferSize = 256000;
+            webClient.BaseAddress = baseAddress;
+
+            client = new Client();
         }
 
-        public async Task<string> createUserData(Users user)
+        public async Task<string> getLoginToken(Users user)
         {
             uri = new Uri(baseAddress, "login");
-
+            client = new Client();
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-
+            
             try
             {
-                var response = await client.PostAsync(uri, content);
+                var response = await webClient.PostAsync(uri, content);
 
                 var rString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine(@"                      Login successfull !!.");
-                    return rString;
+                    client = JsonConvert.DeserializeObject<Client>(rString);
+                    return "loginSuccess";
                 }
             }catch (Exception ex)
             {
                 return "connectionProblem";
+            }
+            return null;
+        }
+
+        public async Task<string> getClientInfo()
+        {   
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("clients/" + client.id);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    client = JsonConvert.DeserializeObject<Client>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
             return null;
         }

@@ -12,9 +12,11 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainMenu : MasterDetailPage
     {
+        private NavigationPage [] pages;
         public MainMenu()
         {
             InitializeComponent();
+            initizalizePages();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
@@ -28,21 +30,33 @@ namespace DP2_Auto_App.Contents
             page.Title = item.Title;
             // --
 
-            if (item.Title.Equals("Usuario")) Detail = new NavigationPage(page);
-            else if (item.Title.Equals("Objetivos y logros")) Detail = new NavigationPage(new Contents.GoalsPage());
-            else if (item.Title.Equals("Estacionamiento")) Detail = new NavigationPage(new Contents.Parking());
-            else if (item.Title.Equals("Navegación y Viajes")) Detail = new NavigationPage(new Contents.MapTabbedPage());
-            else if (item.Title.Equals("Estado del Auto")) Detail = new NavigationPage(page);
-            else if (item.Title.Equals("Recordatorios")) Detail = new NavigationPage(new Contents.ReminderPage());
-            else if (item.Title.Equals("Estado del Auto")) Detail = new NavigationPage(new Contents.SensorPage());
-            else if (item.Title.Equals("Seguridad")) Detail = new NavigationPage(new Contents.SecurityPage());
-            else if (item.Title.Equals("Bluetooth")) Detail = new NavigationPage(new Bluetooth());
+            if (item.Title.Equals("Usuario")) Detail = pages[0];
+            else if (item.Title.Equals("Objetivos y logros")) Detail = pages[1];
+            else if (item.Title.Equals("Estacionamiento")) Detail = pages[2];
+            else if (item.Title.Equals("Navegación y Viajes")) Detail = pages[3];
+            else if (item.Title.Equals("Recordatorios")) Detail = pages[5];
+            else if (item.Title.Equals("Estado del Auto")) Detail = pages[6];
+            else if (item.Title.Equals("Seguridad")) Detail = pages[7];
+            else if (item.Title.Equals("Bluetooth")) Detail = pages[8];
             else Detail = new NavigationPage(page);
 
             Detail.Title = item.Title;
 
             IsPresented = false;
             MasterPage.ListView.SelectedItem = null;
+        }
+
+        private void initizalizePages()
+        {
+            pages = new NavigationPage[9];
+            pages[0] = new NavigationPage(new Contents.UserPage());
+            pages[1] = new NavigationPage(new Contents.GoalsPage());
+            pages[2] = new NavigationPage(new Contents.Parking());
+            pages[3] = new NavigationPage(new Contents.MapTabbedPage());
+            pages[5] = new NavigationPage(new Contents.ReminderPage());
+            pages[6] = new NavigationPage(new Contents.SensorPage());
+            pages[7] = new NavigationPage(new Contents.SecurityPage());
+            pages[8] = new NavigationPage(new Bluetooth());
         }
     }
 }

@@ -8,6 +8,7 @@ namespace DP2_Auto_App.Models.RestServices
 {
     public interface IRestService
     {
-        Task<string> createUserData(Users user);
+        Task<string> getLoginToken(Users user);
+        Task<string> getClientInfo();
     }
 }
