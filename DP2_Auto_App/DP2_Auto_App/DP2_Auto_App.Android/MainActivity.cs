@@ -16,12 +16,12 @@ namespace DP2_Auto_App.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle); // Custom add for the map
-
+            
             LoadApplication(new App());
         }
     }

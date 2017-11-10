@@ -17,7 +17,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
         private CancellationTokenSource _ct { get; set; }
 
         public string MessageToSend { get; set; }
-
+        
         public Bth()
         {
             _ct = new CancellationTokenSource();
