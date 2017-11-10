@@ -206,14 +206,6 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMe
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Base.dll.stamp
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Maps.dll.stamp
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\dc663e480.txt
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\dc663e48.proguard.stamp
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\0757626b0.txt
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\0757626b.proguard.stamp
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\2f4d086a0.txt
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\2f4d086a.proguard.stamp
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\proguard\ea5c07c40.txt
-D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\XbdMerge\ea5c07c4.proguard.stamp
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\DP2_Auto_App.Android.csproj.CoreCompileInputs.cache
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\DP2_Auto_App.Android.dll
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\DP2_Auto_App.Android.pdb
@@ -241,3 +233,11 @@ D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\d
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\res\drawable\work.png
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\R.cs.flag
 D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\uploadflags.txt
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\bin\Debug\DP2_Auto_App.Android.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.Android.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\DP2_Auto_App.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+D:\GitHub\DP2Auto\DP2_Auto_App\DP2_Auto_App\DP2_Auto_App.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb

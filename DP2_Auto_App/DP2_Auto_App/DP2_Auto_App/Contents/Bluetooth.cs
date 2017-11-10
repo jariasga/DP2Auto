@@ -39,8 +39,6 @@ namespace DP2_Auto_App
             };
             connectButton.Clicked += ConnectButton_Clicked;
 
-
-
             var patternPicker = new Picker
             {
                 Items = { "Color Wipe", "Theater Chase", "Rainbow Cycle", "Rainbow Chase", "Stop" }
@@ -57,8 +55,6 @@ namespace DP2_Auto_App
                 Text = "Desconectar"
             };
             disconnectButton.Clicked += DisconnectButton_Clicked;
-
-
 
             return new StackLayout
             {

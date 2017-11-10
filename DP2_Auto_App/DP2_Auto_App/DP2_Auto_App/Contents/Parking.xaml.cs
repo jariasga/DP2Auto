@@ -15,12 +15,12 @@ namespace DP2_Auto_App.Contents
 		public Parking ()
 		{
 			InitializeComponent ();
-            
+            /*
             btn_angulo.Clicked += (sender, e) =>
             {
                 DisplayAlert("Mensaje", "Angulo", "OK");
             };
-
+            */
 
             // Leer estado del estacionamiento
             // Test
