@@ -16,5 +16,18 @@ namespace DP2_Auto_App.Contents
         {
             InitializeComponent();
         }
+
+        private void buttonClickedChangePsw(object sender, EventArgs e)
+        {
+            //App.Current.MainPage = new Contents.GoalsAchieved();
+        }
+        private void buttonClickedFingerprint(object sender, EventArgs e)
+        {
+            //App.Current.MainPage = new Contents.GoalsAchieved();
+        }
+        private void buttonClickedPattern(object sender, EventArgs e)
+        {
+            //App.Current.MainPage = new Contents.GoalsAchieved();
+        }
     }
 }

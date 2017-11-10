@@ -4,9 +4,13 @@
              x:Class="DP2_Auto_App.Contents.SecurityPage">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="Lock.jpg"  WidthRequest="80" HeightRequest="80"/>
-            
-            
+            <!--<Image Source="Lock.jpg"  WidthRequest="80" HeightRequest="80"/>-->
+            <Button Text="Contraseña" Image="passwordIcon.png" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedChangePsw"/>
+            <Button Text="Huella Digital" Image="sensorFingerprint.png" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedFingerprint"/>
+            <Button Text="Patron" Image="patternIcon.png" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedPattern"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
