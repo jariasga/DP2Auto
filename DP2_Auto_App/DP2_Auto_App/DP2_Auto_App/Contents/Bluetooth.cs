@@ -22,7 +22,6 @@ namespace DP2_Auto_App
         private StackLayout GetLayout()
         {
 
-
             var header = new Label
             {
                 FontSize = 16,
@@ -77,7 +76,7 @@ namespace DP2_Auto_App
         private void PatternPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var patternPicker = (Picker)sender;
-            //ViewModel.Message = patternPicker.SelectedIndex.ToString();
+            ViewModel.Message = patternPicker.SelectedIndex.ToString();
         }
         private void ConnectButton_Clicked(object sender, EventArgs e)
         {

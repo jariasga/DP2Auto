@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DP2_Auto_App
+namespace DP2_Auto_App.Models
 {
     public interface IBth
     {
-        void Send(string message);
+        void Send(String message);
         void Disconnect();
         void Connect(string name);
-        List<string> PairedDevices();
+        List<String> PairedDevices();
     }
 }
-
