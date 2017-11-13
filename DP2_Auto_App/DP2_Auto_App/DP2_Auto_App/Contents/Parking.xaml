@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.Parking"
              Title="Estacionamiento">
+
     <TableView Intent="Menu">
         <TableRoot>
             <TableSection Title="Datos Sensados">
@@ -10,26 +11,25 @@
                           TextColor="Blue" 
                           Detail="Sensor de Temperatura"
                           />
-                <TextCell Text="600 Lu" 
-                          TextColor="Blue" 
+                <TextCell Text="600 Lu"
+                          TextColor="Blue"
                           Detail="Sensor de Luz"
                           />
                 <TextCell Text="400" 
-                          TextColor="Blue" 
-                          Detail="Sensor de UV" 
+                          TextColor="Blue"
+                          Detail="Sensor de UV"
                           />
             </TableSection>
             <TableSection Title="Opciones">
                 <SwitchCell Text="Modo Automático" 
                             On="False" 
-                            />
+                                />
                 <EntryCell x:Name="angulo_Inclinacion" 
                            Label="Digite Ángulo de Inclinación" 
                            Placeholder="0° a 90°" 
                            Keyboard="Numeric" 
                            LabelColor="Blue"
                            />
-
             </TableSection>
         </TableRoot>
     </TableView>

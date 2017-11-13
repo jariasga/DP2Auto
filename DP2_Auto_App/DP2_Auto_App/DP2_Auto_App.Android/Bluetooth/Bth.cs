@@ -22,8 +22,6 @@ namespace DP2_Auto_App.Droid.BlueTooth
 
         public string MessageToSend { get; set; }
 
-
-
         public Bth()
         {
             _ct = new CancellationTokenSource();
@@ -33,6 +31,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
         {
             Task.Run(async () => ConnectDevice(name));
         }
+
         public void Disconnect()
         {
             if (_ct != null)
@@ -41,14 +40,19 @@ namespace DP2_Auto_App.Droid.BlueTooth
                 _ct.Cancel();
             }
         }
+
         public void Send(string message)
         {
             if (MessageToSend == null)
                 MessageToSend = message;
         }
+
         private async Task ConnectDevice(string name)
         {
             BluetoothDevice device = null;
+
+            Stream inStream = null;     // var entrada de data
+            Stream outStream = null;    // var salida de data
 
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
             BluetoothSocket bthSocket = null;
@@ -95,11 +99,24 @@ namespace DP2_Auto_App.Droid.BlueTooth
 
                             if (bthSocket.IsConnected)
                             {
-                                System.Diagnostics.Debug.WriteLine("Connected!"); //Enviar estado de conectado al dispositivo bluetooth
+                                System.Diagnostics.Debug.WriteLine("Connected!"); //Enviar estado de conectado
 
-                                while (_ct.IsCancellationRequested == false)
+                                try
                                 {
-                                    if (MessageToSend != null)
+                                    inStream = bthSocket.InputStream;
+                                    outStream = bthSocket.OutputStream;
+                                }
+                                catch (IOException ex)
+                                {
+                                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                                }
+
+                                byte[] buffer = new byte[1024];
+                                int bytess;
+
+                                while (_ct.IsCancellationRequested == false) {
+                                    //enviando data
+                                    if(MessageToSend != null)
                                     {
                                         var chars = MessageToSend.ToCharArray();
                                         var bytes = new List<byte>();
@@ -107,12 +124,21 @@ namespace DP2_Auto_App.Droid.BlueTooth
                                         {
                                             bytes.Add((byte)character);
                                         }
-
-                                        await bthSocket.OutputStream.WriteAsync(bytes.ToArray(), 0, bytes.Count);
-                                        System.Diagnostics.Debug.WriteLine(MessageToSend);
+                                        await outStream.WriteAsync(bytes.ToArray(), 0, bytes.Count);
                                         MessageToSend = null;
                                     }
+
+                                    //recibiendo data
+                                    bytess = inStream.Read(buffer, 0, buffer.Length);
+                                    if(bytess != 0)
+                                    {
+                                        string valor = System.Text.Encoding.ASCII.GetString(buffer);
+                                        System.Diagnostics.Debug.WriteLine(valor);
+                                        bytess = 0;
+                                    }
                                 }
+                                
+
                             }
                             
                            
@@ -125,7 +151,9 @@ namespace DP2_Auto_App.Droid.BlueTooth
                 finally
                 {
                     if (bthSocket != null)
+                    {
                         bthSocket.Close();
+                    }
                     device = null;
                     adapter = null;
                 }
@@ -146,60 +174,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
-
-
-
-/*
- //Busqueda de los mensajes de bluetooth
-                            try
-                            {
-                                inStream = bthSocket.InputStream;
-                            }
-                            catch (IOException ex)
-                            {
-                                System.Diagnostics.Debug.WriteLine(ex.Message);
-                            }
-                            await Task.Factory.StartNew(() =>
-                            {
-                                byte[] buffer = new byte[1024];
-                                int bytes;
-                                while (true)
-                                {
-                                    try
-                                    {
-                                        bytes = inStream.Read(buffer, 0, buffer.Length);
-                                        if (bytes > 0)
-                                        {
-                                            string valor = System.Text.Encoding.ASCII.GetString(buffer);
-                                            System.Diagnostics.Debug.WriteLine("Valor Encontrado" + valor); //Imprimir valores que envian del bluetooth
-
-
-                                            //Para andrioid interfaz xml
-
-                                            //aquí recibirías la información enviada por el serial Bluetooth
-                                            //RunOnUiThread(() => {
-                                            //    string valor = System.Text.Encoding.ASCII.GetString(buffer);
-                                            //    Result.Text = Result.Text + "\n" + valor;
-                                            //});
-                                        }
-                                    }
-                                    catch (Java.IO.IOException)
-                                    {
-                                        System.Diagnostics.Debug.WriteLine("Error");
-
-                                        //Para andrioid interfaz xml
-
-                                        //RunOnUiThread(() => {
-                                        //    Result.Text = string.Empty;
-                                        //});
-                                        //break;
-                                    }
-                                }
-                            });
-
-
-
-
-    */
