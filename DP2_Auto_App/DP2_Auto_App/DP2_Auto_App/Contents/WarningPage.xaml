@@ -9,9 +9,8 @@
                 <Image Source="sensorBelt.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="Cinturón" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Spacing="5">
+                <Label WidthRequest="100" Text="Cinturón" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100"/>
                 <Switch Toggled="SwitchBelt"/>
             </StackLayout>
 
@@ -19,9 +18,8 @@
                 <Image Source="sensorDoor.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="Puertas" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Spacing="5">
+                <Label WidthRequest="100" Text="Puertas" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100"/>
                 <Switch Toggled="SwitchDoor"/>
             </StackLayout>
 
@@ -29,9 +27,8 @@
                 <Image Source="sensorBattery.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="Bateria" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Spacing="5">
+                <Label WidthRequest="100" Text="Bateria" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100"/>
                 <Switch Toggled="SwitchBattery"/>
             </StackLayout>
 
@@ -39,21 +36,33 @@
                 <Image Source="sensorProximity.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="Proximidad" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Spacing="5">
+                <Label WidthRequest="100" Text="Proximidad" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100"/>
                 <Switch Toggled="SwitchProximity"/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" >
+            <StackLayout Orientation="Horizontal" Spacing="10">
                 <Image Source="sensorHeart.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="Ritmo Cardíaco" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Spacing="5">
+                <Label WidthRequest="100" Text="Ritmo Cardíaco" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100" Text="Max latidos: " VerticalTextAlignment="Center"/> 
+                <Entry WidthRequest="100" Text="" x:Name="beat_text"/>
                 <Switch Toggled="SwitchHeart"/>
-            </StackLayout>
+                <Button Text="Cambiar Máximo" Clicked="ChangeHeartbeat"/>
+            </StackLayout >
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Image Source="sensorWeight.png"
+                       WidthRequest="35"
+                       HeightRequest="35"/>
+                <Label WidthRequest="100" Text="Peso" VerticalTextAlignment="Center"/>
+                <Label WidthRequest="100" Text="Max peso: " VerticalTextAlignment="Center"/>
+                <Entry WidthRequest="100" Text="" x:Name="weight_text"/>
+                <Switch Toggled="SwitchWeight"/>
+                <Button Text="Cambiar Máximo" Clicked="ChangeWeight"/>
+            </StackLayout >
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
