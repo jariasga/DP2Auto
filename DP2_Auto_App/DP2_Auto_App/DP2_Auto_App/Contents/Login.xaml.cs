@@ -14,7 +14,7 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        RestService rest;
+        webService web;
         public Login()
         {
             InitializeComponent();
@@ -27,19 +27,19 @@ namespace DP2_Auto_App.Contents
 
         private async void authenticateAsync()
         {
-            rest = new RestService();
+            web = new webService();
             Users user = new Users
             {
                 email = label_Username.Text,
                 password = label_Password.Text
             };
 
-            string saber = await rest.getLoginToken(user);
+            string saber = await webService.rest.getLoginToken(user);
 
             if (saber.Equals("loginSuccess"))
             {
                 await DisplayAlert("Login", "Correcto", "Ok");
-                await rest.getClientInfo();
+                await webService.rest.getClientInfo();
                 App.Current.MainPage = new Contents.MainMenu();
             }
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");

@@ -45,7 +45,7 @@ namespace DP2_Auto_App.Contents
                     new MainMenuMenuItem { Id = 7, Title = "Cerrar Sesión" },
                 });
             }
-            
+            //DP2_Auto_App.Contents.Login;
             #region INotifyPropertyChanged Implementation
             public event PropertyChangedEventHandler PropertyChanged;
             void OnPropertyChanged([CallerMemberName] string propertyName = "")
