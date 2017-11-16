@@ -231,5 +231,10 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        public static void logout()
+        {
+            client = null;
+        }
     }
 }

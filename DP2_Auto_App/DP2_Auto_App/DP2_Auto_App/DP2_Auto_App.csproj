@@ -97,6 +97,7 @@
     <Compile Include="Models\RestServices\IRestService.cs" />
     <Compile Include="Models\RestServices\JSON_Classes.cs" />
     <Compile Include="Models\RestServices\RestService.cs" />
+    <Compile Include="Models\RestServices\webService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
