@@ -25,14 +25,15 @@ namespace DP2_Auto_App.Contents
 
             entry_Email.Text = RestService.client.email;
             entry_Phone.Text = RestService.client.phone;
-            entry_Rating.Text = RestService.client.rating.ToString();
-            entry_Created.Text = RestService.client.created_at;
-            entry_Updated.Text = RestService.client.updated_at;
+            label_Rating.Text = RestService.client.rating.ToString();
+            label_Created.Text = RestService.client.created_at;
+            label_Updated.Text = RestService.client.updated_at;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
+            DP2_Auto_App.Models.RestServices.webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
+            DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }
 }

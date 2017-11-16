@@ -236,5 +236,14 @@ namespace DP2_Auto_App.Models.RestServices
         {
             client = null;
         }
+
+        public async void updateClient(string name, string last, string phone, string email)
+        {
+            client.name = name;
+            client.lastname = last;
+            client.phone = phone;
+            client.email = email;
+            string result = await updateClientInfo();
+        }
     }
 }
