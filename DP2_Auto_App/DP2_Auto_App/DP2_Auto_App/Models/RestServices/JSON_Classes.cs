@@ -77,6 +77,7 @@ namespace DP2_Auto_App.Models.RestServices
 
     public class Readings
     {
+        const int BATTERY = 1;
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }

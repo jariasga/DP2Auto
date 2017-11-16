@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DP2_Auto_App.Models.RestServices;
 
 namespace DP2_Auto_App.Contents
 {
@@ -15,6 +16,11 @@ namespace DP2_Auto_App.Contents
         public SensorPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await webService.rest.getReadingInfo(1);
         }
     }
 }
