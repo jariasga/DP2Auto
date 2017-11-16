@@ -20,14 +20,19 @@ namespace DP2_Auto_App.Contents
         }
         private void initializeValues()
         {
-            label_Name.Text = RestService.client.name;
-            label_LastName.Text = RestService.client.lastname;
+            entry_Name.Text = RestService.client.name;
+            entry_LastName.Text = RestService.client.lastname;
 
-            label_Email.Text = RestService.client.email;
-            label_Phone.Text = RestService.client.phone;
-            label_Rating.Text = RestService.client.rating.ToString();
-            label_Created.Text = RestService.client.created_at;
-            label_Updated.Text = RestService.client.updated_at;
+            entry_Email.Text = RestService.client.email;
+            entry_Phone.Text = RestService.client.phone;
+            entry_Rating.Text = RestService.client.rating.ToString();
+            entry_Created.Text = RestService.client.created_at;
+            entry_Updated.Text = RestService.client.updated_at;
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

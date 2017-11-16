@@ -6,15 +6,31 @@
     <ContentPage.Content>
         <StackLayout Margin="10,0,0,0">
             <StackLayout Orientation="Horizontal">
-                <Label Font="Bold" FontSize="Large" x:Name="label_Name"/>
-                <Label Font="Bold" FontSize="Large" x:Name="label_LastName"/>
+                <Label Font="Bold" FontSize="Large" Text="Nombre: "/>
+                <Entry FontAttributes="Bold" FontSize="Large" x:Name="entry_Name" Placeholder="Nombre"/>
+                <Entry FontAttributes="Bold" FontSize="Large" x:Name="entry_LastName" Placeholder="Apellido"/>
             </StackLayout>
-            <Label FontSize="Medium" x:Name="label_Email"/>
-            <Label FontSize="Medium" x:Name="label_Phone"/>
-            <Label FontSize="Medium" x:Name="label_Rating"/>
-            <Label FontSize="Small" x:Name="label_Created"/>
-            <Label FontSize="Small" x:Name="label_Updated"/>
-            <Image Source="work.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Email: "/>
+                <Entry FontSize="Medium" x:Name="entry_Email"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Teléfono: "/>
+                <Entry FontSize="Medium" x:Name="entry_Phone"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Rating: "/>
+                <Entry FontSize="Medium" x:Name="entry_Rating"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Creado: "/>
+                <Entry FontSize="Small" x:Name="entry_Created"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Actualizado: "/>
+                <Entry FontSize="Small" x:Name="entry_Updated"/>
+            </StackLayout>
+            <Button Text="Actualizar" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
