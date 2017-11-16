@@ -77,7 +77,12 @@ namespace DP2_Auto_App.Models.RestServices
 
     public class Readings
     {
-        const int BATTERY = 1;
+        public static readonly int BATTERY = 1;
+        public static readonly int SPEED = 2;
+        public static readonly int WEIGHT = 3;
+        public static readonly int PULSE = 4;
+        public static readonly int PROXIMITY = 5;
+        public static readonly int TEMPERATURE = 6;
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }
