@@ -221,8 +221,7 @@ namespace DP2_Auto_App.Models.RestServices
                 {
                     Readings r = new Readings();
                     r = JsonConvert.DeserializeObject<Readings>(rString);
-                    // ToDo: Save readings
-                    return rString;
+                    return r.value.ToString();
                 }
             }
             catch (Exception ex)
