@@ -115,6 +115,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
                                 int bytess;
 
                                 while (_ct.IsCancellationRequested == false) {
+
                                     //enviando data
                                     if(MessageToSend != null)
                                     {
@@ -140,8 +141,6 @@ namespace DP2_Auto_App.Droid.BlueTooth
                                 
 
                             }
-                            
-                           
                         }
                     }
                 }
