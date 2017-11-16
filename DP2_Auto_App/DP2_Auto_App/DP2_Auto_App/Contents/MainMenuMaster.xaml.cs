@@ -42,6 +42,7 @@ namespace DP2_Auto_App.Contents
                     new MainMenuMenuItem { Id = 6, Title = "Seguridad" },
                     new MainMenuMenuItem { Id = 8, Title = "Alertas"},
                     new MainMenuMenuItem { Id = 7, Title = "Bluetooth" },
+                    new MainMenuMenuItem { Id = 7, Title = "Cerrar Sesión" },
                 });
             }
             

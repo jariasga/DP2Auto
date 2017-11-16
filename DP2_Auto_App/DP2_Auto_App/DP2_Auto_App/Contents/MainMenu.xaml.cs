@@ -39,6 +39,11 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Seguridad")) Detail = pages[7];
             else if (item.Title.Equals("Bluetooth")) Detail = pages[8];
             else if (item.Title.Equals("Alertas")) Detail = pages[9];
+            else if (item.Title.Equals("Cerrar Sesión"))
+            {
+                DP2_Auto_App.Models.RestServices.RestService.logout();
+                Detail = pages[10];
+            }
             else Detail = new NavigationPage(page);
 
             Detail.Title = item.Title;
@@ -49,7 +54,7 @@ namespace DP2_Auto_App.Contents
 
         private void initizalizePages()
         {
-            pages = new NavigationPage[10];
+            pages = new NavigationPage[11];
             pages[0] = new NavigationPage(new Contents.UserPage());
             pages[1] = new NavigationPage(new Contents.GoalsPage());
             pages[2] = new NavigationPage(new Contents.Parking());
@@ -59,6 +64,7 @@ namespace DP2_Auto_App.Contents
             pages[7] = new NavigationPage(new Contents.SecurityPage());
             pages[8] = new NavigationPage(new Bluetooth());
             pages[9] = new NavigationPage(new Contents.WarningPage());
+            pages[10] = new NavigationPage(new Contents.Login());
         }
     }
 }
