@@ -112,12 +112,15 @@ namespace DP2_Auto_App.Models
         public void ConSend(double [] sValues)
         {
             string initMessage = "7EAB";
-            string message = "";
+            string basicVehicleVerification = "";
+            string sensorData = "";
+            string finalMessage = "";
             int countSensor = 0;
 
-            for (int i = 0; i < MAX_SENSORS; i++) if (sValues[i] > 0) countSensor++;
-            
-
+            for (int i = 0; i < MAX_SENSORS; i++) if (sValues[i] > 0)       //Contamos la cantidad de datos a enviar
+            {
+                    countSensor++;
+            }
         }
 
         public async void saveDatatoWeb(double [] sensors)

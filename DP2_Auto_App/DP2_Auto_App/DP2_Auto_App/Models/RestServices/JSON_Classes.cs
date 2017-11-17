@@ -102,6 +102,19 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly string HUMIDITY_CODE = "F07";
         public static readonly string POSITION_CODE = "F08";
 
+        public string returnCode(int sensorID)
+        {
+            if (sensorID == WEIGHT) return WEIGHT_CODE;
+            else if (sensorID == PULSE) return PULSE_CODE;
+            else if (sensorID == PROXIMITY) return PROXIMITY_CODE;
+            else if (sensorID == TEMPERATURE) return TEMPERATURE_CODE;
+            else if (sensorID == SPEED) return SPEED_CODE;
+            else if (sensorID == BATTERY) return BATTERY_CODE;
+            else if (sensorID == HUMIDITY) return HUMIDITY_CODE;
+            else if (sensorID == POSITION) return POSITION_CODE;
+            else return "NO_SENSOR_ID";
+        }
+
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }
