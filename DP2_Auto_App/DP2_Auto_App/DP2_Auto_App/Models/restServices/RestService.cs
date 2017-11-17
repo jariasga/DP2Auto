@@ -58,7 +58,7 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 return "connectionProblem: " + ex.Message;
             }
-            return null;
+            return "Unauthorized";
         }
 
         public async Task<string> getClientInfo()

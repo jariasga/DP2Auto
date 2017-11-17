@@ -25,6 +25,13 @@ namespace DP2_Auto_App.Models.RestServices
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
+        public string profile_img_url { get; set; }
+        public string gender { get; set; }
+        public int height { get; set; }
+        public string heart_illness { get; set; }
+        public int heart_frecuency { get; set; }
+        public string tools { get; set; }
+        public int blocked { get; set; }
         public string token { get; set; }
     }
 
