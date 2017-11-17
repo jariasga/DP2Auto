@@ -20,7 +20,8 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
-        public static Readings readings { get; private set; }
+        public static List<Objective> objectives;
+        public static List<Reminder> reminders;
         private string temporalTokenSave;
         List<Travel> travels;
 
@@ -233,6 +234,35 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<String> listGoals()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "objectives");
+
+            
+
+            var json = JsonConvert.SerializeObject(objectives);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync("objectives?");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    objectives = new List<Objective>();
+                    objectives = JsonConvert.DeserializeObject<List<Objective>>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
         public async Task<string> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -268,9 +298,118 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        public async Task<string> getGoalInfo(int goalID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("objectives/" + goalID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Objective o = new Objective();
+                    o = JsonConvert.DeserializeObject<Objective>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
         public static void logout()
         {
             client = null;
+        }
+
+        public async Task<String> listReminders()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "reminders");
+
+
+
+            var json = JsonConvert.SerializeObject(reminders);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync("reminders");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    reminders = new List<Reminder>();
+                    reminders = JsonConvert.DeserializeObject<List<Reminder>>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<string> getReminderInfo(int reminderID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("reminders/" + reminderID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Reminder r = new Reminder();
+                    r = JsonConvert.DeserializeObject<Reminder>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<string> storeReminder(string desc, string date, string time)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "reminders");
+
+            Reminder reminder = new Reminder
+            {
+                description = desc,
+                end_date = date,
+                end_time = time
+            };
+
+            var json = JsonConvert.SerializeObject(reminder);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    reminder = JsonConvert.DeserializeObject<Reminder>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
         }
 
         public async void updateClient(string name, string last, string phone, string email)
