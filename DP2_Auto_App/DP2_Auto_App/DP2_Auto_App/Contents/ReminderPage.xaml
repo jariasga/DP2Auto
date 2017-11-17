@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10" Margin="10,0,0,0">
             <Label Font="Bold" FontSize="Large" XAlign="Start">Lunes 5/11/2017</Label>
-            <Label FontSize="Medium" XAlign="Start">-> Llevar a mantenimiento el vehiculo</Label>
+            <Label FontSize="Medium" XAlign="Start"> -> Llevar a mantenimiento el vehiculo </Label>
             <Label FontSize="Medium" XAlign="Start">-> Reportar ventas a administrador</Label>
 
             <Label FontSize="Large" XAlign="Start">Viernes 10/11/2017</Label>
