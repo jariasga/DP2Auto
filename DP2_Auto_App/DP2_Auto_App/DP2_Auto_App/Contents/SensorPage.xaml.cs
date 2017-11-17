@@ -80,13 +80,13 @@ namespace DP2_Auto_App.Contents
                 label_temperature.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " C";
                 label_weight.Text = await webService.rest.getReadingInfo(Readings.WEIGHT) + " Kg";
                 label_pulse.Text = await webService.rest.getReadingInfo(Readings.PULSE) + " p/m";
-                //label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
-                label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY);
-                //label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
-                label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY);
+                label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
+                //label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY);
+                label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
+                //label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY);
 
-                bateria = label_battery.Text;
-                proximidad = await webService.rest.getReadingInfo(Readings.PROXIMITY);
+                /*bateria = label_battery.Text;
+                proximidad = await webService.rest.getReadingInfo(Readings.PROXIMITY);*/
                 Debug.WriteLine("Datos del estado actualiado");
             }
                 await Task.Delay(2000);
