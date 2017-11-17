@@ -175,7 +175,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeReadings(int sId, float value)
+        public async Task<string> storeReadings(int sId, double value)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "readings");

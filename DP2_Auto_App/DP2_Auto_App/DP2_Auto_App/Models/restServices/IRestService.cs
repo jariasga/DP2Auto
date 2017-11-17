@@ -13,7 +13,7 @@ namespace DP2_Auto_App.Models.RestServices
         Task<string> updateClientInfo();
         Task<string> startTravel(string macAddress);
         Task<string> endTravel(startTravel start);
-        Task<string> storeReadings(int sId, float value);
+        Task<string> storeReadings(int sId, double value);
         Task<string> getReadingInfo(int readingID);
     }
 }
