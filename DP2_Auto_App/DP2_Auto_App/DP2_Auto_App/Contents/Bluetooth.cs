@@ -87,13 +87,13 @@ namespace DP2_Auto_App
                     }
                 }
             };
-            /*
+            
             var patternPicker = new Picker
             {
-                Items = { "Color Wipe", "Theater Chase", "Rainbow Cycle", "Rainbow Chase", "Stop" }
+                Items = { "0", "1", "2", "3", "4" }
             };
-            */
-            //patternPicker.SelectedIndexChanged += PatternPicker_SelectedIndexChanged;
+            
+            patternPicker.SelectedIndexChanged += PatternPicker_SelectedIndexChanged;
             var sendButton = new Button
             {
                 Text = "Enviar",
@@ -136,6 +136,7 @@ namespace DP2_Auto_App
                     connectButton,
                     header2,
                     tableView,
+                    patternPicker,
                     sendButton,
                     disconnectButton,
                     verificartrama,
