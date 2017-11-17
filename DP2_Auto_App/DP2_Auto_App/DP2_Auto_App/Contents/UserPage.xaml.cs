@@ -32,7 +32,7 @@ namespace DP2_Auto_App.Contents
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            DP2_Auto_App.Models.RestServices.webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
+            webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
             DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }
