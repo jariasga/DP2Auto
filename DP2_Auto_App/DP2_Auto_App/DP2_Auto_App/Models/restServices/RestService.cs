@@ -21,6 +21,7 @@ namespace DP2_Auto_App.Models.RestServices
         Uri baseAddress, uri;
         public static Client client { get; private set; }
         public static List<Objective> objectives;
+        public static List<Reminder> reminders;
         private string temporalTokenSave;
         List<Travel> travels;
 
@@ -323,6 +324,35 @@ namespace DP2_Auto_App.Models.RestServices
         public static void logout()
         {
             client = null;
+        }
+
+        public async Task<String> listReminders()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "reminders");
+
+
+
+            var json = JsonConvert.SerializeObject(reminders);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync("reminders");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    reminders = new List<Reminder>();
+                    reminders = JsonConvert.DeserializeObject<List<Reminder>>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
         }
 
         public async void updateClient(string name, string last, string phone, string email)

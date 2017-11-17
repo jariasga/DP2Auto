@@ -14,15 +14,15 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Objetivo: "/>
-                <Entry FontSize="Medium" x:Name="entry_Value"/>
+                <Entry FontSize="Large" x:Name="entry_Value"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Comienzo: "/>
-                <Entry FontSize="Small" x:Name="entry_Start"/>
+                <Entry FontSize="Large" x:Name="entry_Start"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Fin: "/>
-                <Entry FontSize="Small" x:Name="entry_End"/>
+                <Entry FontSize="Large" x:Name="entry_End"/>
             </StackLayout>
             <Button Text="Crear" Clicked="Button_ClickedCreate"></Button>
         </StackLayout>

@@ -107,4 +107,11 @@ namespace DP2_Auto_App.Models.RestServices
         public string created_at { get; set; }
         public string updated_at { get; set; }
     }
+
+    public class Reminder
+    {
+        public string description { get; set; }
+        public string end_date { get; set; }
+        public string end_time { get; set; }
+    }
 }
