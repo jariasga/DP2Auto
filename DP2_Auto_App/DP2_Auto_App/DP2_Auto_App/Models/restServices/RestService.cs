@@ -355,6 +355,63 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<string> getReminderInfo(int reminderID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("reminders/" + reminderID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Reminder r = new Reminder();
+                    r = JsonConvert.DeserializeObject<Reminder>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<string> storeReminder(string desc, string date, string time)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "reminders");
+
+            Reminder reminder = new Reminder
+            {
+                description = desc,
+                end_date = date,
+                end_time = time
+            };
+
+            var json = JsonConvert.SerializeObject(reminder);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    reminder = JsonConvert.DeserializeObject<Reminder>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
         public async void updateClient(string name, string last, string phone, string email)
         {
             client.name = name;

@@ -23,7 +23,7 @@ namespace DP2_Auto_App.Contents
             int sensor, value;
             sensor = Int32.Parse(entry_Sensor.Text);
             value = Int32.Parse(entry_Value.Text);
-            string start, end;
+            //string start, end;
             //start = entry_Start
             //end = entry_End.ToString();
             //DP2_Auto_App.Models.RestServices.webService.rest.storeGoals(sensor, value, start, end, entry_Desc.Text);
