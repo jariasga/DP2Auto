@@ -14,7 +14,7 @@ namespace DP2_Auto_App.Contents
     {
         public GoalsPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
             initializeValues();
         }
         private void initializeValues()
