@@ -37,6 +37,29 @@ namespace DP2_Auto_App.Models.RestServices
             currentTravel = new startTravel();
         }
 
+        public static int CountTravels()
+        {
+            return travels.Count();
+        }
+
+        public static Travel getNTravel(int id)
+        {
+            Travel aux = new Travel();
+            for(int i = 0; i < travels.Count(); i++)
+            {
+                aux = travels.ElementAt(i);
+                if(aux.started.id == id)
+                    return aux; 
+            }
+
+            return null;
+        }
+
+        public static Travel getTravelAt(int i)
+        {
+            return travels.ElementAt(i);
+        }
+
         public static Travel getLastTrip()
         {
             return travels.ElementAt(travels.Count-1);
@@ -127,15 +150,12 @@ namespace DP2_Auto_App.Models.RestServices
                 vehicle_mac = macAddress
             };
             //startTravel travel = new startTravel();
-            //aqui esta el problema (poner breakpoint
             currentTravel = new startTravel();
-
             var json = JsonConvert.SerializeObject(mac);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                //no hay response :C
                 var response = await webClient.PostAsync(uri, content);
 
                 var rString = await response.Content.ReadAsStringAsync();
