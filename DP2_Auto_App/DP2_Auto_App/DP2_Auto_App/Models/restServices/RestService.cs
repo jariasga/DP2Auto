@@ -23,7 +23,9 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Objective> objectives;
         public static List<Reminder> reminders;
         private string temporalTokenSave;
-        List<Travel> travels;
+        public static startTravel currentTravel { get; private set; }
+        public static endTravel end { get; private set; }
+        static List<Travel> travels;
 
 
         public RestService()
@@ -35,6 +37,35 @@ namespace DP2_Auto_App.Models.RestServices
 
             client = new Client();
             travels = new List<Travel>();
+            currentTravel = new startTravel();
+        }
+
+        public static int CountTravels()
+        {
+            return travels.Count();
+        }
+
+        public static Travel getNTravel(int id)
+        {
+            Travel aux = new Travel();
+            for(int i = 0; i < travels.Count(); i++)
+            {
+                aux = travels.ElementAt(i);
+                if(aux.started.id == id)
+                    return aux; 
+            }
+
+            return null;
+        }
+
+        public static Travel getTravelAt(int i)
+        {
+            return travels.ElementAt(i);
+        }
+
+        public static Travel getLastTrip()
+        {
+            return travels.ElementAt(travels.Count-1);
         }
 
         public async Task<string> getLoginToken(Users user)
@@ -121,8 +152,8 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 vehicle_mac = macAddress
             };
-            startTravel travel = new startTravel();
-
+            //startTravel travel = new startTravel();
+            currentTravel = new startTravel();
             var json = JsonConvert.SerializeObject(mac);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -134,7 +165,7 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    travel = JsonConvert.DeserializeObject<startTravel>(rString);
+                    currentTravel = JsonConvert.DeserializeObject<startTravel>(rString);
                     return rString;
                 }
             }
@@ -150,7 +181,8 @@ namespace DP2_Auto_App.Models.RestServices
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "travels/" + start.id);
 
-            endTravel end = new endTravel();
+            //endTravel
+            end = new endTravel();
             var content = new StringContent("", Encoding.UTF8, "application/json");
 
             try

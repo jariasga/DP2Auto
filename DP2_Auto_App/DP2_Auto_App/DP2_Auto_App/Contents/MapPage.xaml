@@ -12,6 +12,15 @@
                 MapType="Street"
                 />
             <Slider x:Name="map_slider" ValueChanged="map_slider_ValueChanged" IsVisible="True"/>
+            
+            <Label Text="Nuevo Destino: "/>
+             <Label Text="Latitud: "/>
+            <Entry Text="" x:Name="latitude" Keyboard="Numeric"/>
+            <Label Text="Longitud: "/>
+            <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
+            <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
+            <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
+            <Button Text="Finalizar Viaje" Clicked="EndTravel"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
