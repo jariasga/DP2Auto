@@ -19,14 +19,16 @@ namespace DP2_Auto_App.Droid.BlueTooth
     {
 
         private CancellationTokenSource _ct { get; set; }
-
+        
         public string MessageToSend { get; set; }
+        List<string> messages;
 
         public Bth()
         {
             _ct = new CancellationTokenSource();
+            messages = new List<string>();
         }
-
+        
         public void Connect(string name)
         {
             Task.Run(async () => await ConnectDevice(name));
@@ -38,6 +40,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
             {
                 System.Diagnostics.Debug.WriteLine("Send a cancel to task!");
                 _ct.Cancel();
+                messages.Add("Desconectando");
             }
         }
 
@@ -100,7 +103,7 @@ namespace DP2_Auto_App.Droid.BlueTooth
                             if (bthSocket.IsConnected)
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!"); //Enviar estado de conectado
-
+                                messages.Add("Conectado!");
                                 try
                                 {
                                     inStream = bthSocket.InputStream;
@@ -164,8 +167,9 @@ namespace DP2_Auto_App.Droid.BlueTooth
             List<string> devices = new List<string>();
 
             foreach (var bd in adapter.BondedDevices)
+            {
                 devices.Add(bd.Name);
-
+            }
             return devices;
         }
 
@@ -174,6 +178,10 @@ namespace DP2_Auto_App.Droid.BlueTooth
             throw new NotImplementedException();
         }
 
-
+        public List<string> MessagesData()
+        {
+            messages.Add("Esperando DATOS");
+            return messages;
+        }
     }
 }
