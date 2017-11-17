@@ -28,5 +28,10 @@ namespace DP2_Auto_App.Contents
             label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY);
             await DisplayAlert("Correcto", "Actualizado", "Ok");
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

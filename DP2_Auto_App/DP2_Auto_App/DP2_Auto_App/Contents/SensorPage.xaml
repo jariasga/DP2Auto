@@ -49,6 +49,7 @@
                 <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked"/>
+            <Button Text="crearData" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked_1"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
