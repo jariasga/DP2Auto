@@ -20,12 +20,12 @@ namespace DP2_Auto_App.Contents
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            label_speed.Text = await webService.rest.getReadingInfo(Readings.SPEED);
-            label_temperature.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE);
-            label_weight.Text = await webService.rest.getReadingInfo(Readings.WEIGHT);
-            label_pulse.Text = await webService.rest.getReadingInfo(Readings.PULSE);
-            label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY);
-            label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY);
+            label_speed.Text = await webService.rest.getReadingInfo(Readings.SPEED) + " km/h";
+            label_temperature.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " C";
+            label_weight.Text = await webService.rest.getReadingInfo(Readings.WEIGHT) + " Kg";
+            label_pulse.Text = await webService.rest.getReadingInfo(Readings.PULSE) + " p/m";
+            label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
+            label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
             await DisplayAlert("Correcto", "Actualizado", "Ok");
         }
 
