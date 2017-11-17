@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DP2_Auto_App.Models.RestServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,16 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+        webService web;
         public MapPage()
         {
             InitializeComponent();
             initializeMap();
+        }
+
+        async void mensaje()
+        {
+            await DisplayAlert("funciona","a", "ok");
         }
 
         private void map_slider_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -44,10 +51,37 @@ namespace DP2_Auto_App.Contents
 
 
             //map.MapType == MapType.Street;
-
-            var stack = new StackLayout { Spacing = 0 };
+            /*
+            var stack = new StackLayout { Spacing = 3  };
             stack.Children.Add(map);
-            Content = stack;
+            Content = stack;*/
         }
+
+        void Nuevo_destino(object sender, ToggledEventArgs e)
+        {
+            var pos = new Position(double.Parse(latitude.Text), double.Parse(longitude.Text));
+            string add = "" + latitude.Text + " " + longitude.Text;
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = pos,
+                Label = "destination pin",
+                Address = add,
+            };
+            map.Pins.Add(pin);
+        }
+
+        private async void StartTravel(object sender, EventArgs e)
+        {
+            web = new webService();
+            await webService.rest.startTravel("sadasda");
+        }
+        private async void EndTravel(object sender, EventArgs e)
+        {
+            web = new webService();
+            await webService.rest.startTravel("sadasda");
+        }
+
+
     }
 }
