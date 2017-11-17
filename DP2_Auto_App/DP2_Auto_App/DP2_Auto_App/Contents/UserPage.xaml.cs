@@ -20,9 +20,11 @@ namespace DP2_Auto_App.Contents
         }
         private void initializeValues()
         {
+            image_photo.Source = RestService.client.profile_img_url;
+
             entry_Name.Text = RestService.client.name;
             entry_LastName.Text = RestService.client.lastname;
-
+            
             entry_Email.Text = RestService.client.email;
             entry_Phone.Text = RestService.client.phone;
             label_Rating.Text = RestService.client.rating.ToString();
@@ -32,7 +34,7 @@ namespace DP2_Auto_App.Contents
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            DP2_Auto_App.Models.RestServices.webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
+            webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
             DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }

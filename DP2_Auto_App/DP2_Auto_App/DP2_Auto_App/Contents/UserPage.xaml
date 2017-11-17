@@ -5,29 +5,30 @@
              Title="Usuario">
     <ContentPage.Content>
         <StackLayout Margin="10,0,0,0">
+            <Image x:Name="image_photo" WidthRequest="130" HeightRequest="130"></Image>
             <StackLayout Orientation="Horizontal">
                 <Label Font="Bold" FontSize="Large" Text="Nombre: "/>
                 <Entry FontAttributes="Bold" FontSize="Large" x:Name="entry_Name" Placeholder="Nombre"/>
                 <Entry FontAttributes="Bold" FontSize="Large" x:Name="entry_LastName" Placeholder="Apellido"/>
-            </StackLayout>
+            </StackLayout>            
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Email: "/>
+                <Label FontSize="Medium" Text="Email: "/>
                 <Entry FontSize="Medium" x:Name="entry_Email"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Teléfono: "/>
+                <Label FontSize="Medium" Text="Teléfono: "/>
                 <Entry FontSize="Medium" x:Name="entry_Phone"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Rating: "/>
+                <Label FontSize="Medium" Text="Rating: "/>
                 <Label FontSize="Medium" x:Name="label_Rating"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Creado: "/>
+                <Label FontSize="Small" Text="Creado: "/>
                 <Label FontSize="Small" x:Name="label_Created"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Actualizado: "/>
+                <Label FontSize="Small" Text="Actualizado: "/>
                 <Label FontSize="Small" x:Name="label_Updated"/>
             </StackLayout>
             <Button Text="Actualizar" Clicked="Button_Clicked"></Button>

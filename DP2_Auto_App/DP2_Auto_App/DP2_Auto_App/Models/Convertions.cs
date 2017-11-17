@@ -11,9 +11,7 @@ namespace DP2_Auto_App.Models
 {
     public class Convertions : IConvertionsIT
     {
-        public void ConSend()
-        {
-        }
+        private const int MAX_SENSORS = 8;
         public void ConReceived(string value)
         {
             //start
@@ -63,7 +61,7 @@ namespace DP2_Auto_App.Models
             if (startcad == "7EAB" && chars.Length == 16 + 6 * lgcad && checksum == check)
             {
                 double[] sensors;
-                sensors = new double[8];
+                sensors = new double[MAX_SENSORS];
 
                 int npass = 0;
                 var lngsen = "";
@@ -111,16 +109,36 @@ namespace DP2_Auto_App.Models
             //finish
         }
 
+        public void ConSend(double [] sValues)
+        {
+            string initMessage = "7EAB";
+            string basicVehicleVerification = "";
+            string sensorData = "";
+            string finalMessage = "";
+            string checksum = "";
+            int countSensor = 0;
+
+            for (int i = 0; i < MAX_SENSORS; i++)
+                if (sValues[i] > 0)       //Contamos la cantidad de datos a enviar
+                    {
+                        sensorData += Readings.returnCode(i + 1) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
+                        countSensor++;
+                    }
+
+            finalMessage = initMessage + basicVehicleVerification + countSensor.ToString("D2") + sensorData + checksum;
+        }
+
+        private string convertToHex(double initialValue)
+        {
+            int number = Convert.ToInt32(initialValue);
+            int decimal_value = Convert.ToInt32(initialValue % 10);
+            return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
+        }
+
         public async void saveDatatoWeb(double [] sensors)
         {
-            for (int i = 0; i < 8; i++)
-            {
-                if(sensors[i] > 0.00)
-                {
-                    await webService.rest.storeReadings(i + 1, sensors[i]);
-                }
-            }
-                
+            for (int i = 0; i < MAX_SENSORS; i++)
+                if(sensors[i] > 0.00) await webService.rest.storeReadings(i + 1, sensors[i]);    
         }
     }
 }
