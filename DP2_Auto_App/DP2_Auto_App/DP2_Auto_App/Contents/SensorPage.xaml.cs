@@ -44,7 +44,7 @@ namespace DP2_Auto_App.Contents
                 label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
                 Debug.WriteLine("Datos del estado actualiado");
                 await Task.Delay(2000);
-            }            
+            }
         }
     }
 }
