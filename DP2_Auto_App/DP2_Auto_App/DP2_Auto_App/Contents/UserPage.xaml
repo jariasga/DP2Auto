@@ -20,15 +20,15 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Rating: "/>
-                <Entry FontSize="Medium" x:Name="entry_Rating"/>
+                <Label FontSize="Medium" x:Name="label_Rating"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Creado: "/>
-                <Entry FontSize="Small" x:Name="entry_Created"/>
+                <Label FontSize="Small" x:Name="label_Created"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Actualizado: "/>
-                <Entry FontSize="Small" x:Name="entry_Updated"/>
+                <Label FontSize="Small" x:Name="label_Updated"/>
             </StackLayout>
             <Button Text="Actualizar" Clicked="Button_Clicked"></Button>
         </StackLayout>

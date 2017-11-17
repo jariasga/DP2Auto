@@ -77,11 +77,34 @@ namespace DP2_Auto_App.Models.RestServices
 
     public class Readings
     {
+        public static readonly int WEIGHT = 1;
+        public static readonly int PULSE = 2;
+        public static readonly int PROXIMITY = 3;
+        public static readonly int TEMPERATURE = 4;
+        public static readonly int SPEED = 5;
+        public static readonly int BATTERY = 6;
+        public static readonly int HUMIDITY = 7;
+        public static readonly int POSITION = 8;
+
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }
         public string updated_at { get; set; }
         public string created_at { get; set; }
         public int id { get; set; }
+    }
+
+    public class Objective
+    {
+        public int id { get; set; }
+        public string starts_date { get; set; }
+        public string ends_date { get; set; }
+        public int goalNumber { get; set; }
+        public string description { get; set; }
+        public int sensor_id { get; set; }
+        public int client_id { get; set; }
+        public object deleted_at { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
     }
 }

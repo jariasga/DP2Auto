@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DP2_Auto_App.Models;
+using DP2_Auto_App.Models.RestServices;
 
 namespace DP2_Auto_App.Models
 {
-    public interface IBth
+    public interface IConvertionsIT
     {
-        void Send(String message);
-        void Disconnect();
-        void Connect(string name);
-        List<String> PairedDevices();
+        void ConReceived(string value);
     }
 }

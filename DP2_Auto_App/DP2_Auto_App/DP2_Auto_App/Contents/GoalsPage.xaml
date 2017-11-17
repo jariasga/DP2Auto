@@ -9,8 +9,8 @@
                 <Image Source="check.png"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
-                <Label WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
+                <Label x:Name="label_desc1" Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
+                <Label x:Name="label_goal1" WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
                 <Image Source="equis.png"
