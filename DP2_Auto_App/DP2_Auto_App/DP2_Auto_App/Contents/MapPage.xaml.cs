@@ -14,6 +14,8 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+        startTravel inicio;
+        endTravel fin;
         webService web;
         public MapPage()
         {
@@ -74,12 +76,22 @@ namespace DP2_Auto_App.Contents
         private async void StartTravel(object sender, EventArgs e)
         {
             web = new webService();
-            await webService.rest.startTravel("sadasda");
+            await webService.rest.startTravel("17:19:43:F0:20:B8");
+            inicio = RestService.currentTravel;
+            DateTime horaIni = DateTime.Parse(inicio.started_at.date);
+            //await DisplayAlert("Viaje", "el viaje comenzó : " + horaIni.ToString("HH::mm::ss"), "Ok");
         }
         private async void EndTravel(object sender, EventArgs e)
         {
             web = new webService();
-            await webService.rest.startTravel("sadasda");
+            inicio = RestService.currentTravel;
+            await webService.rest.endTravel(inicio);
+            //Travel auxTravel = RestService.getLastTrip();
+            //DateTime horaIni = auxTravel.started;
+            fin = RestService.end;
+            DateTime horaIni = DateTime.Parse( fin.ended_at.date);
+            DateTime horaFin = DateTime.Parse(fin.started_at);
+            await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH::mm::ss") + "/\n Fin: " + horaFin.ToString("HH::mm::ss"), "Ok");
         }
 
 

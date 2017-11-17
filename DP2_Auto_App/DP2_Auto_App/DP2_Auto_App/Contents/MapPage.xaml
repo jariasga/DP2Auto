@@ -23,7 +23,7 @@
             <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
             <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
             <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
-
+            <Button Text="Finalizar Viaje" Clicked="EndTravel"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
