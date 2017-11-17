@@ -20,7 +20,7 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
-        public static Readings readings { get; private set; }
+        public static List<Objective> objectives;
         private string temporalTokenSave;
         List<Travel> travels;
 
@@ -224,6 +224,35 @@ namespace DP2_Auto_App.Models.RestServices
                     Readings r = new Readings();
                     r = JsonConvert.DeserializeObject<Readings>(rString);
                     return r.value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
+        public async Task<String> listGoals()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "objectives");
+
+            
+
+            var json = JsonConvert.SerializeObject(objectives);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync("objectives?");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    objectives = new List<Objective>();
+                    objectives = JsonConvert.DeserializeObject<List<Objective>>(rString);
+                    return rString;
                 }
             }
             catch (Exception ex)

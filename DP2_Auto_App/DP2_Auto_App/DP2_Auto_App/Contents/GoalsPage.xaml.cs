@@ -1,8 +1,11 @@
-﻿using System;
+﻿using DP2_Auto_App.Models.RestServices;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,8 +22,9 @@ namespace DP2_Auto_App.Contents
         }
         private void initializeValues()
         {
-            /*label_desc1.Text
-            entry_Name.Text = RestService.client.name;
+
+            //label_desc1.Text = RestService.
+            /*entry_Name.Text = RestService.client.name;
             entry_LastName.Text = RestService.client.lastname;
 
             entry_Email.Text = RestService.client.email;
@@ -30,8 +34,9 @@ namespace DP2_Auto_App.Contents
             entry_Updated.Text = RestService.client.updated_at;*/
         }
 
-        private void buttonClickedAchievedGoals(object sender, EventArgs e)
+        private async void buttonClickedAchievedGoals(object sender, EventArgs e)
         {
+            await webService.rest.listGoals();
             App.Current.MainPage = new Contents.GoalsAchieved();
         }
 
