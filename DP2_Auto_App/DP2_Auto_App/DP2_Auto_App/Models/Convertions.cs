@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DP2_Auto_App.Models.RestServices;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Convertions))]
 namespace DP2_Auto_App.Models
 {
-    class Convertions : IConvertionsIT
+    public class Convertions : IConvertionsIT
     {
         public void ConSend()
         {
         }
-        public void ConReceived()
+        public void ConReceived(string value)
         {
             //start
             var startcad = "";
@@ -26,8 +27,6 @@ namespace DP2_Auto_App.Models
             int i = 0;
 
             var checksum = "";
-
-            String value = "7EAB04ACE9F01564F04584F05828F064837E0404";
             var chars = value.ToCharArray();
             System.Diagnostics.Debug.WriteLine("Clave original: " + value);
             for (int ctr = 0; ctr < chars.Length; ctr++)
@@ -64,7 +63,7 @@ namespace DP2_Auto_App.Models
             if (startcad == "7EAB" && chars.Length == 16 + 6 * lgcad && checksum == check)
             {
                 double[] sensors;
-                sensors = new double[6];
+                sensors = new double[8];
 
                 int npass = 0;
                 var lngsen = "";
@@ -101,7 +100,8 @@ namespace DP2_Auto_App.Models
                     }
                 }
                 System.Diagnostics.Debug.WriteLine(sensors[0] + "," + sensors[1] + "," + sensors[2] + "," + sensors[3] + "," + sensors[4] + "," + sensors[5]);
-            }
+                saveDatatoWeb(sensors);
+            }            
             /* Salida de variables
              *  
              * autostart = array con los valores de los sensores
@@ -109,6 +109,12 @@ namespace DP2_Auto_App.Models
             */
 
             //finish
+        }
+
+        public async void saveDatatoWeb(double [] sensors)
+        {
+            for (int i = 0; i < 8; i++)
+                await webService.rest.storeReadings(i+1, sensors[i]);
         }
     }
 }

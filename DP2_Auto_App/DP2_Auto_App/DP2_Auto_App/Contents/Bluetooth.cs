@@ -124,7 +124,7 @@ namespace DP2_Auto_App
         {
             try
             {
-                DependencyService.Get<IConvertionsIT>().ConReceived();
+                DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");
             }
             catch (Exception ex)
             {
