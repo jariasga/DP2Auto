@@ -15,7 +15,7 @@ namespace DP2_Auto_App.Contents
     {
         public UserPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
             initializeValues();
         }
         private void initializeValues()
