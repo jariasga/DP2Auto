@@ -9,10 +9,10 @@ namespace DP2_Auto_App
     {
         private BluetoothViewModel ViewModel => _viewModel ?? (_viewModel = new BluetoothViewModel());
         private BluetoothViewModel _viewModel;
+        private bool stillConnected;
         public Bluetooth()
         {
-
-
+            stillConnected = false;
         }
         protected override void OnAppearing()
         {
@@ -154,11 +154,12 @@ namespace DP2_Auto_App
         private void ConnectButton_Clicked(object sender, EventArgs e)
         {
             ViewModel.Connect();
-            
+            stillConnected = true;
         }
         private void DisconnectButton_Clicked(object sender, EventArgs e)
         {
             ViewModel.Disconnect();
+            stillConnected = false;
         }
         private void SendButton_Clicked(object sender, EventArgs e)
         {
@@ -181,7 +182,20 @@ namespace DP2_Auto_App
             }
         }
 
-        
+        private async void keepListening()
+        {
+            while (stillConnected)
+            {
+                try
+                {
+                    DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");
+                }
+                catch (Exception ex)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
+                }
+            }
+        }
 
     }
 }
