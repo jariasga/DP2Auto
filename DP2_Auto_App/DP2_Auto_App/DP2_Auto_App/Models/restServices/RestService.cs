@@ -20,8 +20,10 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
+        public static Readings readings { get; private set; }
         private string temporalTokenSave;
         List<Travel> travels;
+
 
         public RestService()
         {
@@ -231,6 +233,41 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<string> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "objectives");
+
+            Objective goal = new Objective
+            {
+                sensor_id = sensorId,
+                goalNumber = goalValue,
+                starts_date = dateIni,
+                ends_date = dateEnd,
+                description = desc
+            };
+
+            var json = JsonConvert.SerializeObject(goal);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    goal = JsonConvert.DeserializeObject<Objective>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
         public static void logout()
         {
             client = null;
