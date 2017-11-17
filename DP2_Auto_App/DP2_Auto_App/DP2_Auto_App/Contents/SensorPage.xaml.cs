@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models.RestServices;
 using System.Threading;
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
@@ -41,7 +42,7 @@ namespace DP2_Auto_App.Contents
                 label_pulse.Text = await webService.rest.getReadingInfo(Readings.PULSE) + " p/m";
                 label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
                 label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
-                
+                Debug.WriteLine("Datos del estado actualiado");
                 await Task.Delay(2000);
             }            
         }
