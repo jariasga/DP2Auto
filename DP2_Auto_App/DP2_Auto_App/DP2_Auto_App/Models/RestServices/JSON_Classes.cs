@@ -93,6 +93,15 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly int HUMIDITY = 7;
         public static readonly int POSITION = 8;
 
+        public static readonly string WEIGHT_CODE = "F01";
+        public static readonly string PULSE_CODE = "F02";
+        public static readonly string PROXIMITY_CODE = "F03";
+        public static readonly string TEMPERATURE_CODE = "F04";
+        public static readonly string SPEED_CODE = "F05";
+        public static readonly string BATTERY_CODE = "F06";
+        public static readonly string HUMIDITY_CODE = "F07";
+        public static readonly string POSITION_CODE = "F08";
+
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }

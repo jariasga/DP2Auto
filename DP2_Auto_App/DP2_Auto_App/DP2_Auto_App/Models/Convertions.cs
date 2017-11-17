@@ -11,9 +11,7 @@ namespace DP2_Auto_App.Models
 {
     public class Convertions : IConvertionsIT
     {
-        public void ConSend()
-        {
-        }
+        private const int MAX_SENSORS = 8;
         public void ConReceived(string value)
         {
             //start
@@ -63,7 +61,7 @@ namespace DP2_Auto_App.Models
             if (startcad == "7EAB" && chars.Length == 16 + 6 * lgcad && checksum == check)
             {
                 double[] sensors;
-                sensors = new double[8];
+                sensors = new double[MAX_SENSORS];
 
                 int npass = 0;
                 var lngsen = "";
@@ -111,9 +109,20 @@ namespace DP2_Auto_App.Models
             //finish
         }
 
+        public void ConSend(double [] sValues)
+        {
+            string initMessage = "7EAB";
+            string message = "";
+            int countSensor = 0;
+
+            for (int i = 0; i < MAX_SENSORS; i++) if (sValues[i] > 0) countSensor++;
+            
+
+        }
+
         public async void saveDatatoWeb(double [] sensors)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < MAX_SENSORS; i++)
                 if(sensors[i] > 0.00) await webService.rest.storeReadings(i + 1, sensors[i]);    
         }
     }

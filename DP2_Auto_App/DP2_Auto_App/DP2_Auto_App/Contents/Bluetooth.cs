@@ -155,6 +155,7 @@ namespace DP2_Auto_App
         {
             ViewModel.Connect();
             stillConnected = true;
+            keepListening();
         }
         private void DisconnectButton_Clicked(object sender, EventArgs e)
         {
