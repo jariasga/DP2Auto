@@ -189,7 +189,7 @@ namespace DP2_Auto_App
             {
                 try
                 {
-                    DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");
+                    DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");    //Hay que ponerle la variable que recibe
                 }
                 catch (Exception ex)
                 {

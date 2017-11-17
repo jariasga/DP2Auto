@@ -11,5 +11,6 @@ namespace DP2_Auto_App.Models
     public interface IConvertionsIT
     {
         void ConReceived(string value);
+        void ConSend(double [] values);
     }
 }
