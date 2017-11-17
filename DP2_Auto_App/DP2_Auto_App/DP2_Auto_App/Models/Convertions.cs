@@ -115,12 +115,24 @@ namespace DP2_Auto_App.Models
             string basicVehicleVerification = "";
             string sensorData = "";
             string finalMessage = "";
+            string checksum = "";
             int countSensor = 0;
 
-            for (int i = 0; i < MAX_SENSORS; i++) if (sValues[i] > 0)       //Contamos la cantidad de datos a enviar
-            {
-                    countSensor++;
-            }
+            for (int i = 0; i < MAX_SENSORS; i++)
+                if (sValues[i] > 0)       //Contamos la cantidad de datos a enviar
+                    {
+                        sensorData += Readings.returnCode(i + 1) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
+                        countSensor++;
+                    }
+
+            finalMessage = initMessage + basicVehicleVerification + countSensor.ToString("D2") + sensorData + checksum;
+        }
+
+        private string convertToHex(double initialValue)
+        {
+            int number = Convert.ToInt32(initialValue);
+            int decimal_value = Convert.ToInt32(initialValue % 10);
+            return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
         }
 
         public async void saveDatatoWeb(double [] sensors)

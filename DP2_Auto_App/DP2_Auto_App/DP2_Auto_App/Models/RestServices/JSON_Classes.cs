@@ -102,7 +102,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly string HUMIDITY_CODE = "F07";
         public static readonly string POSITION_CODE = "F08";
 
-        public string returnCode(int sensorID)
+        public static string returnCode(int sensorID)
         {
             if (sensorID == WEIGHT) return WEIGHT_CODE;
             else if (sensorID == PULSE) return PULSE_CODE;
