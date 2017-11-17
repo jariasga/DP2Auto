@@ -38,7 +38,7 @@
                 <Image Source="sensorProximity.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
-                <Label WidthRequest="80" Text="2 m" VerticalTextAlignment="Center" x:Name="label_proximity"/>
+                <Label WidthRequest="80" Text="2" VerticalTextAlignment="Center" x:Name="label_proximity"/>
                 <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">

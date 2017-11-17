@@ -15,7 +15,8 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SensorPage : ContentPage
     {
-        string prueba;
+        string bateria;
+        string proximidad;
         public SensorPage()
         {
             InitializeComponent();
@@ -24,9 +25,9 @@ namespace DP2_Auto_App.Contents
         private async void Button_Clicked(object sender, EventArgs e)
         {
             updateSensorValues();
-            //label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
-            double valueBattery;
-            prueba = label_battery.Text;
+            double valueBattery, valueProximity;
+            bateria = label_battery.Text;
+            proximidad = label_proximity.Text;
             try
             {
                 valueBattery = Convert.ToDouble(label_battery.Text);
@@ -35,7 +36,6 @@ namespace DP2_Auto_App.Contents
             {
                 DisplayAlert("Alerta", "Error", "Ok");
             }
-
             valueBattery = Convert.ToDouble(label_battery.Text);
             if (valueBattery <= 15)
             {
@@ -45,6 +45,25 @@ namespace DP2_Auto_App.Contents
             {
                 DisplayAlert("Alerta", "Bateria muy baja!", "Ok");
             }
+
+            /*try
+            {
+                valueProximity = Convert.ToDouble(label_proximity.Text);
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Alerta", "Error", "Ok");
+            }
+            valueProximity = Convert.ToDouble(label_proximity.Text);
+            if (valueProximity <= 1000)
+            {
+                DisplayAlert("Alerta", "Batería baja!", "Ok");
+            }
+            else if (valueProximity <= 10)
+            {
+                DisplayAlert("Alerta", "Bateria muy baja!", "Ok");
+            }*/
+
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -61,11 +80,13 @@ namespace DP2_Auto_App.Contents
                 label_temperature.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " C";
                 label_weight.Text = await webService.rest.getReadingInfo(Readings.WEIGHT) + " Kg";
                 label_pulse.Text = await webService.rest.getReadingInfo(Readings.PULSE) + " p/m";
-                label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
+                //label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY) + " m";
+                label_proximity.Text = await webService.rest.getReadingInfo(Readings.PROXIMITY);
                 //label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY) + " %";
                 label_battery.Text = await webService.rest.getReadingInfo(Readings.BATTERY);
 
-                prueba = label_battery.Text;
+                bateria = label_battery.Text;
+                proximidad = await webService.rest.getReadingInfo(Readings.PROXIMITY);
                 Debug.WriteLine("Datos del estado actualiado");
             }
                 await Task.Delay(2000);
