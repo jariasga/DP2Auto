@@ -297,6 +297,29 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        public async Task<string> getGoalInfo(int goalID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("objectives/" + goalID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Objective o = new Objective();
+                    o = JsonConvert.DeserializeObject<Objective>(rString);
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
         public static void logout()
         {
             client = null;
