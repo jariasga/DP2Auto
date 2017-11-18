@@ -37,13 +37,17 @@ namespace DP2_Auto_App.Contents
             int counter = 0;
             while (true)
             {
+
+                var tarea = new Task<Readings>(algo);
+                //speed = tarea;
+
                 speed = await webService.rest.getReadingInfo(Readings.SPEED);
                 temperature = await webService.rest.getReadingInfo(Readings.TEMPERATURE);
                 weight = await webService.rest.getReadingInfo(Readings.WEIGHT);
                 pulse = await webService.rest.getReadingInfo(Readings.PULSE);
                 proximity = await webService.rest.getReadingInfo(Readings.PROXIMITY);
                 battery = await webService.rest.getReadingInfo(Readings.BATTERY);
-
+                
                 if (speed != null)
                 {
                     Debug.WriteLine("Velocidad: " + speed.value);
@@ -86,12 +90,17 @@ namespace DP2_Auto_App.Contents
                 }
                 else Debug.WriteLine(" ---> Bateria NO actualizada");
 
+                
                 counter++;
                 //if (speed == null && temperature == null && weight == null && pulse == null && proximity == null && battery == null) GC.Collect();
                 Debug.WriteLine("-------------- Datos del estado actualiado --------------");
-                Debug.WriteLine("<<<<<<<<<<<<<< Bucle: " + counter + " finalizado");
+                Debug.WriteLine("<<<<<<<<<<<<<< Bucle: " + counter + " finalizado");               
                 await Task.Delay(2000);
             }
+        }
+        public Readings algo()
+        {
+
         }
     }
 }
