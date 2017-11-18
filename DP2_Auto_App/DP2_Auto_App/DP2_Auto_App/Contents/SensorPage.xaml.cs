@@ -15,8 +15,6 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SensorPage : ContentPage
     {
-        string bateria;
-        string proximidad;
         Readings speed, temperature, weight, pulse, proximity, battery;
         public SensorPage()
         {
@@ -50,53 +48,50 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Velocidad: " + speed.value);
                     label_speed.Text = speed.value + " km/h";
-                    GC.SuppressFinalize(speed);
-                } else Debug.WriteLine(" ---> Velocidad NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Velocidad NO actualizada");
 
                 if (temperature != null)
                 {
                     Debug.WriteLine("Temperatura: " + temperature.value);
                     label_temperature.Text = temperature.value + " C";
-                } else Debug.WriteLine(" ---> Temperatura NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Temperatura NO actualizada");
 
                 if (weight != null)
                 {
                     Debug.WriteLine("Peso: " + weight.value);
                     label_weight.Text = weight.value + " Kg";
-                } else Debug.WriteLine(" ---> Peso NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Peso NO actualizada");
 
                 if (pulse != null)
                 {
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
-                } else Debug.WriteLine(" ---> Pulso NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Pulso NO actualizada");
 
                 if (proximity != null)
                 {
                     Debug.WriteLine("Proximidad: " + proximity.value);
                     label_proximity.Text = proximity.value + " m";
-                } else Debug.WriteLine(" ---> Proximidad NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Proximidad NO actualizada");
 
                 if (battery != null)
                 {
                     Debug.WriteLine("Bateria: " + battery.value);
                     label_battery.Text = battery.value + " %";
-                } else Debug.WriteLine(" ---> Bateria NO actualizada");
+                }
+                else Debug.WriteLine(" ---> Bateria NO actualizada");
 
                 counter++;
+                //if (speed == null && temperature == null && weight == null && pulse == null && proximity == null && battery == null) GC.Collect();
                 Debug.WriteLine("-------------- Datos del estado actualiado --------------");
                 Debug.WriteLine("<<<<<<<<<<<<<< Bucle: " + counter + " finalizado");
                 await Task.Delay(2000);
             }
-        }
-    }
-
-    public class Dipose: IDisposable
-    {
-        private bool disposed = false;
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }
