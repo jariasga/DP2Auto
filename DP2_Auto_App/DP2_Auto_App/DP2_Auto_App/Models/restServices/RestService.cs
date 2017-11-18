@@ -23,6 +23,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Objective> objectives;
         public static List<Reminder> reminders;
         private string temporalTokenSave;
+        public static Objective currentObjective;
         public static startTravel currentTravel { get; private set; }
         public static endTravel end { get; private set; }
         static List<Travel> travels;
@@ -295,20 +296,21 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
+        public async Task<string> storeGoals(Objective goal)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "objectives");
 
-            Objective goal = new Objective
+            /*Objective goal = new Objective
             {
                 sensor_id = sensorId,
                 goalNumber = goalValue,
                 starts_date = dateIni,
                 ends_date = dateEnd,
                 description = desc
-            };
+            };*/
 
+            currentObjective = new Objective();
             var json = JsonConvert.SerializeObject(goal);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -320,7 +322,7 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    goal = JsonConvert.DeserializeObject<Objective>(rString);
+                    currentObjective = JsonConvert.DeserializeObject<Objective>(rString);
                     return rString;
                 }
             }
@@ -442,6 +444,19 @@ namespace DP2_Auto_App.Models.RestServices
                 return ex.Message;
             }
             return null;
+        }
+
+        public async void createGoal(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
+        {
+            Objective goal = new Objective
+            {
+                sensor_id = sensorId,
+                goalNumber = goalValue,
+                starts_date = dateIni,
+                ends_date = dateEnd,
+                description = desc
+            };
+            string result = await storeGoals(goal);
         }
 
         public async void updateClient(string name, string last, string phone, string email)
