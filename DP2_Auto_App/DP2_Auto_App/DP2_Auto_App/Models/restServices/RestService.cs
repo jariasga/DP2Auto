@@ -243,7 +243,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> getReadingInfo(int readingID)
+        public async Task<Readings> getReadingInfo(int readingID)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
 
@@ -256,12 +256,13 @@ namespace DP2_Auto_App.Models.RestServices
                 {
                     Readings r = new Readings();
                     r = JsonConvert.DeserializeObject<Readings>(rString);
-                    return r.value.ToString();
+                    return r;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null;
             }
             return null;
         }
