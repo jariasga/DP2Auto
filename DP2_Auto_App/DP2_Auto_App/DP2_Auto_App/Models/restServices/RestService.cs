@@ -23,7 +23,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Objective> objectives;
         public static List<Reminder> reminders;
         private string temporalTokenSave;
-        public static Objective currentObjective;
+        public static Objective currentObjective { get; private set; }
         public static startTravel currentTravel { get; private set; }
         public static endTravel end { get; private set; }
         static List<Travel> travels;
@@ -271,8 +271,6 @@ namespace DP2_Auto_App.Models.RestServices
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "objectives");
-
-            
 
             var json = JsonConvert.SerializeObject(objectives);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

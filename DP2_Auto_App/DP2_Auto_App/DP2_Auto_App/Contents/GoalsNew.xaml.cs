@@ -19,7 +19,7 @@ namespace DP2_Auto_App.Contents
 		}
 
 
-        private async void Button_ClickedCreate(object sender, EventArgs e)
+        private void Button_ClickedCreate(object sender, EventArgs e)
         {
             int sensor, value;
             sensor = Int32.Parse(entry_Sensor.Text);

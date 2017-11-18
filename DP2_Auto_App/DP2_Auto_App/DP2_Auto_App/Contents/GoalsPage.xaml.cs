@@ -15,6 +15,7 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GoalsPage : ContentPage
     {
+        Objective objetivo;
         public GoalsPage()
         {
             InitializeComponent();
@@ -34,15 +35,20 @@ namespace DP2_Auto_App.Contents
             entry_Updated.Text = RestService.client.updated_at;*/
         }
 
-        private async void buttonClickedAchievedGoals(object sender, EventArgs e)
-        {
-            await webService.rest.listGoals();
-            App.Current.MainPage = new Contents.GoalsAchieved();
-        }
-
         private void buttonClickedNewGoals(object sender, EventArgs e)
         {
             App.Current.MainPage = new Contents.GoalsNew();
+        }
+
+        private void Button_ClickedCreate(object sender, EventArgs e)
+        {
+            int sensor, value;
+            sensor = Int32.Parse(entry_Sensor.Text);
+            value = Int32.Parse(entry_Value.Text);
+            webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
+            objetivo = RestService.currentObjective;
+            //webService.rest.storeGoals(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
+            DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }
 }
