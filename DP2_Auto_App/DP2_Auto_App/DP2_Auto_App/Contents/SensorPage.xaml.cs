@@ -37,10 +37,6 @@ namespace DP2_Auto_App.Contents
             int counter = 0;
             while (true)
             {
-
-                var tarea = new Task<Readings>(algo);
-                //speed = tarea;
-
                 speed = await webService.rest.getReadingInfo(Readings.SPEED);
                 temperature = await webService.rest.getReadingInfo(Readings.TEMPERATURE);
                 weight = await webService.rest.getReadingInfo(Readings.WEIGHT);
@@ -52,6 +48,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Velocidad: " + speed.value);
                     label_speed.Text = speed.value + " km/h";
+                    
                 }
                 else Debug.WriteLine(" ---> Velocidad NO actualizada");
 
@@ -67,14 +64,14 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Peso: " + weight.value);
                     label_weight.Text = weight.value + " Kg";
                 }
-                else Debug.WriteLine(" ---> Peso NO actualizada");
+                else Debug.WriteLine(" ---> Peso NO actualizado");
 
                 if (pulse != null)
                 {
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
                 }
-                else Debug.WriteLine(" ---> Pulso NO actualizada");
+                else Debug.WriteLine(" ---> Pulso NO actualizado");
 
                 if (proximity != null)
                 {
@@ -95,12 +92,8 @@ namespace DP2_Auto_App.Contents
                 //if (speed == null && temperature == null && weight == null && pulse == null && proximity == null && battery == null) GC.Collect();
                 Debug.WriteLine("-------------- Datos del estado actualiado --------------");
                 Debug.WriteLine("<<<<<<<<<<<<<< Bucle: " + counter + " finalizado");               
-                await Task.Delay(2000);
+                await Task.Delay(1000);
             }
-        }
-        public Readings algo()
-        {
-
         }
     }
 }
