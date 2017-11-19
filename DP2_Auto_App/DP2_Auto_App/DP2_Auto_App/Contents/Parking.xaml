@@ -37,7 +37,7 @@
                     <Label x:Name="label_Angulo" Text="45" FontSize="Medium"></Label>
                     <Button x:Name="btn_Sumar" Text="+"/>
                 </StackLayout>
-
+                <Button x:Name="btn_angulo" Text="Mover Persiana" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -26,6 +26,7 @@ namespace DP2_Auto_App.Contents
             btn_Restar.Clicked += Btn_Restar_Clicked;
             btn_Sumar.Clicked += Btn_Sumar_Clicked;
             sw.Toggled += Sw_Toggled;
+            btn_angulo.Clicked += Btn_angulo_Clicked;
         }
 
         private void Btn_Actualizar_Clicked(object sender, EventArgs e)
@@ -64,6 +65,11 @@ namespace DP2_Auto_App.Contents
             {
                 DisplayAlert("Atencion", "Para poder manipular el angulo debe desactivar el modo automático", "OK");
             }
+        }
+        
+        private void Btn_angulo_Clicked(object sender, EventArgs e)
+        {
+            //
         }
 
         private async void UpdateSensors()
