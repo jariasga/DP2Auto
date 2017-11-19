@@ -124,4 +124,10 @@ namespace DP2_Auto_App.Models.RestServices
         public string end_date { get; set; }
         public string end_time { get; set; }
     }
+
+    public class Parking
+    {
+        public string modo { get; set; }
+        public string angulo { get; set; }
+    }
 }

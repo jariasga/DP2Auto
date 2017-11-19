@@ -70,8 +70,8 @@
     <Compile Include="Contents\MapTabbedPage.xaml.cs">
       <DependentUpon>MapTabbedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contents\Parking.xaml.cs">
-      <DependentUpon>Parking.xaml</DependentUpon>
+    <Compile Include="Contents\ParkingPage.xaml.cs">
+      <DependentUpon>ParkingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contents\ReminderPage.xaml.cs">
       <DependentUpon>ReminderPage.xaml</DependentUpon>
@@ -223,7 +223,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Contents\Parking.xaml">
+    <EmbeddedResource Include="Contents\ParkingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

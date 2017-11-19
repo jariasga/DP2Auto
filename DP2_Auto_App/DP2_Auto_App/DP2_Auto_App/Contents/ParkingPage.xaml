@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DP2_Auto_App.Contents.Parking"
-             Title="Estacionamiento">
+             x:Class="DP2_Auto_App.Contents.ParkingPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" Orientation="Vertical">
@@ -16,25 +15,25 @@
 
                 <Label FontSize="Large" Text="Sensor de Iluminación:" TextColor="Black"></Label>
                 <Label x:Name="label_Iluminacion" FontSize="Medium" XAlign="End" Text="600 Lux" TextColor="Brown"></Label>
-                
+
                 <!--
                 <Label FontSize="Large" Text="Sensor UV:" TextColor="Black"></Label>
                 <Label x:Name="label_Uv" FontSize="Medium" XAlign="End" Text="400 Uv" TextColor="Brown"></Label>
                 -->
                 <Button x:Name="btn_actualizar" Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
-                
+
                 <Label Text="Manejo de la Persiana" TextColor="Brown" FontSize="Medium"/>
 
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Large" Text="Activar/Desactivar Modo Automático" TextColor="Black"/>
                     <Switch x:Name="sw" />
                 </StackLayout>
-                
+
                 <Label FontSize="Large" Text="Ajustar Ángulo de Inclinación de la Persiana:" TextColor="Black" />
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                     <Button x:Name="btn_Restar" Text="-" />
-                    <Label x:Name="label_Angulo" Text="45" FontSize="Medium"></Label>
+                    <Label x:Name="label_Angulo" Text="45°" FontSize="Medium"></Label>
                     <Button x:Name="btn_Sumar" Text="+"/>
                 </StackLayout>
                 <Button x:Name="btn_angulo" Text="Mover Persiana" HorizontalOptions="Center" Margin="0, 0, 0, 15" />

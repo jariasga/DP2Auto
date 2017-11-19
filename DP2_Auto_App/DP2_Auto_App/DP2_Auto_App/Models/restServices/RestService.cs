@@ -145,28 +145,28 @@ namespace DP2_Auto_App.Models.RestServices
 
         public async Task<string> startTravel(string macAddress)
         {
-            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            uri = new Uri(baseAddress, "travels");
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy
+            uri = new Uri(baseAddress, "travels");  //Cambia travels a lo q quieres
 
-            clientMAC mac = new clientMAC
+            clientMAC mac = new clientMAC   // Aca creas tu objeto (clase)
             {
                 vehicle_mac = macAddress
             };
             //startTravel travel = new startTravel();
             currentTravel = new startTravel();
-            var json = JsonConvert.SerializeObject(mac);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(mac);    // Copy, Serializas (cambiar objeto)
+            var content = new StringContent(json, Encoding.UTF8, "application/json");   // Cpoy, Lo pones en el contenido
 
             try
             {
-                var response = await webClient.PostAsync(uri, content);
+                var response = await webClient.PostAsync(uri, content); // Copy
 
-                var rString = await response.Content.ReadAsStringAsync();
+                var rString = await response.Content.ReadAsStringAsync(); // Copy
 
                 if (response.IsSuccessStatusCode)
                 {
-                    currentTravel = JsonConvert.DeserializeObject<startTravel>(rString);
-                    return rString;
+                    currentTravel = JsonConvert.DeserializeObject<startTravel>(rString); //Cambias el objeto a devolver
+                    return rString; //Puedes tmb retornar una clase
                 }
             }
             catch (Exception ex)
