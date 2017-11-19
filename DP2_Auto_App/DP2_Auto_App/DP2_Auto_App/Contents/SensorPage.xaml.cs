@@ -24,6 +24,7 @@ namespace DP2_Auto_App.Contents
         private void Button_Clicked(object sender, EventArgs e)
         {
             updateSensorValues();
+            button_Actualizar.IsEnabled = false;
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -71,6 +72,7 @@ namespace DP2_Auto_App.Contents
 
                 if (pulse != null)
                 {
+
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
