@@ -12,11 +12,15 @@
                 <Label x:Name="label_Temperatura" FontSize="Medium" XAlign="End" Text="25 °C" TextColor="Brown"></Label>
 
                 <Label FontSize="Large" Text="Sensor de Humedad:" TextColor="Black"></Label>
-                <Label x:Name="label_Humedad" FontSize="Medium" XAlign="End" Text="30 .." TextColor="Brown"></Label>
+                <Label x:Name="label_Humedad" FontSize="Medium" XAlign="End" Text="30 %" TextColor="Brown"></Label>
 
                 <Label FontSize="Large" Text="Sensor de Iluminación:" TextColor="Black"></Label>
                 <Label x:Name="label_Iluminacion" FontSize="Medium" XAlign="End" Text="600 Lux" TextColor="Brown"></Label>
                 
+                <!--
+                <Label FontSize="Large" Text="Sensor UV:" TextColor="Black"></Label>
+                <Label x:Name="label_Uv" FontSize="Medium" XAlign="End" Text="400 Uv" TextColor="Brown"></Label>
+                -->
                 <Button x:Name="btn_actualizar" Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
                 
                 <Label Text="Manejo de la Persiana" TextColor="Brown" FontSize="Medium"/>

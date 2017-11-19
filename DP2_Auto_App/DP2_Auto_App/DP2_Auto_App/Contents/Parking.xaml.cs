@@ -73,6 +73,7 @@ namespace DP2_Auto_App.Contents
                 label_Temperatura.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " °C" ;
                 label_Humedad.Text = await webService.rest.getReadingInfo(Readings.HUMIDITY) + " % ";
                 label_Iluminacion.Text = await webService.rest.getReadingInfo(Readings.ILUMINITY) + " Lux";
+                //label_Uv.Text = await webService.rest.getReadingInfo(Readings.UV) + " Uv";
                 Debug.WriteLine("Datos Actualizados");
                 await Task.Delay(20000);
             }
