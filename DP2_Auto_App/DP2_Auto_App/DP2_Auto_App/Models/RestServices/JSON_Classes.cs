@@ -104,15 +104,16 @@ namespace DP2_Auto_App.Models.RestServices
     public class Objective
     {
         public int id { get; set; }
-        public string starts_date { get; set; }
-        public string ends_date { get; set; }
-        public int goalNumber { get; set; }
-        public string description { get; set; }
+        public int goal { get; set; }
+        public int value { get; set; }
         public int sensor_id { get; set; }
         public int client_id { get; set; }
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
+        public string description { get; set; }
+        public string start_date { get; set; }
+        public string end_date { get; set; }
     }
 
     public class Reminder

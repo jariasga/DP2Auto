@@ -24,7 +24,7 @@ namespace DP2_Auto_App.Contents
             int sensor, value;
             sensor = Int32.Parse(entry_Sensor.Text);
             value = Int32.Parse(entry_Value.Text);
-            webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
+            //webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
             //webService.rest.storeGoals(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
             DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
