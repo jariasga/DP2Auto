@@ -35,6 +35,7 @@ namespace DP2_Auto_App.Contents
         private async void updateSensorValues()
         {
             int counter = 0;
+            string updatedAt = "";
             while (true)
             {
                 speed = await webService.rest.getReadingInfo(Readings.SPEED);
@@ -48,7 +49,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Velocidad: " + speed.value);
                     label_speed.Text = speed.value + " km/h";
-                    
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Velocidad NO actualizada");
 
@@ -56,6 +57,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Temperatura: " + temperature.value);
                     label_temperature.Text = temperature.value + " C";
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Temperatura NO actualizada");
 
@@ -63,6 +65,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Peso: " + weight.value);
                     label_weight.Text = weight.value + " Kg";
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Peso NO actualizado");
 
@@ -70,6 +73,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Pulso NO actualizado");
 
@@ -77,6 +81,7 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Proximidad: " + proximity.value);
                     label_proximity.Text = proximity.value + " m";
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Proximidad NO actualizada");
 
@@ -84,12 +89,14 @@ namespace DP2_Auto_App.Contents
                 {
                     Debug.WriteLine("Bateria: " + battery.value);
                     label_battery.Text = battery.value + " %";
+                    updatedAt = DateTime.Now.ToString("h:mm:ss tt");
                 }
                 else Debug.WriteLine(" ---> Bateria NO actualizada");
 
                 
                 counter++;
-                //if (speed == null && temperature == null && weight == null && pulse == null && proximity == null && battery == null) GC.Collect();
+
+                label_actualizado.Text = "Actualizado: " + updatedAt;
                 Debug.WriteLine("-------------- Datos del estado actualiado --------------");
                 Debug.WriteLine("<<<<<<<<<<<<<< Bucle: " + counter + " finalizado");               
                 await Task.Delay(1000);
