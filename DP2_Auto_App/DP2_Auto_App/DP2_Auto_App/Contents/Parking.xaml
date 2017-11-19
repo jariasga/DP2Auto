@@ -9,18 +9,19 @@
                 <Label Text="Datos de Sensores" TextColor="Brown" FontSize="Medium"/>
 
                 <Label FontSize="Large" Text="Sensor de Temperatura:" TextColor="Black"></Label>
-                <Label FontSize="Medium" XAlign="End" Text="25 °C" TextColor="Brown"></Label>
+                <Label x:Name="label_Temperatura" FontSize="Medium" XAlign="End" Text="25 °C" TextColor="Brown"></Label>
 
                 <Label FontSize="Large" Text="Sensor de Humedad:" TextColor="Black"></Label>
-                <Label FontSize="Medium" XAlign="End" Text="30 .." TextColor="Brown"></Label>
+                <Label x:Name="label_Humedad" FontSize="Medium" XAlign="End" Text="30 .." TextColor="Brown"></Label>
 
                 <Label FontSize="Large" Text="Sensor de Iluminación:" TextColor="Black"></Label>
-                <Label FontSize="Medium" XAlign="End" Text="600 Lux" TextColor="Brown"></Label>
-
-                <Label Text="Manejo de la Persiona" TextColor="Brown" FontSize="Medium"/>
+                <Label x:Name="label_Iluminacion" FontSize="Medium" XAlign="End" Text="600 Lux" TextColor="Brown"></Label>
+                
+                <Button x:Name="btn_actualizar" Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
+                
+                <Label Text="Manejo de la Persiana" TextColor="Brown" FontSize="Medium"/>
 
                 <StackLayout Orientation="Horizontal">
-                    
                     <Label FontSize="Large" Text="Activar/Desactivar Modo Automático" TextColor="Black"/>
                     <Switch x:Name="sw" />
                 </StackLayout>
@@ -32,8 +33,6 @@
                     <Label x:Name="label_Angulo" Text="45" FontSize="Medium"></Label>
                     <Button x:Name="btn_Sumar" Text="+"/>
                 </StackLayout>
-
-                <Label x:Name="texto" Text="123" />
 
             </StackLayout>
         </ScrollView>

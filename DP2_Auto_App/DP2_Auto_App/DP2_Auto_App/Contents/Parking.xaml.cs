@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DP2_Auto_App.Models.RestServices;
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
@@ -14,20 +16,24 @@ namespace DP2_Auto_App.Contents
     {
         public Parking()
         {
-            var flag = true;
             InitializeComponent();
             ChangeData();
         }
         
         private void ChangeData()
         {
-            
-            btn_Restar.Clicked += Btn_Restar_Cliked;
-            btn_Sumar.Clicked += Btn_Sumar_Cliked;
+            btn_actualizar.Clicked += Btn_Actualizar_Clicked;
+            btn_Restar.Clicked += Btn_Restar_Clicked;
+            btn_Sumar.Clicked += Btn_Sumar_Clicked;
             sw.Toggled += Sw_Toggled;
         }
 
-        private void Btn_Sumar_Cliked(object sender, EventArgs e)
+        private void Btn_Actualizar_Clicked(object sender, EventArgs e)
+        {
+            UpdateSensors();
+        }
+
+        private void Btn_Sumar_Clicked(object sender, EventArgs e)
         {
             if (label_Angulo.Text != "90")
             {
@@ -39,7 +45,7 @@ namespace DP2_Auto_App.Contents
             }
         }
 
-        private void Btn_Restar_Cliked(object sender, EventArgs e)
+        private void Btn_Restar_Clicked(object sender, EventArgs e)
         {
             if (label_Angulo.Text != "0")
             {
@@ -57,6 +63,18 @@ namespace DP2_Auto_App.Contents
             if (value == "True")
             {
                 DisplayAlert("Atencion", "Para poder manipular el angulo debe desactivar el modo automático", "OK");
+            }
+        }
+
+        private async void UpdateSensors()
+        {
+            while (true)
+            {
+                label_Temperatura.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " °C" ;
+                label_Humedad.Text = await webService.rest.getReadingInfo(Readings.HUMIDITY) + " % ";
+                label_Iluminacion.Text = await webService.rest.getReadingInfo(Readings.ILUMINITY) + " Lux";
+                Debug.WriteLine("Datos Actualizados");
+                await Task.Delay(20000);
             }
         }
     }

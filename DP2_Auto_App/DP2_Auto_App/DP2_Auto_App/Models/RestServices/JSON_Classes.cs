@@ -92,6 +92,9 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly int BATTERY = 6;
         public static readonly int HUMIDITY = 7;
         public static readonly int POSITION = 8;
+        public static readonly int ILUMINITY = 9;
+        public static readonly int UV = 10;
+        public static readonly int ANGLE = 10;
 
         public double value { get; set; }
         public int travel_id { get; set; }
