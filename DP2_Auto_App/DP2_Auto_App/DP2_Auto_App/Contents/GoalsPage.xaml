@@ -4,33 +4,34 @@
              x:Class="DP2_Auto_App.Contents.GoalsPage"
              Title="Objetivos y Logros">
     <ContentPage.Content>
-        <StackLayout Margin="10,0,0,0">
-            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                <Image Source="check.png"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label x:Name="label_desc1" Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
-                <Label x:Name="label_goal1" WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
+        <ScrollView>
+            <StackLayout Margin="10,0,0,0">
+                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                    <Image Source="check.png"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label x:Name="label_desc1" Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
+                    <Label x:Name="label_goal1" WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                    <Image Source="equis.png"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label Margin="10,0,0,0" WidthRequest="80" Text="Ventas alcanzadas" VerticalTextAlignment="Center"/>
+                    <Label WidthRequest="50" Text=" 3/5" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                    <Image Source="equis.png"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label Margin="10,0,0,0" WidthRequest="80" Text="Velocidad máxima" VerticalTextAlignment="Center"/>
+                    <Label WidthRequest="50" Text="30km/h" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Button Text="Objetivos completados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                        Clicked="buttonClickedAchievedGoals"/>
+                <Button Text="Nuevo objetivo" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                        Clicked="buttonClickedNewGoals"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                <Image Source="equis.png"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label Margin="10,0,0,0" WidthRequest="80" Text="Ventas alcanzadas" VerticalTextAlignment="Center"/>
-                <Label WidthRequest="50" Text=" 3/5" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                <Image Source="equis.png"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label Margin="10,0,0,0" WidthRequest="80" Text="Velocidad máxima" VerticalTextAlignment="Center"/>
-                <Label WidthRequest="50" Text="30km/h" VerticalTextAlignment="Center"/>
-            </StackLayout>
-            <Button Text="Objetivos completados" HorizontalOptions="Center" Margin="0, 0, 0, 15"
-                    Clicked="buttonClickedAchievedGoals"/>
-            <Button Text="Nuevo objetivo" HorizontalOptions="Center" Margin="0, 0, 0, 15"
-                    Clicked="buttonClickedNewGoals"/>
-        </StackLayout>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

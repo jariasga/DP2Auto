@@ -4,52 +4,54 @@
              x:Class="DP2_Auto_App.Contents.SensorPage"
              Title="Estado del auto">
     <ContentPage.Content>
-        <StackLayout Margin="20, 10, 0, 0">
-            <Label Text="Sensores" />
-            <StackLayout Orientation="Horizontal" >
-                <Image Source="sensorSpeed.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="45 km/h" VerticalTextAlignment="Center" x:Name="label_speed"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+        <ScrollView>
+            <StackLayout Margin="20, 10, 0, 0">
+                <Label Text="Sensores" />
+                <StackLayout Orientation="Horizontal" >
+                    <Image Source="sensorSpeed.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="45 km/h" VerticalTextAlignment="Center" x:Name="label_speed"/>
+                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sensorTemperature.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="19 C" VerticalTextAlignment="Center" x:Name="label_temperature"/>
+                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sensorWeight.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="21 kg" VerticalTextAlignment="Center" x:Name="label_weight"/>
+                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sensorHeart.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="103 p/m" VerticalTextAlignment="Center" x:Name="label_pulse"/>
+                    <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sensorProximity.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="2" VerticalTextAlignment="Center" x:Name="label_proximity"/>
+                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="sensorBattery.jpg"
+                           WidthRequest="35"
+                           HeightRequest="35"/>
+                    <Label WidthRequest="80" Text="15" VerticalTextAlignment="Center" x:Name="label_battery"/>
+                    <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                </StackLayout>
+                <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked"/>
+                <Button Text="crearData" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked_1"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="sensorTemperature.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="19 C" VerticalTextAlignment="Center" x:Name="label_temperature"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="sensorWeight.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="21 kg" VerticalTextAlignment="Center" x:Name="label_weight"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="sensorHeart.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="103 p/m" VerticalTextAlignment="Center" x:Name="label_pulse"/>
-                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="sensorProximity.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="2" VerticalTextAlignment="Center" x:Name="label_proximity"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Image Source="sensorBattery.jpg"
-                       WidthRequest="35"
-                       HeightRequest="35"/>
-                <Label WidthRequest="80" Text="15" VerticalTextAlignment="Center" x:Name="label_battery"/>
-                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
-            </StackLayout>
-            <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked"/>
-            <Button Text="crearData" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked_1"/>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

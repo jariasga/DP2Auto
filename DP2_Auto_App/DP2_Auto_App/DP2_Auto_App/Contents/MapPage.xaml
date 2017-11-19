@@ -5,22 +5,24 @@
              x:Class="DP2_Auto_App.Contents.MapPage"
              Title="Navegación y Viajes">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand" Padding="30">
-            <maps:Map WidthRequest="320" HeightRequest="200"
-                x:Name="map"
-                IsShowingUser="true"
-                MapType="Street"
-                />
-            <Slider x:Name="map_slider" ValueChanged="map_slider_ValueChanged" IsVisible="True"/>
-            
-            <Label Text="Nuevo Destino: "/>
-             <Label Text="Latitud: "/>
-            <Entry Text="" x:Name="latitude" Keyboard="Numeric"/>
-            <Label Text="Longitud: "/>
-            <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
-            <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
-            <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
-            <Button Text="Finalizar Viaje" Clicked="EndTravel"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+                <maps:Map WidthRequest="320" HeightRequest="200"
+                    x:Name="map"
+                    IsShowingUser="true"
+                    MapType="Street"
+                    />
+                <Slider x:Name="map_slider" ValueChanged="map_slider_ValueChanged" IsVisible="True"/>
+
+                <Label Text="Nuevo Destino: "/>
+                <Label Text="Latitud: "/>
+                <Entry Text="" x:Name="latitude" Keyboard="Numeric"/>
+                <Label Text="Longitud: "/>
+                <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
+                <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
+                <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
+                <Button Text="Finalizar Viaje" Clicked="EndTravel"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
