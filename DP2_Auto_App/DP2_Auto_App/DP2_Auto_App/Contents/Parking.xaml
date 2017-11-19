@@ -3,34 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.Parking"
              Title="Estacionamiento">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Orientation="Vertical">
+                <Label Text="Datos de Sensores" TextColor="Brown" FontSize="Medium"/>
 
-    <TableView Intent="Menu">
-        <TableRoot>
-            <TableSection Title="Datos Sensados">
-                <TextCell Text="25 °C" 
-                          TextColor="Blue" 
-                          Detail="Sensor de Temperatura"
-                          />
-                <TextCell Text="600 Lu"
-                          TextColor="Blue"
-                          Detail="Sensor de Luz"
-                          />
-                <TextCell Text="400" 
-                          TextColor="Blue"
-                          Detail="Sensor de UV"
-                          />
-            </TableSection>
-            <TableSection Title="Opciones">
-                <SwitchCell Text="Modo Automático" 
-                            On="False" 
-                                />
-                <EntryCell x:Name="angulo_Inclinacion" 
-                           Label="Digite Ángulo de Inclinación" 
-                           Placeholder="0° a 90°" 
-                           Keyboard="Numeric" 
-                           LabelColor="Blue"
-                           />
-            </TableSection>
-        </TableRoot>
-    </TableView>
+                <Label FontSize="Large" Text="Sensor de Temperatura:" TextColor="Black"></Label>
+                <Label FontSize="Medium" XAlign="End" Text="25 °C" TextColor="Brown"></Label>
+
+                <Label FontSize="Large" Text="Sensor de Humedad:" TextColor="Black"></Label>
+                <Label FontSize="Medium" XAlign="End" Text="30 .." TextColor="Brown"></Label>
+
+                <Label FontSize="Large" Text="Sensor de Iluminación:" TextColor="Black"></Label>
+                <Label FontSize="Medium" XAlign="End" Text="600 Lux" TextColor="Brown"></Label>
+
+                <Label Text="Manejo de la Persiona" TextColor="Brown" FontSize="Medium"/>
+
+                <StackLayout Orientation="Horizontal">
+                    
+                    <Label FontSize="Large" Text="Activar/Desactivar Modo Automático" TextColor="Black"/>
+                    <Switch x:Name="sw" />
+                </StackLayout>
+                
+                <Label FontSize="Large" Text="Ajustar Ángulo de Inclinación de la Persiana:" TextColor="Black" />
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Button x:Name="btn_Restar" Text="-" />
+                    <Label x:Name="label_Angulo" Text="45" FontSize="Medium"></Label>
+                    <Button x:Name="btn_Sumar" Text="+"/>
+                </StackLayout>
+
+                <Label x:Name="texto" Text="123" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
