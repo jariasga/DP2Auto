@@ -11,42 +11,42 @@
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- km/h" VerticalTextAlignment="Center" x:Name="label_speed"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorTemperature.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- C" VerticalTextAlignment="Center" x:Name="label_temperature"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorWeight.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- kg" VerticalTextAlignment="Center" x:Name="label_weight"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorHeart.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- p/m" VerticalTextAlignment="Center" x:Name="label_pulse"/>
-                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorProximity.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- m" VerticalTextAlignment="Center" x:Name="label_proximity"/>
-                <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="sensorBattery.jpg"
                        WidthRequest="35"
                        HeightRequest="35"/>
                 <Label WidthRequest="80" Text="-- %" VerticalTextAlignment="Center" x:Name="label_battery"/>
-                <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                <!--<Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>-->
             </StackLayout>
             <Label x:Name="label_actualizado"></Label>
             <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked" x:Name="button_Actualizar"/>

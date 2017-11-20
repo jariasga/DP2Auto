@@ -22,6 +22,7 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
+            button_SignIn.IsEnabled = false;
             authenticateAsync();
         }
 
@@ -45,6 +46,7 @@ namespace DP2_Auto_App.Contents
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
             else if (saber.Equals("Unauthorized")) await DisplayAlert("Error", "Usuario Bloqueado !", "Ok");
             else await DisplayAlert("Error", "Usuario incorrecto", "Ok");
+            button_SignIn.IsEnabled = true;
         }
     }
 }
