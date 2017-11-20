@@ -21,129 +21,40 @@ namespace DP2_Auto_App.Models
             string cadena = BTMessages.addMessage(value);
             string checksum;
             
-            SHA_2 hash = new SHA_2();
+            SHA_2 sha = new SHA_2();
             double[] sensors = new double[20];
             Debug.WriteLine(">>>>>>>>>>>>>>>  " + cadena);
-            checksum = hash.encrypt(cadena);
-
-            if (cadena.Contains("7EAB") /* && cadena.Contains(checksum)*/){
+            
+            if (cadena.Contains("7EAB")){
                 int pos = cadena.IndexOf("7EAB");
-                string tempCadena = cadena.Remove(0, pos);
-                int cantSensores = Convert.ToInt32(cadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
-                tempCadena = cadena.Remove(0, pos + 2); // Quitamos la longitud de la cadena
+                string tempCadena = cadena.Remove(0, pos + 4);
+                int cantSensores = Convert.ToInt32(tempCadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
+                tempCadena = tempCadena.Remove(0, 2); // Quitamos la longitud de la cadena
                 string datosBasicos = tempCadena.Substring(0, 4);   // Leemos los datos del vehiculo (cinturon)
-                tempCadena = cadena.Remove(0, 4);   // Llegamos a los sensores
-                if (tempCadena.Length == 6 * cantSensores + checksum.Length)
-                {                    
-                    string datosSensores = tempCadena.Substring(0, tempCadena.Length - checksum.Length);
+                tempCadena = tempCadena.Remove(0, 4);   // Llegamos a los sensores
+                tempCadena = tempCadena.Substring(0, 6 * cantSensores + 6);
+                   
+                string datosSensores = tempCadena.Substring(0, tempCadena.Length - 6);
+                checksum = tempCadena.Substring(datosSensores.Length, 6);
+
+                string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                    
+                if (hash.Equals(checksum))
+                {
                     while (datosSensores.Length > 0)
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
-                        datosSensores.Remove(0, 3);
+                        datosSensores = datosSensores.Remove(0, 3);
                         int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16);
-                        datosSensores.Remove(0, 2);
+                        datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
-                        datosSensores.Remove(0, 1);
-                        sensors[sensorID] = primerValor + segundoValor / 10;
+                        datosSensores = datosSensores.Remove(0, 1);
+                        sensors[sensorID] = 1.0 * primerValor + 1.0 * segundoValor / 10;
                     }
-                    BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4);
+                    BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4 + 2);
+                    saveDatatoWeb(sensors);
                 }
             }
-            /*
-
-            //start
-            var startcad = "";
-            var check = "";
-            var lngcad = "";
-            int lgcad = 0;
-
-            string[] autostart;
-            autostart = new string[4];
-            int i = 0;
-
-            var checksum = "";
-            var chars = value.ToCharArray();
-            System.Diagnostics.Debug.WriteLine("Clave original: " + value);
-            for (int ctr = 0; ctr < chars.Length; ctr++)
-            {
-                if (ctr < 4) // cabecera de la cadena
-                {
-                    startcad += chars[ctr];
-                    if (ctr == 0 || ctr == 1)
-                    {
-                        check += chars[ctr];
-                    }
-                }
-                else if (ctr > 3 && ctr < 6) // numeros de sensores que envia
-                {
-                    lngcad += chars[ctr];
-                }
-                else if (ctr > 5 && ctr < 10) // estado del auto
-                {
-                    var cad = chars[ctr].ToString();
-                    autostart[i] = cad;
-                    i++;
-                    if (i == 3)
-                    {
-                        check += lngcad + lngcad;
-                        Int32.TryParse(lngcad, out lgcad);
-                    }
-                }
-                else if (ctr < chars.Length && ctr > chars.Length - 7)
-                {
-                    checksum += chars[ctr];
-                }
-            }
-            // validando la data
-            if (startcad == "7EAB" && chars.Length == 16 + 6 * lgcad && checksum == check)
-            {
-                double[] sensors;
-                sensors = new double[8];
-
-                int npass = 0;
-                var lngsen = "";
-                var lgsen = 0;
-                var str = "";
-                double istr = 0;
-
-                for (int ctr = 10; ctr < chars.Length; ctr++) // recorriendo la data
-                {
-                    if (ctr > 9 && ctr < (10 + 6 * lgcad))
-                    {
-                        var cad = chars[ctr].ToString();
-                        if (npass > 0 && npass < 3)
-                        {
-                            lngsen += cad;
-                        }
-                        else if (npass == 3 || npass == 4)
-                        {
-                            str += cad;
-                        }
-                        if (npass == 2)
-                        {
-                            Int32.TryParse(lngsen, out lgsen);
-                        }
-                        else if (npass == 5)
-                        {
-                            istr = Convert.ToInt32(str, 16);
-                            sensors[lgsen - 1] = istr + double.Parse(cad) / 10;
-                            str = lngsen = "";
-                            npass = -1;
-                            lgsen = 0;
-                        }
-                        npass++;
-                    }
-                }
-                System.Diagnostics.Debug.WriteLine(sensors[0] + "," + sensors[1] + "," + sensors[2] + "," + sensors[3] + "," + sensors[4] + "," + sensors[5]);
-                saveDatatoWeb(sensors);
-            }            
-            /* Salida de variables
-             *  
-             * autostart = array con los valores de los sensores
-             * sensors = array con valores de sensores 
-            */
-
-            //finish
         }
 
         public async void saveDatatoWeb(double [] sensors)
