@@ -6,24 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using encription_SHA256;
 using DP2_Auto_App.Models.RestServices;
+using System.Diagnostics;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Convertions))]
 namespace DP2_Auto_App.Models
 {
     public class Convertions : IConvertionsIT
     {
-        private string cadena;
         public void ConSend()
         {
         }
         public void ConReceived(string value)
         {
-            cadena += value;
+            string cadena = BTMessages.addMessage(value);
             string checksum;
+            
             SHA_2 hash = new SHA_2();
             double[] sensors = new double[20];
+            Debug.WriteLine(">>>>>>>>>>>>>>>  " + cadena);
             checksum = hash.encrypt(cadena);
-            string checksum1 = hash.getMiniSHA();
 
             if (cadena.Contains("7EAB") /* && cadena.Contains(checksum)*/){
                 int pos = cadena.IndexOf("7EAB");
@@ -45,6 +46,7 @@ namespace DP2_Auto_App.Models
                         datosSensores.Remove(0, 1);
                         sensors[sensorID] = primerValor + segundoValor / 10;
                     }
+                    BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4);
                 }
             }
             /*

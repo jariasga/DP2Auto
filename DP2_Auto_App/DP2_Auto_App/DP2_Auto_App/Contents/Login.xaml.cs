@@ -1,4 +1,5 @@
-﻿using DP2_Auto_App.Models.RestServices;
+﻿using DP2_Auto_App.Models;
+using DP2_Auto_App.Models.RestServices;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -40,6 +41,7 @@ namespace DP2_Auto_App.Contents
             {
                 await DisplayAlert("Login", "Correcto", "Ok");
                 await webService.rest.getClientInfo();
+                BTMessages bt = new BTMessages();
                 App.Current.MainPage = new Contents.MainMenu();
             }
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
