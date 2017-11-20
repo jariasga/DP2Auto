@@ -108,6 +108,22 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly string UV_CODE = "F10";
         public static readonly string ANGLE_CODE = "F11";
 
+        public static int returnSensorID(string code)
+        {
+            if (code.Equals(WEIGHT_CODE)) return WEIGHT;
+            else if (code.Equals(PULSE_CODE)) return PULSE;
+            else if (code.Equals(PROXIMITY_CODE)) return PROXIMITY;
+            else if (code.Equals(TEMPERATURE_CODE)) return TEMPERATURE;
+            else if (code.Equals(SPEED_CODE)) return SPEED;
+            else if (code.Equals(BATTERY_CODE)) return BATTERY;
+            else if (code.Equals(HUMIDITY_CODE)) return HUMIDITY;
+            else if (code.Equals(POSITION_CODE)) return POSITION;
+            else if (code.Equals(ILUMINITY_CODE)) return ILUMINITY;
+            else if (code.Equals(UV_CODE)) return UV;
+            else if (code.Equals(ANGLE_CODE)) return ANGLE;
+            else return 0;
+        }
+
         public double value { get; set; }
         public int travel_id { get; set; }
         public int sensor_id { get; set; }

@@ -9,6 +9,7 @@ using Java.IO;
 using Java.Util;
 using Application = Xamarin.Forms.Application;
 using DP2_Auto_App.Models;
+using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Bth))]
 namespace BuetoothToArduinoTest.Droid.BlueTooth
@@ -86,14 +87,19 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                         if (bthSocket != null)
                         {
                             await bthSocket.ConnectAsync();
-
+                            
                             if (bthSocket.IsConnected)
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!");
-                                
 
+                                byte[] buffer = new byte[1024];
+                                var valor = "";
                                 while (_ct.IsCancellationRequested == false)
                                 {
+                                    await bthSocket.InputStream.ReadAsync(buffer, 0, buffer.Length);
+                                    valor = System.Text.Encoding.ASCII.GetString(buffer);
+                                    System.Diagnostics.Debug.WriteLine(valor);
+                                    DependencyService.Get<IConvertionsIT>().ConReceived(valor);
                                     /*
                                     if (MessageToSend != null)
                                     {

@@ -21,9 +21,11 @@ namespace DP2_Auto_App.Models
             cadena += value;
             string checksum;
             SHA_2 hash = new SHA_2();
-            
+            double[] sensors = new double[20];
             checksum = hash.encrypt(cadena);
-            if (cadena.Contains("7EAB") && /*cadena.Contains(checksum)*/){
+            string checksum1 = hash.getMiniSHA();
+
+            if (cadena.Contains("7EAB") /* && cadena.Contains(checksum)*/){
                 int pos = cadena.IndexOf("7EAB");
                 string tempCadena = cadena.Remove(0, pos);
                 int cantSensores = Convert.ToInt32(cadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
@@ -31,12 +33,21 @@ namespace DP2_Auto_App.Models
                 string datosBasicos = tempCadena.Substring(0, 4);   // Leemos los datos del vehiculo (cinturon)
                 tempCadena = cadena.Remove(0, 4);   // Llegamos a los sensores
                 if (tempCadena.Length == 6 * cantSensores + checksum.Length)
-                {
-                    
+                {                    
+                    string datosSensores = tempCadena.Substring(0, tempCadena.Length - checksum.Length);
+                    while (datosSensores.Length > 0)
+                    {
+                        int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
+                        datosSensores.Remove(0, 3);
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16);
+                        datosSensores.Remove(0, 2);
+                        int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
+                        datosSensores.Remove(0, 1);
+                        sensors[sensorID] = primerValor + segundoValor / 10;
+                    }
                 }
-                "F0X123 * cantSensores + checksum (6)";
             }
-            
+            /*
 
             //start
             var startcad = "";
