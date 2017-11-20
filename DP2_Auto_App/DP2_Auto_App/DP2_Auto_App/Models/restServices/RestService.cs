@@ -267,6 +267,29 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<List<Readings>> getReadingList(int readingID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            List<Readings> read = new List<Readings>();
+            try
+            {
+                var response = await webClient.GetAsync("readings?count=1&page=1&sensor_id=" + readingID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    read = JsonConvert.DeserializeObject<List<Readings>>(rString);
+                    return read;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+            return null;
+        }
+
         public async Task<String> listGoals()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);

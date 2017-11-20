@@ -35,16 +35,28 @@ namespace DP2_Auto_App.Contents
 
         private async void updateSensorValues()
         {
+            List<Readings> r;
             int counter = 0;
             string updatedAt = "";
             while (true)
             {
-                speed = await webService.rest.getReadingInfo(Readings.SPEED);
-                temperature = await webService.rest.getReadingInfo(Readings.TEMPERATURE);
-                weight = await webService.rest.getReadingInfo(Readings.WEIGHT);
-                pulse = await webService.rest.getReadingInfo(Readings.PULSE);
-                proximity = await webService.rest.getReadingInfo(Readings.PROXIMITY);
-                battery = await webService.rest.getReadingInfo(Readings.BATTERY);
+                r = await webService.rest.getReadingList(Readings.SPEED);
+                speed = r.First();
+
+                r = await webService.rest.getReadingList(Readings.TEMPERATURE);
+                temperature = r.First();
+
+                r = await webService.rest.getReadingList(Readings.WEIGHT);
+                weight = r.First();
+
+                r = await webService.rest.getReadingList(Readings.PULSE);
+                pulse = r.First();
+
+                r = await webService.rest.getReadingList(Readings.PROXIMITY);
+                proximity = r.First();
+
+                r = await webService.rest.getReadingList(Readings.BATTERY);
+                battery = r.First();
                 
                 if (speed != null)
                 {
