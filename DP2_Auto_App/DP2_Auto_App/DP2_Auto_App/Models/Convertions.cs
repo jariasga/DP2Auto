@@ -59,7 +59,7 @@ namespace DP2_Auto_App.Models
 
         public async void saveDatatoWeb(double [] sensors)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 20; i++)
                 if(sensors[i] > 0.00) await webService.rest.storeReadings(i + 1, sensors[i]);    
         }
     }
