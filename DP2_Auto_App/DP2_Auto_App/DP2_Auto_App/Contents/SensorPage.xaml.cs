@@ -40,23 +40,24 @@ namespace DP2_Auto_App.Contents
             string updatedAt = "";
             while (true)
             {
+                speed = temperature = weight = pulse = proximity = battery = null;
                 r = await webService.rest.getReadingList(Readings.SPEED);
-                speed = r.First();
+                if (r != null && r.Count > 0) speed = r.First();
 
                 r = await webService.rest.getReadingList(Readings.TEMPERATURE);
-                temperature = r.First();
+                if (r != null && r.Count > 0) temperature = r.First();
 
                 r = await webService.rest.getReadingList(Readings.WEIGHT);
-                weight = r.First();
+                if (r != null && r.Count > 0) weight = r.First();
 
                 r = await webService.rest.getReadingList(Readings.PULSE);
-                pulse = r.First();
+                if (r != null && r.Count > 0) pulse = r.First();
 
                 r = await webService.rest.getReadingList(Readings.PROXIMITY);
-                proximity = r.First();
+                if (r != null && r.Count > 0) proximity = r.First();
 
                 r = await webService.rest.getReadingList(Readings.BATTERY);
-                battery = r.First();
+                if (r != null && r.Count > 0) battery = r.First();
                 
                 if (speed != null)
                 {
