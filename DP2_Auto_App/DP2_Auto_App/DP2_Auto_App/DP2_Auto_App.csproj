@@ -38,7 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contents\Bluetooth.cs" />
+    <Compile Include="Contents\BluetoothPage.xaml.cs">
+      <DependentUpon>BluetoothPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\GoalsAchieved.xaml.cs">
       <DependentUpon>GoalsAchieved.xaml</DependentUpon>
     </Compile>
@@ -224,6 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\ParkingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\BluetoothPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

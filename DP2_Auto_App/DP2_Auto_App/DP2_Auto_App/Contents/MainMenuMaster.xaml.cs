@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DP2_Auto_App.Models.RestServices;
 
 namespace DP2_Auto_App.Contents
 {
