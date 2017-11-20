@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using encription_SHA256;
 using DP2_Auto_App.Models.RestServices;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Convertions))]
@@ -11,11 +12,32 @@ namespace DP2_Auto_App.Models
 {
     public class Convertions : IConvertionsIT
     {
+        private string cadena;
         public void ConSend()
         {
         }
         public void ConReceived(string value)
         {
+            cadena += value;
+            string checksum;
+            SHA_2 hash = new SHA_2();
+            
+            checksum = hash.encrypt(cadena);
+            if (cadena.Contains("7EAB") && /*cadena.Contains(checksum)*/){
+                int pos = cadena.IndexOf("7EAB");
+                string tempCadena = cadena.Remove(0, pos);
+                int cantSensores = Convert.ToInt32(cadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
+                tempCadena = cadena.Remove(0, pos + 2); // Quitamos la longitud de la cadena
+                string datosBasicos = tempCadena.Substring(0, 4);   // Leemos los datos del vehiculo (cinturon)
+                tempCadena = cadena.Remove(0, 4);   // Llegamos a los sensores
+                if (tempCadena.Length == 6 * cantSensores + checksum.Length)
+                {
+                    
+                }
+                "F0X123 * cantSensores + checksum (6)";
+            }
+            
+
             //start
             var startcad = "";
             var check = "";

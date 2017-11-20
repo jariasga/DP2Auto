@@ -6,6 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20">
+                <Label x:Name="datos"/>
                 <Label x:Name="label1" Text="Seleccione un Dispositivo" FontSize="18" TextColor="Brown"/>
                 <Picker x:Name="picker1" Title="Dispositivos Emparejados" />
                 <Button x:Name="btn_Conectar" Text="Conectar" TextColor="Blue"/>

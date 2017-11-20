@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models;
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
@@ -20,6 +21,7 @@ namespace DP2_Auto_App.Contents
             InitializeComponent();
             ViewModel.GetPairedDevices();
             ViewModel.GetMessagesData();
+            //List_Messages();
             ListDevices();
         }
         private void ListDevices()
@@ -34,6 +36,7 @@ namespace DP2_Auto_App.Contents
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
             btn_Verificar.Clicked += Btn_Verificar_Clicked;
+ 
         }
 
         private void Picker1_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,6 +77,23 @@ namespace DP2_Auto_App.Contents
                 Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
             }
         }
+        /*
+        private async void List_Messages()
+        {
+            await List_MessagesAsync();
+        }
+
+        private async Task List_MessagesAsync()
+        {
+            while (true)
+            {
+                foreach (var data in ViewModel.ListMessages)
+                {
+                    Debug.WriteLine(data);
+                }
+                await Task.Delay(500);
+            }            
+        }*/
 
     }
 }
