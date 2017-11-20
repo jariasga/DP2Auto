@@ -14,7 +14,7 @@ namespace DP2_Auto_App.Models.RestServices
         Task<string> startTravel(string macAddress);
         Task<string> endTravel(startTravel start);
         Task<string> storeReadings(int sId, double value);
-        Task<string> getReadingInfo(int readingID);
+        Task<Readings> getReadingInfo(int readingID);
         Task<string> storeGoals(int sId, int goal, string dateIni, string dateEnd, string desc);
         Task<string> getGoalInfo(int goalID);
         Task<string> listGoals();
