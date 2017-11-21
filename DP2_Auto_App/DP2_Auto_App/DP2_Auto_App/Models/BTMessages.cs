@@ -23,5 +23,9 @@ namespace DP2_Auto_App.Models
         {
             message = message.Remove(0, charCount);
         }
+        public static void print()
+        {
+            System.Diagnostics.Debug.WriteLine("Cola de mensaje: " + message);
+        }
     }
 }

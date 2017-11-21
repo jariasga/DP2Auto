@@ -233,6 +233,7 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     read = JsonConvert.DeserializeObject<Readings>(rString);
+                    Debug.WriteLine("Dato almacenado coorectamente!");
                     return rString;
                 }
             }

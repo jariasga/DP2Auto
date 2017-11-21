@@ -13,6 +13,7 @@ namespace DP2_Auto_App.Models
 {
     public class Convertions : IConvertionsIT
     {
+        public double[] sensors = new double[20];
         public void ConSend()
         {
         }
@@ -22,7 +23,10 @@ namespace DP2_Auto_App.Models
             string checksum;
             
             SHA_2 sha = new SHA_2();
-            double[] sensors = new double[20];
+            for(int i = 0; i < 20; i++)
+            {
+                sensors[i] = 0;
+            }
             
             if (cadena.Contains("7EAB")){
                 int pos = cadena.IndexOf("7EAB");
@@ -37,7 +41,6 @@ namespace DP2_Auto_App.Models
                 checksum = tempCadena.Substring(datosSensores.Length, 6);
 
                 string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
-                    
                 if (hash.Equals(checksum))
                 {
                     while (datosSensores.Length > 0)
@@ -60,7 +63,14 @@ namespace DP2_Auto_App.Models
         public async void saveDatatoWeb(double [] sensors)
         {
             for (int i = 0; i < 20; i++)
-                if(sensors[i] > 0.00) await webService.rest.storeReadings(i + 1, sensors[i]);    
+            {
+                if (sensors[i] > 0)
+                {
+                    await webService.rest.storeReadings(i, sensors[i]);
+                    Debug.WriteLine("Sensor " + i + " enviado: " + sensors[i]);
+                }
+            }
+                
         }
     }
 }
