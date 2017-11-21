@@ -79,15 +79,17 @@ namespace DP2_Auto_App.Models
             string checksum = "";
             int countSensor = 0;
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 6; i++)
                 if (sValues[i] > 0)       //Contamos la cantidad de datos a enviar
                 {
-                    sensorData += Readings.returnCode(i) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
+                    sensorData += Readings.returnCode(i + 1) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
                     countSensor++;
                 }
             SHA_2 sha = new SHA_2();
-            string hash = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
-            finalMessage = initMessage + basicVehicleVerification + countSensor.ToString("D2") + sensorData + checksum;
+            checksum = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
+            finalMessage = initMessage + countSensor.ToString("D2") + basicVehicleVerification + sensorData + checksum;
+            Debug.WriteLine(finalMessage);
+            ConReceived(finalMessage);
         }
 
         private string convertToHex(double initialValue)

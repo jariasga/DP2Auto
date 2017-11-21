@@ -98,6 +98,7 @@
     <Compile Include="Models\Convertions.cs" />
     <Compile Include="Models\IConvertionsIT.cs" />
     <Compile Include="Models\IBth.cs" />
+    <Compile Include="Models\Ramdomizer.cs" />
     <Compile Include="Models\RestServices\IRestService.cs" />
     <Compile Include="Models\RestServices\JSON_Classes.cs" />
     <Compile Include="Models\RestServices\RestService.cs" />

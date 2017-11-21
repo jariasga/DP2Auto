@@ -12,6 +12,6 @@ namespace DP2_Auto_App.Models
     {
         void ConReceived(string value);
 
-        void ConSend(double sValues);
+        void ConSend(double []sValues);
     }
 }
