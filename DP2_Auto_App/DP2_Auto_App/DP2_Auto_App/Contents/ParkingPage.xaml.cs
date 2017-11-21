@@ -18,7 +18,7 @@ namespace DP2_Auto_App.Contents
     {
         HttpClient webClient;
         Uri baseAddress, uri;
-        //public static Client client { get; private set; }
+        public static Client client { get; private set; }
         public int vsw = 0;
         public int ang= 45; 
         public ParkingPage()
@@ -103,7 +103,7 @@ namespace DP2_Auto_App.Contents
         
         private async void SendData()
         {
-            //client = new Client();
+            client = new Client();
             Debug.WriteLine(vsw);
             Users user = new Users
             {
@@ -134,7 +134,7 @@ namespace DP2_Auto_App.Contents
         public async Task<string> SendDataAsync(Users user)
         {
             uri = new Uri(baseAddress, "login");
-            //client = new Client();
+            client = new Client();
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
