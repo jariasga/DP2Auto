@@ -23,7 +23,6 @@ namespace DP2_Auto_App.Models
             
             SHA_2 sha = new SHA_2();
             double[] sensors = new double[20];
-            Debug.WriteLine(">>>>>>>>>>>>>>>  " + cadena);
             
             if (cadena.Contains("7EAB")){
                 int pos = cadena.IndexOf("7EAB");
@@ -53,6 +52,7 @@ namespace DP2_Auto_App.Models
                     }
                     BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4 + 2);
                     saveDatatoWeb(sensors);
+                    Debug.WriteLine("$$$$$$$$$$$$$$$$ Datos enviados");
                 }
             }
         }

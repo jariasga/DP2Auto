@@ -99,7 +99,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                     await bthSocket.InputStream.ReadAsync(buffer, 0, buffer.Length);
                                     for (int i = 0; i < buffer.Length; i++) if (buffer[i] == 0) buffer[i] = 90;
                                     valor = System.Text.Encoding.ASCII.GetString(buffer);
-                                    System.Diagnostics.Debug.WriteLine(valor);
+                                    //System.Diagnostics.Debug.WriteLine(valor);
                                     DependencyService.Get<IConvertionsIT>().ConReceived(valor);
                                     /*
                                     if (MessageToSend != null)

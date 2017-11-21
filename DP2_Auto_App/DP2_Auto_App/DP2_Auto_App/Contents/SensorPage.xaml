@@ -49,7 +49,8 @@
                     <Label WidthRequest="80" Text="15" VerticalTextAlignment="Center" x:Name="label_battery"/>
                     <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
                 </StackLayout>
-                <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked"/>
+                <Label x:Name="label_actualizado"></Label>
+                <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked" x:Name="button_Actualizar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

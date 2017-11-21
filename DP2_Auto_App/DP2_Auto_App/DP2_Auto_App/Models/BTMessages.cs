@@ -17,7 +17,6 @@ namespace DP2_Auto_App.Models
         {
             string tempMessage = value.Trim('Z');
             message = string.Concat(message, tempMessage);
-            System.Diagnostics.Debug.WriteLine("BT MESSAGE ------> " + message);
             return message;
         }
         public static void deleteMessage(int charCount)
