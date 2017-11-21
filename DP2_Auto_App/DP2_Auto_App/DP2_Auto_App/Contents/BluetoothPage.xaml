@@ -36,6 +36,7 @@
 
                 <Button x:Name="btn_Enviar" Text="Enviar" TextColor="Blue"/>
                 <Button x:Name="btn_Verificar" Text="Verificar Trama" TextColor="Blue" />
+                <Button x:Name="btn_Generar" Text="Simular" TextColor="Blue" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

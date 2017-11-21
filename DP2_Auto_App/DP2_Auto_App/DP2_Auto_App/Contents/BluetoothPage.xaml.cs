@@ -36,7 +36,20 @@ namespace DP2_Auto_App.Contents
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
             btn_Verificar.Clicked += Btn_Verificar_Clicked;
- 
+            btn_Generar.Clicked += Btn_Generar_Clicked;
+        }
+
+        private void Btn_Generar_Clicked(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DependencyService.Get<IConvertionsIT>().ConSend(sValues);
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
+            }
         }
 
         private void Picker1_SelectedIndexChanged(object sender, EventArgs e)
