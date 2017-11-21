@@ -244,7 +244,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> getReadingInfo(int readingID)
+        public async Task<Readings> getReadingInfo(int readingID)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
 
@@ -257,12 +257,36 @@ namespace DP2_Auto_App.Models.RestServices
                 {
                     Readings r = new Readings();
                     r = JsonConvert.DeserializeObject<Readings>(rString);
-                    return r.value.ToString();
+                    return r;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+            return null;
+        }
+
+        public async Task<List<Readings>> getReadingList(int sensorID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            List<Readings> read = new List<Readings>();
+            try
+            {
+                var response = await webClient.GetAsync("readings?count=1&sensor_id=" + sensorID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    read = JsonConvert.DeserializeObject<List<Readings>>(rString);
+                    return read;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
             }
             return null;
         }
