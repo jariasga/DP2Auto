@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using TK.CustomMap;
 using Xamarin.Forms.Xaml;
 
 namespace DP2_Auto_App.Contents
@@ -19,7 +20,7 @@ namespace DP2_Auto_App.Contents
         public MapPage()
         {
             InitializeComponent();
-            initializeMap();
+            //initializeMap();
         }
 
         async void mensaje()
@@ -29,13 +30,14 @@ namespace DP2_Auto_App.Contents
 
         private void map_slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            var zoomLevel = e.NewValue; // between 1 and 18
+           var zoomLevel = e.NewValue; // between 1 and 18
             var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
             map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
         }
 
         private void initializeMap()
         {
+            
             var position = new Position(-12.0689857, -77.078947); // Latitude, Longitude
             var pin = new Pin
             {
@@ -49,6 +51,12 @@ namespace DP2_Auto_App.Contents
             map.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
                 new Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
+
+            /*
+            var stack = new StackLayout { Spacing = 0 };
+            stack.Children.Add(map);
+            Content = stack;
+            */
 
         }
 
@@ -84,6 +92,13 @@ namespace DP2_Auto_App.Contents
             DateTime horaIni = DateTime.Parse(fin.started_at);
             await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH:mm:ss") + "\n Fin: " + horaFin.ToString("HH::mm::ss"), "Ok");
         }
+        
+        async void OnClickedMapEvent(object sender, Position e)
+        {
+            await DisplayAlert("salida", "salio", "ok");
+
+        }
+
 
 
     }

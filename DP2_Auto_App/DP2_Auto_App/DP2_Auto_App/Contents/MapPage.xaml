@@ -9,9 +9,10 @@
             <StackLayout VerticalOptions="StartAndExpand" Padding="30">
                 <maps:Map WidthRequest="320" HeightRequest="200"
                     x:Name="map"
-                    IsShowingUser="true"
+                    IsShowingUser="True"               
                     MapType="Street"
-                    />
+
+                   />
                 <Slider x:Name="map_slider" ValueChanged="map_slider_ValueChanged" IsVisible="True"/>
 
                 <Label Text="Nuevo Destino: "/>
