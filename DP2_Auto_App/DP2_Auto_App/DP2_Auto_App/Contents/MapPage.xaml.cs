@@ -14,12 +14,18 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+        
         startTravel inicio;
         endTravel fin;
         public MapPage()
         {
             InitializeComponent();
             initializeMap();
+        }
+
+        void initializeLocationManager()
+        {
+            
         }
 
         async void mensaje()

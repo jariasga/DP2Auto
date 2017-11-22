@@ -40,9 +40,42 @@ namespace DP2_Auto_App.Models.RestServices
             currentTravel = new startTravel();
         }
 
+
+        public  async void initializeTravels()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy
+            uri = new Uri(baseAddress, "travels?");
+
+            var content = new StringContent("", Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync(uri);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //travels
+                    travels = JsonConvert.DeserializeObject<List<Travel>>(rString);
+                    int a = 0;
+                    //return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                //return ex.Message;
+            }
+            //return null;
+
+
+        }
+
         public static int CountTravels()
         {
-            return travels.Count();
+            if (travels != null)
+                return travels.Count();
+            else return 0;
         }
 
         public static Travel getNTravel(int id)
@@ -84,6 +117,7 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     client = JsonConvert.DeserializeObject<Client>(rString);
+                    initializeTravels();
                     return "loginSuccess";
                 }
             }catch (Exception ex)
