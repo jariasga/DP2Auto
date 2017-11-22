@@ -23,16 +23,13 @@ namespace DP2_Auto_App.Contents
         }
         private void initializeValues()
         {
+            loadGoals();
+        }
 
-            //label_desc1.Text = RestService.
-            /*entry_Name.Text = RestService.client.name;
-            entry_LastName.Text = RestService.client.lastname;
-
-            entry_Email.Text = RestService.client.email;
-            entry_Phone.Text = RestService.client.phone;
-            entry_Rating.Text = RestService.client.rating.ToString();
-            entry_Created.Text = RestService.client.created_at;
-            entry_Updated.Text = RestService.client.updated_at;*/
+        private async void loadGoals()
+        {
+            string prueba;
+            prueba = await webService.rest.listGoals();
         }
 
         private void buttonClickedNewGoals(object sender, EventArgs e)

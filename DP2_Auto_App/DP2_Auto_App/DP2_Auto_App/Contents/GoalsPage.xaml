@@ -5,6 +5,9 @@
              Title="Objetivos y Logros">
     <ContentPage.Content>
         <StackLayout Margin="10,0,0,0">
+            <StackLayout>
+                
+            </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
                 <Image Source="check.png"
                        WidthRequest="35"
