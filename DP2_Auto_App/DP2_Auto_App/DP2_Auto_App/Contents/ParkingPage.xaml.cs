@@ -19,16 +19,17 @@ namespace DP2_Auto_App.Contents
         Readings temperature, iluminity, humidity, uv;
         HttpClient webClient;
         Uri baseAddress, uri;
-        public static Client client { get; private set; }
+        //public static Client client { get; private set; }
         public int vsw = 0;
-        public int ang= 45; 
+        public int ang= 45;
+        public bool estado = false;
         public ParkingPage()
         {
 
             InitializeComponent();
             ChangeData();
 
-            baseAddress = new Uri("http://dp2.iamallama.com/api/");
+            baseAddress = new Uri("http://192.168.1.104/");
             webClient = new HttpClient();
             webClient.MaxResponseContentBufferSize = 256000;
             webClient.BaseAddress = baseAddress;
@@ -46,6 +47,19 @@ namespace DP2_Auto_App.Contents
 
         private void Btn_Actualizar_Clicked(object sender, EventArgs e)
         {
+            if (estado == false)
+            {
+                Mensaje(3);
+                btn_actualizar.Text = "Detener";
+                estado = true;
+            }
+            else
+            {
+                Mensaje(4);
+                btn_actualizar.Text = "Actualizar";
+                estado = false;
+            }
+                
             UpdateSensors();
         }
 
@@ -93,7 +107,7 @@ namespace DP2_Auto_App.Contents
         {
             List<Readings> r;
             int counter = 0;
-            while (true)
+            while (estado)
             {
                 temperature = iluminity = humidity = uv = null;
                 r = await webService.rest.getReadingList(Readings.HUMIDITY);
@@ -134,8 +148,16 @@ namespace DP2_Auto_App.Contents
         
         private async void SendData()
         {
-            client = new Client();
+            //client = new Client();
             Debug.WriteLine(vsw);
+
+            Parking parking = new Parking
+            {
+                modo = "manual",
+                angulo = "90"//label_Angulo.Text
+            };
+
+            /*
             Users user = new Users
             {
                 email = "prueba20@gmail.com",//label_Username.Text,
@@ -158,15 +180,15 @@ namespace DP2_Auto_App.Contents
                     angulo = label_Angulo.Text
                 };
             }*/
-            await SendDataAsync(user);
+            await SendDataAsync(parking);
         }
 
 
-        public async Task<string> SendDataAsync(Users user)
+        public async Task<string> SendDataAsync(Parking parking)
         {
-            uri = new Uri(baseAddress, "login");
-            client = new Client();
-            var json = JsonConvert.SerializeObject(user);
+            uri = new Uri(baseAddress, "prueba.php");
+            //client = new Client();
+            var json = JsonConvert.SerializeObject(parking);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
@@ -199,6 +221,10 @@ namespace DP2_Auto_App.Contents
                     DisplayAlert("Atención", "El mínimo angulo de la persiana es 0°", "OK");
                     break;
                 case 3:
+                    DisplayAlert("Atención", "Desde ahora se actualizaran automaticamente los datos de los sensores", "OK");
+                    break;
+                case 4:
+                    DisplayAlert("Atención", "La actualización automática se ha detenido", "OK");
                     break;
             }
         }
