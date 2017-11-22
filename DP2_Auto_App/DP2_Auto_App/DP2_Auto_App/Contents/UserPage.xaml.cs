@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -34,8 +35,13 @@ namespace DP2_Auto_App.Contents
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
-            DisplayAlert("Actualizacion", "Actualizado", "Ok");
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            if (regex.IsMatch(entry_Email.Text))
+            {
+                webService.rest.updateClient(entry_Name.Text, entry_LastName.Text, entry_Phone.Text, entry_Email.Text);
+                DisplayAlert("Actualizacion", "Actualizado", "Ok");
+            }
+            else DisplayAlert("Error", "Ingresar un email correcto", "Ok");
         }
     }
 }

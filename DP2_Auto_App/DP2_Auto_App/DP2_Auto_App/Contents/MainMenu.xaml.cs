@@ -41,8 +41,12 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Alertas")) Detail = pages[9];
             else if (item.Title.Equals("Cerrar Sesión"))
             {
-                DP2_Auto_App.Models.RestServices.RestService.logout();
-                App.Current.MainPage = new Contents.Login();
+                if (SensorPage.sensorLoop) DisplayAlert("Error", "Por favor detener la actualizacion de sensores", "Ok");
+                else
+                {
+                    DP2_Auto_App.Models.RestServices.RestService.logout();
+                    App.Current.MainPage = new Contents.Login();
+                }
             }
             else Detail = new NavigationPage(page);
 
