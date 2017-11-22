@@ -20,7 +20,7 @@ namespace DP2_Auto_App.Contents
         {
             InitializeComponent();
             ViewModel.GetPairedDevices();
-            ViewModel.GetMessagesData();
+            //ViewModel.GetMessagesData();
             //List_Messages();
             ListDevices();
         }

@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.Bluetooth;
 using BuetoothToArduinoTest.Droid.BlueTooth;
-using Java.IO;
 using Java.Util;
 using Application = Xamarin.Forms.Application;
 using DP2_Auto_App.Models;
@@ -19,7 +17,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         private CancellationTokenSource _ct { get; set; }
 
         public string MessageToSend { get; set; }
-
+        
         public Bth()
         {
             _ct = new CancellationTokenSource();
@@ -97,7 +95,10 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                 while (_ct.IsCancellationRequested == false)
                                 {
                                     await bthSocket.InputStream.ReadAsync(buffer, 0, buffer.Length);
-                                    for (int i = 0; i < buffer.Length; i++) if (buffer[i] == 0) buffer[i] = 90;
+                                    for (int i = 0; i < buffer.Length; i++)
+                                    {
+                                        if (buffer[i] == 0) buffer[i] = 90;
+                                    }
                                     valor = System.Text.Encoding.ASCII.GetString(buffer);
                                     //System.Diagnostics.Debug.WriteLine(valor);
                                     DependencyService.Get<IConvertionsIT>().ConReceived(valor);
@@ -141,10 +142,11 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
 
             return devices;
         }
-
+        /*
         public List<string> MessagesData()
         {
             throw new NotImplementedException();
-        }
+        }*/
+        
     }
 }
