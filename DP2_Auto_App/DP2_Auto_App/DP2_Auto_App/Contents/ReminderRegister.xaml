@@ -17,7 +17,6 @@
                 <Entry FontSize="Large" x:Name="entry_Time" Text="02:00 pm"/>
             </StackLayout>
             <Button Text="Crear" Clicked="Button_ClickedCreate"/>
-            <Button Text="Regresar" Clicked="Button_ClickedReturn"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

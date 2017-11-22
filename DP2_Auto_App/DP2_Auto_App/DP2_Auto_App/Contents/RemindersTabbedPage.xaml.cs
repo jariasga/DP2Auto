@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace DP2_Auto_App.Contents
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RemindersTabbedPage : ContentPage
+    public partial class RemindersTabbedPage : TabbedPage
     {
         public RemindersTabbedPage()
         {
