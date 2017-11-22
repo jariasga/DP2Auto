@@ -24,6 +24,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Reminder> reminders;
         private string temporalTokenSave;
         public static Objective currentObjective { get; private set; }
+        public static Reminder currentReminder { get; private set; }
         public static startTravel currentTravel { get; private set; }
         public static endTravel end { get; private set; }
         static List<Travel> travels;
@@ -432,7 +433,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeReminder(string desc, string date, string time)
+        public async Task<Reminder> storeReminder(string desc, string date, string time)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "reminders");
@@ -455,13 +456,12 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    reminder = JsonConvert.DeserializeObject<Reminder>(rString);
-                    return rString;
+                    return currentReminder = JsonConvert.DeserializeObject<Reminder>(rString);
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }

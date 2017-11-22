@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DP2_Auto_App.Models.RestServices;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,11 @@ namespace DP2_Auto_App.Contents
         public ReminderPage()
         {
             InitializeComponent();
+        }
+
+        private void buttonClickedNewReminders(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new Contents.RemindersNew();
         }
     }
 }

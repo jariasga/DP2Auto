@@ -14,6 +14,9 @@
 
             <Label Font="Bold" FontSize="Large" XAlign="Start">Jueves 16/11/2017</Label>
             <Label FontSize="Medium" XAlign="Start">-> Renovar SOAT</Label>
+
+            <Button Text="Nuevo objetivo" HorizontalOptions="Center" Margin="0, 0, 0, 15"
+                    Clicked="buttonClickedNewReminders"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

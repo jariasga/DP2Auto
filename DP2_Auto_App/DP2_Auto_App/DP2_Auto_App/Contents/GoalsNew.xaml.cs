@@ -13,20 +13,25 @@ namespace DP2_Auto_App.Contents
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GoalsNew : ContentPage
 	{
-		public GoalsNew ()
+        Objective objetivo;
+        public GoalsNew ()
 		{
 			InitializeComponent ();
 		}
 
-
-        private void Button_ClickedCreate(object sender, EventArgs e)
+        private async void Button_ClickedCreate(object sender, EventArgs e)
         {
             int sensor, value;
             sensor = Int32.Parse(entry_Sensor.Text);
             value = Int32.Parse(entry_Value.Text);
-            //webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
-            //webService.rest.storeGoals(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
-            DisplayAlert("Actualizacion", "Actualizado", "Ok");
+            //objetivo = webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
+            objetivo = await webService.rest.storeGoals(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
+            await DisplayAlert("Actualizacion", "Actualizado", "Ok");
+        }
+
+        private void Button_ClickedReturn(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new Contents.GoalsPage();
         }
     }
 }
