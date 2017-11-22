@@ -25,11 +25,11 @@ namespace DP2_Auto_App.Contents
             Travel aux = new Travel();
             int cantidad = RestService.CountTravels();
             //pickerRecorridos.Items.Clear();
-            for(int i= 0;i<cantidad;i++)
-            {
-                aux = RestService.getTravelAt(i);
-                pickerRecorridos.Items.Add( ""+aux.started.id);
-            }
+            //for(int i= 0;i<cantidad;i++)
+
+             aux = RestService.getTravelAt(cantidad-1);
+             pickerRecorridos.Items.Add( ""+aux.started.id);
+
             pickerRecorridos.SelectedIndex = 0;
         }
 
