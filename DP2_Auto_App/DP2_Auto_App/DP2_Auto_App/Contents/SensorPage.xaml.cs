@@ -90,7 +90,6 @@ namespace DP2_Auto_App.Contents
 
                 if (pulse != null)
                 {
-
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
