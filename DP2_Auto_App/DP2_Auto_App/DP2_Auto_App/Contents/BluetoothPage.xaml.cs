@@ -20,15 +20,19 @@ namespace DP2_Auto_App.Contents
         {
             InitializeComponent();
             ViewModel.GetPairedDevices();
-            //ViewModel.GetMessagesData();
-            //List_Messages();
             ListDevices();
         }
         private void ListDevices()
         {
-            foreach (var device in ViewModel.ListOfDevices)
+            if (ViewModel.ListOfDevices.Count > 0)
+                foreach (var device in ViewModel.ListOfDevices)
+                {
+                    picker1.Items.Add(device);
+                }
+            else
             {
-                picker1.Items.Add(device);
+                btn_Conectar.IsEnabled = false;
+                btn_Desconectar.IsEnabled = false;
             }
             picker1.SelectedIndexChanged += Picker1_SelectedIndexChanged;
             btn_Conectar.Clicked += Btn_Conectar_Clicked;

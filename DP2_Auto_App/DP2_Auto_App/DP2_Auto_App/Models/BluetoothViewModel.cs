@@ -18,6 +18,7 @@ namespace DP2_Auto_App
         {
             try
             {
+
                 ListOfDevices = DependencyService.Get<IBth>().PairedDevices();
             }
             catch (Exception ex)
