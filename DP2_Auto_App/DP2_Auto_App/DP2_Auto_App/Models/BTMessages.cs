@@ -9,6 +9,7 @@ namespace DP2_Auto_App.Models
     public class BTMessages
     {
         public static string message;
+        public static string macBT;
         public BTMessages()
         {
             message = "";
