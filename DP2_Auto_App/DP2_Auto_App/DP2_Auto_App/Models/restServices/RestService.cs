@@ -324,8 +324,8 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 sensor_id = sensorId,
                 goalNumber = goalValue,
-                starts_date = dateIni,
-                ends_date = dateEnd,
+                start_date = dateIni,
+                end_date = dateEnd,
                 description = desc
             };
 
