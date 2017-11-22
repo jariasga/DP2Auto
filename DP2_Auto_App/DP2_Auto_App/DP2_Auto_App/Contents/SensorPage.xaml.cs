@@ -16,23 +16,34 @@ namespace DP2_Auto_App.Contents
     public partial class SensorPage : ContentPage
     {
         Readings speed, temperature, weight, pulse, proximity, battery;
+        public static bool sensorLoop;
         public SensorPage()
         {
             InitializeComponent();
+            sensorLoop = false;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            updateSensorValues();
-            button_Actualizar.IsEnabled = false;
+            if (sensorLoop)
+            {
+                button_Actualizar.Text = "Actualizar";
+                sensorLoop = false;
+            }
+            else
+            {
+                sensorLoop = true;
+                updateSensorValues();
+            }
         }
 
         private async void updateSensorValues()
         {
+            button_Actualizar.Text = "Detener";
             List<Readings> r;
             int counter = 0;
             string updatedAt = "";
-            while (RestService.client != null)
+            while (sensorLoop)
             {
                 speed = temperature = weight = pulse = proximity = battery = null;
                 r = await webService.rest.getReadingList(Readings.SPEED);

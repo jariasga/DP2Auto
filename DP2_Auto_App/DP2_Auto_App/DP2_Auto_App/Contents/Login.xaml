@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Image Source="auto.png" WidthRequest="280" HeightRequest="140" />
-            <Entry x:Name="label_Username" Placeholder="Usuario@DP2.com" Text="jarias@pucp.edu.pe"/>
-            <Entry x:Name="label_Password" Placeholder="Password" IsPassword="True" Text="1234567890"/>
+            <Entry x:Name="label_Username" Placeholder="Usuario@DP2.com" Text="prueba20@gmail.com"/>
+            <Entry x:Name="label_Password" Placeholder="Password" IsPassword="True" Text="12345678"/>
             <Button x:Name="button_SignIn" Text="Ingresar" Clicked="button_SignIn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
