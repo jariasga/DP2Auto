@@ -63,7 +63,7 @@ namespace DP2_Auto_App.Contents
             pages[1] = new NavigationPage(new Contents.ObjectivesTabbedPage());
             pages[2] = new NavigationPage(new Contents.ParkingPage());
             pages[3] = new NavigationPage(new Contents.MapTabbedPage());
-            pages[5] = new NavigationPage(new Contents.ReminderPage());
+            pages[5] = new NavigationPage(new Contents.RemindersTabbedPage());
             pages[6] = new NavigationPage(new Contents.SensorPage());
             pages[7] = new NavigationPage(new Contents.SecurityPage());
             pages[8] = new NavigationPage(new Contents.BluetoothPage());
