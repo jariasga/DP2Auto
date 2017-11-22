@@ -138,8 +138,12 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
             List<string> devices = new List<string>();
 
-            foreach (var bd in adapter.BondedDevices)
-                devices.Add(bd.Name);
+            if (adapter != null)
+            {
+                foreach (var bd in adapter.BondedDevices)
+                    devices.Add(bd.Name);
+            }
+                
 
             return devices;
         }
