@@ -16,6 +16,7 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ParkingPage : ContentPage
     {
+        Readings temperature, iluminity, humidity, uv;
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
@@ -90,12 +91,42 @@ namespace DP2_Auto_App.Contents
 
         private async void UpdateSensors()
         {
+            List<Readings> r;
+            int counter = 0;
             while (true)
             {
-                label_Temperatura.Text = await webService.rest.getReadingInfo(Readings.TEMPERATURE) + " °C";
-                label_Humedad.Text = await webService.rest.getReadingInfo(Readings.HUMIDITY) + " % ";
-                label_Iluminacion.Text = await webService.rest.getReadingInfo(Readings.ILUMINITY) + " Lux";
-                //label_Uv.Text = await webService.rest.getReadingInfo(Readings.UV) + " Uv";
+                temperature = iluminity = humidity = uv = null;
+                r = await webService.rest.getReadingList(Readings.HUMIDITY);
+                if (r != null && r.Count > 0) humidity = r.First();
+
+                r = await webService.rest.getReadingList(Readings.TEMPERATURE);
+                if (r != null && r.Count > 0) temperature = r.First();
+
+                r = await webService.rest.getReadingList(Readings.ILUMINITY);
+                if (r != null && r.Count > 0) iluminity = r.First();
+
+                r = await webService.rest.getReadingList(Readings.UV);
+                if (r != null && r.Count > 0) uv = r.First();
+                
+                if (temperature != null)
+                {
+                    label_Temperatura.Text = temperature.value + "  °C";
+                }
+                if (iluminity != null)
+                {
+                    label_Iluminacion.Text = iluminity.value + "  Lux";
+                }
+                if (humidity != null)
+                {
+                    label_Humedad.Text = humidity.value + "  %";
+                }
+                if (uv != null)
+                {
+                    label_Uv.Text = uv.value + "  UV";
+                }
+
+                counter++;
+
                 Debug.WriteLine("Datos Actualizados");
                 await Task.Delay(20000);
             }
