@@ -32,9 +32,23 @@ namespace DP2_Auto_App.Models.RestServices
         public int heart_frecuency { get; set; }
         public string tools { get; set; }
         public int blocked { get; set; }
+        public Organization organization { get; set; }
+        public List<object> sensors { get; set; }
         public string token { get; set; }
     }
-
+    public class Organization
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
+        public string slug { get; set; }
+        public object deleted_at { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
+        public int max_vel { get; set; }
+        public int is_parking { get; set; }
+    }
     public class clientMAC
     {
         public string vehicle_mac { get; set; }
