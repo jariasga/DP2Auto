@@ -20,6 +20,7 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
+        public static bool isParking { get; private set; }
         public static List<Reminder> reminders;
         private string temporalTokenSave;
         public static startTravel currentTravel { get; private set; }
@@ -83,6 +84,9 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     client = JsonConvert.DeserializeObject<Client>(rString);
+                    if (client.organization.is_parking == 1) isParking = true;
+                    else isParking = false;
+
                     return "loginSuccess";
                 }
             }catch (Exception ex)
