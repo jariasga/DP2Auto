@@ -56,7 +56,7 @@ namespace DP2_Auto_App.Contents
         {
             pages = new NavigationPage[10];
             pages[0] = new NavigationPage(new Contents.UserPage());
-            pages[1] = new NavigationPage(new Contents.GoalsPage());
+            pages[1] = new NavigationPage(new Contents.ObjectivesTabbedPage());
             pages[2] = new NavigationPage(new Contents.ParkingPage());
             pages[3] = new NavigationPage(new Contents.MapTabbedPage());
             pages[5] = new NavigationPage(new Contents.ReminderPage());

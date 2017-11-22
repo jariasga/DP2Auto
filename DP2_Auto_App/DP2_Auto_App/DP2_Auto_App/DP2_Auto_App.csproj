@@ -69,6 +69,9 @@
     <Compile Include="Contents\MapTabbedPage.xaml.cs">
       <DependentUpon>MapTabbedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\ObjectivesTabbedPage.xaml.cs">
+      <DependentUpon>ObjectivesTabbedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\ParkingPage.xaml.cs">
       <DependentUpon>ParkingPage.xaml</DependentUpon>
     </Compile>
@@ -227,6 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\BluetoothPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ObjectivesTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
