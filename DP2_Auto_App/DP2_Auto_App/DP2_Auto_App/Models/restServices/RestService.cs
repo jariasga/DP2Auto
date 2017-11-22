@@ -23,6 +23,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Reminder> reminders;
         private string temporalTokenSave;
         public static startTravel currentTravel { get; private set; }
+        public static Objective currentObjective { get; private set;}
         public static endTravel end { get; private set; }
         static List<Travel> travels;
 
@@ -315,7 +316,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
+        public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "objectives");
@@ -323,7 +324,7 @@ namespace DP2_Auto_App.Models.RestServices
             Objective goal = new Objective
             {
                 sensor_id = sensorId,
-                goalNumber = goalValue,
+                goal = goalValue,
                 start_date = dateIni,
                 end_date = dateEnd,
                 description = desc
@@ -340,13 +341,12 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    goal = JsonConvert.DeserializeObject<Objective>(rString);
-                    return rString;
+                    return currentObjective = JsonConvert.DeserializeObject<Objective>(rString);
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }

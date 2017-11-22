@@ -7,5 +7,6 @@
     <TabbedPage.Children>
         <mypages:ObjectivesListViewPage Title="Lista Obj." />
         <mypages:GoalsAchieved Title="Logros" />
+        <mypages:GoalsRegister Title="Nuevo" />
     </TabbedPage.Children>
 </TabbedPage>

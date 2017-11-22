@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.GoalsRegister"
+             Title="Objetivos y Logros">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="10,0,0,0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Font="Bold" FontSize="Large" Text="Nombre: "/>
+                    <Entry FontAttributes="Bold" FontSize="Large" x:Name="entry_Desc" Placeholder="Nombre" Text="Prueba"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Sensor: "/>
+                    <Entry FontSize="Medium" x:Name="entry_Sensor" Text="1"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Objetivo: "/>
+                    <Entry FontSize="Large" x:Name="entry_Value" Text="15"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Comienzo: "/>
+                    <Entry FontSize="Large" x:Name="entry_Start" Text="25/11/2017"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Fin: "/>
+                    <Entry FontSize="Large" x:Name="entry_End" Text="29/11/2017"/>
+                </StackLayout>
+                <Button Text="Crear" Clicked="Button_ClickedCreate"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
