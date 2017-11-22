@@ -24,6 +24,8 @@ namespace DP2_Auto_App.Models.RestServices
         public static List<Reminder> reminders;
         private string temporalTokenSave;
         public static startTravel currentTravel { get; private set; }
+        public static Objective currentObjective { get; private set;}
+        public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
         static List<Travel> travels;
 
@@ -319,7 +321,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
+        public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "objectives");
@@ -327,7 +329,7 @@ namespace DP2_Auto_App.Models.RestServices
             Objective goal = new Objective
             {
                 sensor_id = sensorId,
-                goalNumber = goalValue,
+                goal = goalValue,
                 start_date = dateIni,
                 end_date = dateEnd,
                 description = desc
@@ -344,13 +346,12 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    goal = JsonConvert.DeserializeObject<Objective>(rString);
-                    return rString;
+                    return currentObjective = JsonConvert.DeserializeObject<Objective>(rString);
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }
@@ -382,31 +383,26 @@ namespace DP2_Auto_App.Models.RestServices
             client = null;
         }
 
-        public async Task<String> listReminders()
+        public async Task<List<Reminder>> listReminders()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            uri = new Uri(baseAddress, "reminders");
-
-
-
-            var json = JsonConvert.SerializeObject(reminders);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                var response = await webClient.GetAsync("reminders");
+                var response = await webClient.GetAsync("reminders?");
                 var rString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    reminders = new List<Reminder>();
-                    reminders = JsonConvert.DeserializeObject<List<Reminder>>(rString);
-                    return rString;
+                    List<Reminder> rem = new List<Reminder>();
+                    rem = JsonConvert.DeserializeObject<List<Reminder>>(rString);
+                    return rem;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null; ;
             }
             return null;
         }
@@ -434,7 +430,7 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<string> storeReminder(string desc, string date, string time)
+        public async Task<Reminder> storeReminder(string desc, string date, string time)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
             uri = new Uri(baseAddress, "reminders");
@@ -457,13 +453,12 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    reminder = JsonConvert.DeserializeObject<Reminder>(rString);
-                    return rString;
+                    return currentReminder = JsonConvert.DeserializeObject<Reminder>(rString);
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }

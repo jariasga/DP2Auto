@@ -47,6 +47,9 @@
     <Compile Include="Contents\GoalsPage.xaml.cs">
       <DependentUpon>GoalsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\GoalsRegister.xaml.cs">
+      <DependentUpon>GoalsRegister.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,15 @@
     </Compile>
     <Compile Include="Contents\ReminderPage.xaml.cs">
       <DependentUpon>ReminderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\ReminderRegister.xaml.cs">
+      <DependentUpon>ReminderRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\RemindersListViewPage.xaml.cs">
+      <DependentUpon>RemindersListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\RemindersTabbedPage.xaml.cs">
+      <DependentUpon>RemindersTabbedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contents\SecurityPage.xaml.cs">
       <DependentUpon>SecurityPage.xaml</DependentUpon>
@@ -245,6 +257,30 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\ObjectivesListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\GoalsRegister.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\RemindersListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\RemindersTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ReminderRegister.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
