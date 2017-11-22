@@ -32,6 +32,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             if (_ct != null)
             {
                 System.Diagnostics.Debug.WriteLine("Send a cancel to task!");
+                BTMessages.macBT = ""; //eliminado mac 
                 _ct.Cancel();
             }
         }
@@ -90,7 +91,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                             if (bthSocket.IsConnected)
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!");
-
+                                BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
                                 byte[] buffer = new byte[1024];
                                 var valor = "";
                                 while (_ct.IsCancellationRequested == false)
