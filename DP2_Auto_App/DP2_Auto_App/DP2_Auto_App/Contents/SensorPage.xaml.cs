@@ -32,7 +32,7 @@ namespace DP2_Auto_App.Contents
             List<Readings> r;
             int counter = 0;
             string updatedAt = "";
-            while (true)
+            while (RestService.client != null)
             {
                 speed = temperature = weight = pulse = proximity = battery = null;
                 r = await webService.rest.getReadingList(Readings.SPEED);
