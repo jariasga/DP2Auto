@@ -5,7 +5,7 @@
              xmlns:mypages ="clr-namespace:DP2_Auto_App.Contents">
     <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
-        <mypages:GoalsPage Title="Lista Obj." />
+        <mypages:ObjectivesListViewPage Title="Lista Obj." />
         <mypages:GoalsAchieved Title="Logros" />
     </TabbedPage.Children>
 </TabbedPage>

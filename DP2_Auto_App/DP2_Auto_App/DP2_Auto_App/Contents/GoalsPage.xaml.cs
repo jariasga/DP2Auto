@@ -15,21 +15,22 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GoalsPage : ContentPage
     {
+        List<Objective> objectives;
+        GoalsAchieved achieved;
         public GoalsPage()
         {
             InitializeComponent();
-            initializeValues();
+            initializeValues();            
         }
-        private void initializeValues()
+        private async void initializeValues()
         {
-
+            objectives = await webService.rest.listGoals();
+            achieved = new GoalsAchieved();
         }
 
         private async void buttonClickedAchievedGoals(object sender, EventArgs e)
-        {
-            List<Objective> objectives;
-            objectives =  await webService.rest.listGoals();
-            App.Current.MainPage = new Contents.GoalsAchieved();
+        {               
+            await Navigation.PushModalAsync(achieved);
         }
     }
 }

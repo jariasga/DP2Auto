@@ -69,6 +69,9 @@
     <Compile Include="Contents\MapTabbedPage.xaml.cs">
       <DependentUpon>MapTabbedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\ObjectivesListViewPage.xaml.cs">
+      <DependentUpon>ObjectivesListViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\ObjectivesTabbedPage.xaml.cs">
       <DependentUpon>ObjectivesTabbedPage.xaml</DependentUpon>
     </Compile>
@@ -236,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\ObjectivesTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ObjectivesListViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
