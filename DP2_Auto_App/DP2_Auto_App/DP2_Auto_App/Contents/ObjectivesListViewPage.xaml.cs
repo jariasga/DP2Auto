@@ -26,6 +26,7 @@ namespace DP2_Auto_App.Contents
         {
             objectives = await webService.rest.listGoals();
             MyListView.ItemsSource = objectives;
+            MyListView.IsPullToRefreshEnabled = true;
         }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
@@ -37,5 +38,11 @@ namespace DP2_Auto_App.Contents
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
+
+        /*private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            DisplayAlert("Delete Context Action", mi.CommandParameter + " delete context action", "OK");
+        }*/
     }
 }
