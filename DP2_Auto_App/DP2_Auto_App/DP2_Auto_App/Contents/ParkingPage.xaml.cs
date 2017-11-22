@@ -17,12 +17,8 @@ namespace DP2_Auto_App.Contents
     public partial class ParkingPage : ContentPage
     {
         Readings temperature, iluminity, humidity, uv;
-        private static readonly HttpClient client = new HttpClient(); // Creando el cliente
-        public int vsw = 0; //estado en el que esta el switch de modo automatico
-        public int ang= 45; // inicio del angulo de persiana
         public bool estado = false; //activacion/desactivacion de automatica o no la persina
-        public string vmodo; //valor del modo
-        public string vangulo; //valor del angulo
+        
         public ParkingPage()
         {
             InitializeComponent();
@@ -32,10 +28,6 @@ namespace DP2_Auto_App.Contents
         private void ChangeData()
         {
             btn_actualizar.Clicked += Btn_Actualizar_Clicked;
-            btn_Restar.Clicked += Btn_Restar_Clicked;
-            btn_Sumar.Clicked += Btn_Sumar_Clicked;
-            sw.Toggled += Sw_Toggled;
-            btn_angulo.Clicked += Btn_angulo_Clicked;
         }
 
         private void Btn_Actualizar_Clicked(object sender, EventArgs e)
@@ -52,55 +44,8 @@ namespace DP2_Auto_App.Contents
                 btn_actualizar.Text = "Actualizar";
                 estado = false;
             }
-                
+
             UpdateSensors();
-        }
-
-        private void Btn_Sumar_Clicked(object sender, EventArgs e)
-        {   
-            if (ang != 90)
-            {
-                ang += 5;
-                label_Angulo.Text = ang.ToString() + "°";
-            }
-            else if (ang == 90)
-            {
-                Mensaje(1);
-            }
-        }
-
-        private void Btn_Restar_Clicked(object sender, EventArgs e)
-        {
-            if (ang != 0)
-            {
-                ang -= 5;
-                label_Angulo.Text = ang.ToString() + "°";
-            }
-            else if (ang == 0)
-            {
-                Mensaje(2);
-            }
-        }
-
-        public void Sw_Toggled(object sender, ToggledEventArgs e)
-        {
-            var value = e.Value.ToString();
-            if (value == "True")
-            {
-                vsw = 1;
-                btn_Restar.IsEnabled = false;
-                btn_Sumar.IsEnabled = false;
-            }else if(value == "False")
-            {
-                vsw = 0;
-                btn_Restar.IsEnabled = true;
-                btn_Sumar.IsEnabled = true;
-            }
-        }
-
-        private void Btn_angulo_Clicked(object sender, EventArgs e)
-        {
-            SendData();
         }
 
         private async void UpdateSensors()
@@ -146,44 +91,6 @@ namespace DP2_Auto_App.Contents
             }
         }
         
-        private async void SendData()
-        {
-            if (vsw == 1)
-            {
-                vmodo = "auto";
-                vangulo = "0";
-            }
-            else if(vsw == 0)
-            {
-                vmodo = "manual";
-                vangulo = ang.ToString();
-            }
-            await SendDataAsync();
-        }
-
-        public async Task SendDataAsync()
-        {
-            var values = new Dictionary<string, string>
-            {
-                { "modo", vmodo },
-                { "angulo", vangulo }
-            };
-
-            var content = new FormUrlEncodedContent(values);
-
-            var response = await client.PostAsync("http://192.168.1.104/prueba.php", content);
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            if(responseString == "{\"estado\":\"exito\"}")
-            {
-                Mensaje(6);
-            }else if (responseString == "{\"estado\":\"error\"}")
-            {
-                Mensaje(5);
-            }
-            Debug.WriteLine(responseString);
-        }
-
         public void Mensaje(int num)
         {
             switch (num)

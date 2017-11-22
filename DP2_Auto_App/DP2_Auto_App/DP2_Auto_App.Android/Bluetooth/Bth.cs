@@ -45,7 +45,6 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         {
             BluetoothDevice device = null;
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
-            System.Diagnostics.Debug.WriteLine(adapter);
             BluetoothSocket bthSocket = null;
             while (_ct.IsCancellationRequested == false)
             {

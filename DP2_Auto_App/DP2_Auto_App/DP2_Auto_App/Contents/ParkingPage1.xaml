@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.ParkingPage1"
+             Title="Datos de Sensores">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Orientation="Vertical">
+                <Label Text="Manejo de la Persiana" TextColor="Brown" FontSize="Medium"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Activar/Desactivar Modo Automático" TextColor="Black"/>
+                    <Switch x:Name="sw" />
+                </StackLayout>
+
+                <Label FontSize="Large" Text="Ajustar Ángulo de Inclinación de la Persiana:" TextColor="Black" />
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Button x:Name="btn_Restar" Text="-" />
+                    <Label x:Name="label_Angulo" Text="45°" FontSize="Medium"></Label>
+                    <Button x:Name="btn_Sumar" Text="+"/>
+                </StackLayout>
+                <Button x:Name="btn_angulo" Text="Mover Persiana" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

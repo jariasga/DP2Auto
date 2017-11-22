@@ -78,6 +78,12 @@
     <Compile Include="Contents\ParkingPage.xaml.cs">
       <DependentUpon>ParkingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contents\ParkingPage1.xaml.cs">
+      <DependentUpon>ParkingPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\ParkingTabbedPage.xaml.cs">
+      <DependentUpon>ParkingTabbedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contents\ReminderPage.xaml.cs">
       <DependentUpon>ReminderPage.xaml</DependentUpon>
     </Compile>
@@ -245,6 +251,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\ObjectivesListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ParkingTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ParkingPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

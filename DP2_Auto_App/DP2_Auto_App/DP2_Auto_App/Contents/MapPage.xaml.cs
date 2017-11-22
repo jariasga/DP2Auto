@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using DP2_Auto_App.Models;
 
 namespace DP2_Auto_App.Contents
 {
@@ -68,10 +69,14 @@ namespace DP2_Auto_App.Contents
 
         private async void StartTravel(object sender, EventArgs e)
         {
-            await webService.rest.startTravel("19:51:AD:01:AC:F2");
-            inicio = RestService.currentTravel;
-            DateTime horaIni = DateTime.Parse(inicio.started_at.date);
-            await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
+            if(BTMessages.macBT != "")
+            {
+                await webService.rest.startTravel(BTMessages.macBT);
+                inicio = RestService.currentTravel;
+                DateTime horaIni = DateTime.Parse(inicio.started_at.date);
+                await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
+            }
+            else await DisplayAlert("Atención", "Para iniciar un viaje debe conectarse a un vehiculo", "Ok");
         }
         private async void EndTravel(object sender, EventArgs e)
         {
