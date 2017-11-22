@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DP2_Auto_App.Models.RestServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,14 +61,14 @@ namespace DP2_Auto_App.Contents
         {
             pages = new NavigationPage[10];
             pages[0] = new NavigationPage(new Contents.UserPage());
-            pages[1] = new NavigationPage(new Contents.ObjectivesTabbedPage());
-            pages[2] = new NavigationPage(new Contents.ParkingPage());
-            pages[3] = new NavigationPage(new Contents.MapTabbedPage());
-            pages[5] = new NavigationPage(new Contents.ReminderPage());
-            pages[6] = new NavigationPage(new Contents.SensorPage());
-            pages[7] = new NavigationPage(new Contents.SecurityPage());
-            pages[8] = new NavigationPage(new Contents.BluetoothPage());
-            pages[9] = new NavigationPage(new Contents.WarningPage());
+            if (!RestService.isParking) pages[1] = new NavigationPage(new Contents.ObjectivesTabbedPage());
+            if (RestService.isParking) pages[2] = new NavigationPage(new Contents.ParkingPage());
+            if (!RestService.isParking) pages[3] = new NavigationPage(new Contents.MapTabbedPage());
+            if (!RestService.isParking) pages[5] = new NavigationPage(new Contents.ReminderPage());
+            if (!RestService.isParking) pages[6] = new NavigationPage(new Contents.SensorPage());
+            if (!RestService.isParking) pages[7] = new NavigationPage(new Contents.SecurityPage());
+            if (!RestService.isParking) pages[8] = new NavigationPage(new Contents.BluetoothPage());
+            if (!RestService.isParking) pages[9] = new NavigationPage(new Contents.WarningPage());
         }
     }
 }
