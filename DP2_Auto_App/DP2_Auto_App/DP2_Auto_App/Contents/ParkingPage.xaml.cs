@@ -1,9 +1,9 @@
 ﻿using DP2_Auto_App.Models.RestServices;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,25 +17,18 @@ namespace DP2_Auto_App.Contents
     public partial class ParkingPage : ContentPage
     {
         Readings temperature, iluminity, humidity, uv;
-        HttpClient webClient;
-        Uri baseAddress, uri;
-        //public static Client client { get; private set; }
-        public int vsw = 0;
-        public int ang= 45;
-        public bool estado = false;
+        private static readonly HttpClient client = new HttpClient(); // Creando el cliente
+        public int vsw = 0; //estado en el que esta el switch de modo automatico
+        public int ang= 45; // inicio del angulo de persiana
+        public bool estado = false; //activacion/desactivacion de automatica o no la persina
+        public string vmodo; //valor del modo
+        public string vangulo; //valor del angulo
         public ParkingPage()
         {
-
             InitializeComponent();
             ChangeData();
-
-            baseAddress = new Uri("http://192.168.1.104/");
-            webClient = new HttpClient();
-            webClient.MaxResponseContentBufferSize = 256000;
-            webClient.BaseAddress = baseAddress;
-            
         }
-
+        
         private void ChangeData()
         {
             btn_actualizar.Clicked += Btn_Actualizar_Clicked;
@@ -95,6 +88,13 @@ namespace DP2_Auto_App.Contents
             if (value == "True")
             {
                 vsw = 1;
+                btn_Restar.IsEnabled = false;
+                btn_Sumar.IsEnabled = false;
+            }else if(value == "False")
+            {
+                vsw = 0;
+                btn_Restar.IsEnabled = true;
+                btn_Sumar.IsEnabled = true;
             }
         }
 
@@ -148,66 +148,40 @@ namespace DP2_Auto_App.Contents
         
         private async void SendData()
         {
-            //client = new Client();
-            Debug.WriteLine(vsw);
-
-            Parking parking = new Parking
-            {
-                modo = "manual",
-                angulo = "90"//label_Angulo.Text
-            };
-
-            /*
-            Users user = new Users
-            {
-                email = "prueba20@gmail.com",//label_Username.Text,
-                password = "12345678"//label_Password.Text
-            };
-            /*
             if (vsw == 1)
             {
-                Parking parking = new Parking
-                {
-                    modo = "auto",
-                    angulo = "0"
-                };
+                vmodo = "auto";
+                vangulo = "0";
             }
-            else
+            else if(vsw == 0)
             {
-                Parking parking = new Parking
-                {
-                    modo = "manual",
-                    angulo = label_Angulo.Text
-                };
-            }*/
-            await SendDataAsync(parking);
+                vmodo = "manual";
+                vangulo = ang.ToString();
+            }
+            await SendDataAsync();
         }
 
-
-        public async Task<string> SendDataAsync(Parking parking)
+        public async Task SendDataAsync()
         {
-            uri = new Uri(baseAddress, "prueba.php");
-            //client = new Client();
-            var json = JsonConvert.SerializeObject(parking);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            try
+            var values = new Dictionary<string, string>
             {
-                var response = await webClient.PostAsync(uri, content);
+                { "modo", vmodo },
+                { "angulo", vangulo }
+            };
 
-                var rString = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine(rString);
-                if (response.IsSuccessStatusCode)
-                {
-                    //client = JsonConvert.DeserializeObject<Client>(rString);
-                    return "datasend";
-                }
-            }
-            catch (Exception ex)
+            var content = new FormUrlEncodedContent(values);
+
+            var response = await client.PostAsync("http://192.168.1.104/prueba.php", content);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            if(responseString == "{\"estado\":\"exito\"}")
             {
-                return "connectionProblem: " + ex.Message;
+                Mensaje(6);
+            }else if (responseString == "{\"estado\":\"error\"}")
+            {
+                Mensaje(5);
             }
-            return "notsend";
+                Debug.WriteLine(responseString);
         }
 
         public void Mensaje(int num)
@@ -225,6 +199,12 @@ namespace DP2_Auto_App.Contents
                     break;
                 case 4:
                     DisplayAlert("Atención", "La actualización automática se ha detenido", "OK");
+                    break;
+                case 5:
+                    DisplayAlert("Atención", "Los datos no se enviaron correctamente, intente de nuevo", "OK");
+                    break;
+                case 6:
+                    DisplayAlert("Atención", "Datos enviados correctamente", "OK");
                     break;
             }
         }
