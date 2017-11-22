@@ -44,9 +44,6 @@
     <Compile Include="Contents\GoalsAchieved.xaml.cs">
       <DependentUpon>GoalsAchieved.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contents\GoalsNew.xaml.cs">
-      <DependentUpon>GoalsNew.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Contents\GoalsPage.xaml.cs">
       <DependentUpon>GoalsPage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +68,12 @@
     </Compile>
     <Compile Include="Contents\MapTabbedPage.xaml.cs">
       <DependentUpon>MapTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\ObjectivesListViewPage.xaml.cs">
+      <DependentUpon>ObjectivesListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Contents\ObjectivesTabbedPage.xaml.cs">
+      <DependentUpon>ObjectivesTabbedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contents\ParkingPage.xaml.cs">
       <DependentUpon>ParkingPage.xaml</DependentUpon>
@@ -211,12 +214,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Contents\GoalsNew.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Contents\UserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -236,6 +233,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Contents\BluetoothPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ObjectivesTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\ObjectivesListViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

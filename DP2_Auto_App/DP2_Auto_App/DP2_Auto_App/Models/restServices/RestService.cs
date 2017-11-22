@@ -20,7 +20,6 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
-        public static List<Objective> objectives;
         public static List<Reminder> reminders;
         private string temporalTokenSave;
         public static startTravel currentTravel { get; private set; }
@@ -271,7 +270,7 @@ namespace DP2_Auto_App.Models.RestServices
         public async Task<List<Readings>> getReadingList(int sensorID)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            List<Readings> read = new List<Readings>();
+            
             try
             {
                 var response = await webClient.GetAsync("readings?count=1&sensor_id=" + sensorID);
@@ -279,6 +278,7 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
+                    List<Readings> read = new List<Readings>();
                     read = JsonConvert.DeserializeObject<List<Readings>>(rString);
                     return read;
                 }
@@ -291,15 +291,9 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
-        public async Task<String> listGoals()
+        public async Task<List<Objective>> listGoals()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            uri = new Uri(baseAddress, "objectives");
-
-            
-
-            var json = JsonConvert.SerializeObject(objectives);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
@@ -308,14 +302,15 @@ namespace DP2_Auto_App.Models.RestServices
 
                 if (response.IsSuccessStatusCode)
                 {
-                    objectives = new List<Objective>();
-                    objectives = JsonConvert.DeserializeObject<List<Objective>>(rString);
-                    return rString;
+                    List<Objective> obj = new List<Objective>();
+                    obj = JsonConvert.DeserializeObject<List<Objective>>(rString);
+                    return obj;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null; ;
             }
             return null;
         }
@@ -329,8 +324,8 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 sensor_id = sensorId,
                 goalNumber = goalValue,
-                starts_date = dateIni,
-                ends_date = dateEnd,
+                start_date = dateIni,
+                end_date = dateEnd,
                 description = desc
             };
 
