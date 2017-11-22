@@ -181,7 +181,7 @@ namespace DP2_Auto_App.Contents
             {
                 Mensaje(5);
             }
-                Debug.WriteLine(responseString);
+            Debug.WriteLine(responseString);
         }
 
         public void Mensaje(int num)
