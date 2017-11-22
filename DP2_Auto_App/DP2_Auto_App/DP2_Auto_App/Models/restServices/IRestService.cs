@@ -20,7 +20,7 @@ namespace DP2_Auto_App.Models.RestServices
         Task<List<Objective>> listGoals();
         Task<Reminder> storeReminder(string desc, string date, string time);
         Task<string> getReminderInfo(int reminderID);
-        Task<string> listReminders();
+        Task<List<Reminder>> listReminders();
 
     }
 }

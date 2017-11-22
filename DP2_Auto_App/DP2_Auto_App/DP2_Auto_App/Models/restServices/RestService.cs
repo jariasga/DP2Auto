@@ -347,7 +347,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }
@@ -379,31 +379,26 @@ namespace DP2_Auto_App.Models.RestServices
             client = null;
         }
 
-        public async Task<String> listReminders()
+        public async Task<List<Reminder>> listReminders()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
-            uri = new Uri(baseAddress, "reminders");
-
-
-
-            var json = JsonConvert.SerializeObject(reminders);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                var response = await webClient.GetAsync("reminders");
+                var response = await webClient.GetAsync("reminders?");
                 var rString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    reminders = new List<Reminder>();
-                    reminders = JsonConvert.DeserializeObject<List<Reminder>>(rString);
-                    return rString;
+                    List<Reminder> rem = new List<Reminder>();
+                    rem = JsonConvert.DeserializeObject<List<Reminder>>(rString);
+                    return rem;
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null; ;
             }
             return null;
         }
@@ -459,7 +454,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("ex.Message");
             }
             return null;
         }
