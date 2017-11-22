@@ -25,7 +25,7 @@ namespace DP2_Auto_App.Models.RestServices
         private string temporalTokenSave;
         public static startTravel currentTravel { get; private set; }
         public static endTravel end { get; private set; }
-        static List<Travel> travels;
+        static List<Viajes> travels;
 
 
         public RestService()
@@ -36,13 +36,14 @@ namespace DP2_Auto_App.Models.RestServices
             webClient.BaseAddress = baseAddress;
 
             client = new Client();
-            travels = new List<Travel>();
+            travels = new List<Viajes>();
             currentTravel = new startTravel();
         }
 
 
         public  async void initializeTravels()
         {
+            //travels = new List<Travel>();
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy
             uri = new Uri(baseAddress, "travels?");
 
@@ -57,7 +58,7 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     //travels
-                    travels = JsonConvert.DeserializeObject<List<Travel>>(rString);
+                    travels = JsonConvert.DeserializeObject<List<Viajes>>(rString);
                     int a = 0;
                     //return rString;
                 }
@@ -78,25 +79,25 @@ namespace DP2_Auto_App.Models.RestServices
             else return 0;
         }
 
-        public static Travel getNTravel(int id)
+        public static Viajes getNTravel(int id)
         {
-            Travel aux = new Travel();
+            Viajes aux = new Viajes();
             for(int i = 0; i < travels.Count(); i++)
             {
                 aux = travels.ElementAt(i);
-                if(aux.started.id == id)
+                if(aux.id == id)
                     return aux; 
             }
 
             return null;
         }
 
-        public static Travel getTravelAt(int i)
+        public static Viajes getTravelAt(int i)
         {
             return travels.ElementAt(i);
         }
 
-        public static Travel getLastTrip()
+        public static Viajes getLastTrip()
         {
             return travels.ElementAt(travels.Count-1);
         }
@@ -228,10 +229,14 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     end = JsonConvert.DeserializeObject<endTravel>(rString);
-                    Travel travel = new Travel
+                    Viajes travel = new Viajes
                     {
-                        started = start,
-                        ended = end
+                        id = start.id,
+                        started_at = end.started_at,
+                        ended_at = end.ended_at.date,
+                        client_id = start.client_id,
+                        vehicle_id = start.vehicle_id,
+                        created_at = start.created_at,
                     };
                     travels.Add(travel);
                     return rString;

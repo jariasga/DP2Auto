@@ -68,6 +68,7 @@ namespace DP2_Auto_App.Models.RestServices
     {
         public int id { get; set; }
         public string started_at { get; set; }
+
         public EndedAt ended_at { get; set; }
         public int client_id { get; set; }
         public int vehicle_id { get; set; }
@@ -75,6 +76,20 @@ namespace DP2_Auto_App.Models.RestServices
         public string created_at { get; set; }
         public string updated_at { get; set; }
     }
+
+    public class Viajes
+    {
+        public int id { get; set; }
+        public string started_at { get; set; }
+
+        public string ended_at { get; set; }
+        public int client_id { get; set; }
+        public int vehicle_id { get; set; }
+        public object deleted_at { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
+    }
+
 
     public class Travel
     {

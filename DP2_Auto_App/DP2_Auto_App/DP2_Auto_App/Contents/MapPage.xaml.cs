@@ -74,7 +74,7 @@ namespace DP2_Auto_App.Contents
 
         private async void StartTravel(object sender, EventArgs e)
         {
-            await webService.rest.startTravel("19:51:AD:01:AC:F2");
+            await webService.rest.startTravel("00:21:13:01:D6:BB");
             inicio = RestService.currentTravel;
             DateTime horaIni = DateTime.Parse(inicio.started_at.date);
             await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
