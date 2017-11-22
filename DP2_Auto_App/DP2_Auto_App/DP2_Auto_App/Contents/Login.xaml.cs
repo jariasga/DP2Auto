@@ -42,7 +42,7 @@ namespace DP2_Auto_App.Contents
             {
                 await DisplayAlert("Login", "Correcto", "Ok");
                 await webService.rest.getClientInfo();
-                BTMessages bt = new BTMessages();
+                BTMessages bt = new BTMessages();   // Initizalize for changes made in BT messages queue
                 App.Current.MainPage = new Contents.MainMenu();
             }
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
