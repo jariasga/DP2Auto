@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Plugin.Geolocator.Abstractions;
+using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models;
@@ -24,10 +26,36 @@ namespace DP2_Auto_App.Contents
             initializeMap();
         }
 
-        void initializeLocationManager()
+        
+
+        public async void getlocacion(object sender, EventArgs e)
         {
-            
+            await RetreiveLoc();
         }
+
+        public async Task RetreiveLoc()
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
+
+            if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+            {
+
+                var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
+                if (position == null)
+                    return;
+
+
+                latitude.Text = "" + position.Latitude;
+                longitude.Text = "" + position.Longitude;
+            }
+            else
+            {
+                await DisplayAlert("Error", "Home", "OK");
+            }
+
+        }
+
 
         async void mensaje()
         {
@@ -43,7 +71,7 @@ namespace DP2_Auto_App.Contents
 
         private void initializeMap()
         {
-            var position = new Position(-12.0689857, -77.078947); // Latitude, Longitude
+            var position = new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947); // Latitude, Longitude
             var pin = new Pin
             {
                 Type = PinType.Place,
@@ -55,13 +83,13 @@ namespace DP2_Auto_App.Contents
 
             map.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                new Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
+                new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
 
         }
 
         void Nuevo_destino(object sender, ToggledEventArgs e)
         {
-            var pos = new Position(double.Parse(latitude.Text), double.Parse(longitude.Text));
+            var pos = new Xamarin.Forms.Maps.Position(double.Parse(latitude.Text), double.Parse(longitude.Text));
             string add = "" + latitude.Text + " " + longitude.Text;
             var pin = new Pin
             {
