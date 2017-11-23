@@ -15,12 +15,18 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
+        
         startTravel inicio;
         endTravel fin;
         public MapPage()
         {
             InitializeComponent();
             initializeMap();
+        }
+
+        void initializeLocationManager()
+        {
+            
         }
 
         async void mensaje()
@@ -71,6 +77,7 @@ namespace DP2_Auto_App.Contents
         {
             if(BTMessages.macBT != "")
             {
+                //await webService.rest.startTravel("00:21:13:01:D6:BB");   // En caso no tener BT real
                 await webService.rest.startTravel(BTMessages.macBT);
                 inicio = RestService.currentTravel;
                 DateTime horaIni = DateTime.Parse(inicio.started_at.date);

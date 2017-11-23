@@ -31,6 +31,8 @@
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="Bateria" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="minBatt" Text="" Keyboard="Numeric"/>
+                    <Button Text="Cambiar" Clicked="ButtonBatt"/>
                 </StackLayout>
                 <StackLayout Spacing="5">
                     <Switch Toggled="SwitchBattery"/>
@@ -41,6 +43,8 @@
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="Proximidad" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="minProximidad" Text="" Keyboard="Numeric"/>
+                    <Button Text="Cambiar" Clicked="ButtonProx"/>
                 </StackLayout>
                 <StackLayout Spacing="5">
                     <Switch Toggled="SwitchProximity"/>
@@ -51,6 +55,8 @@
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="Ritmo Cardíaco" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="minLatidos" Text="" Keyboard="Numeric"/>
+                    <Button Text="Cambiar" Clicked="ButtonLatidos"/>
                 </StackLayout>
                 <StackLayout Spacing="5">
                     <Switch Toggled="SwitchHeart"/>
