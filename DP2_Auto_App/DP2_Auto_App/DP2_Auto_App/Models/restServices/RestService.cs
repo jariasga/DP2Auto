@@ -27,7 +27,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static Objective currentObjective { get; private set;}
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
-        static List<Travel> travels;
+        static List<Viajes> travels;
 
 
         public RestService()
@@ -38,34 +38,68 @@ namespace DP2_Auto_App.Models.RestServices
             webClient.BaseAddress = baseAddress;
 
             client = new Client();
-            travels = new List<Travel>();
+            travels = new List<Viajes>();
             currentTravel = new startTravel();
+        }
+
+
+        public  async void initializeTravels()
+        {
+            //travels = new List<Travel>();
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy
+            uri = new Uri(baseAddress, "travels?");
+
+            var content = new StringContent("", Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.GetAsync(uri);
+
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //travels
+                    travels = JsonConvert.DeserializeObject<List<Viajes>>(rString);
+                    int a = 0;
+                    //return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                //return ex.Message;
+            }
+            //return null;
+
+
         }
 
         public static int CountTravels()
         {
-            return travels.Count();
+            if (travels != null)
+                return travels.Count();
+            else return 0;
         }
 
-        public static Travel getNTravel(int id)
+        public static Viajes getNTravel(int id)
         {
-            Travel aux = new Travel();
+            Viajes aux = new Viajes();
             for(int i = 0; i < travels.Count(); i++)
             {
                 aux = travels.ElementAt(i);
-                if(aux.started.id == id)
+                if(aux.id == id)
                     return aux; 
             }
 
             return null;
         }
 
-        public static Travel getTravelAt(int i)
+        public static Viajes getTravelAt(int i)
         {
             return travels.ElementAt(i);
         }
 
-        public static Travel getLastTrip()
+        public static Viajes getLastTrip()
         {
             return travels.ElementAt(travels.Count-1);
         }
@@ -88,7 +122,7 @@ namespace DP2_Auto_App.Models.RestServices
                     client = JsonConvert.DeserializeObject<Client>(rString);
                     if (client.organization.is_parking == 1) isParking = true;
                     else isParking = false;
-
+                    initializeTravels();
                     return "loginSuccess";
                 }
             }catch (Exception ex)
@@ -199,10 +233,14 @@ namespace DP2_Auto_App.Models.RestServices
                 if (response.IsSuccessStatusCode)
                 {
                     end = JsonConvert.DeserializeObject<endTravel>(rString);
-                    Travel travel = new Travel
+                    Viajes travel = new Viajes
                     {
-                        started = start,
-                        ended = end
+                        id = start.id,
+                        started_at = end.started_at,
+                        ended_at = end.ended_at.date,
+                        client_id = start.client_id,
+                        vehicle_id = start.vehicle_id,
+                        created_at = start.created_at,
                     };
                     travels.Add(travel);
                     return rString;
@@ -233,14 +271,14 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 var response = await webClient.PostAsync(uri, content);
 
-                var rString = await response.Content.ReadAsStringAsync();
+                //var rString = await response.Content.ReadAsStringAsync();
 
-                if (response.IsSuccessStatusCode)
-                {
-                    read = JsonConvert.DeserializeObject<Readings>(rString);
-                    Debug.WriteLine("Dato almacenado coorectamente!");
-                    return rString;
-                }
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    read = JsonConvert.DeserializeObject<Readings>(rString);
+                //    Debug.WriteLine("Dato almacenado coorectamente!");
+                //    return rString;
+                //}
             }
             catch (Exception ex)
             {

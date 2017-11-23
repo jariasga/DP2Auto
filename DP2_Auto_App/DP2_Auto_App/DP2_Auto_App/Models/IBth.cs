@@ -12,7 +12,7 @@ namespace DP2_Auto_App.Models
         void Disconnect();
         void Connect(string name);
         List<String> PairedDevices();
-        List<String> MessagesData();
+        //List<String> MessagesData();
         
     }
 }
