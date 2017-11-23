@@ -58,7 +58,7 @@ namespace DP2_Auto_App.Contents
 
             var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("http://192.168.1.104/prueba.php", content);
+            var response = await client.PostAsync("http://192.168.1.101/prueba.php", content);
 
             var responseString = await response.Content.ReadAsStringAsync();
             if (responseString == "{\"estado\":\"exito\"}")

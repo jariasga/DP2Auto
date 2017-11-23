@@ -66,7 +66,7 @@ namespace DP2_Auto_App.Contents
             if (!RestService.isParking) pages[3] = new NavigationPage(new Contents.MapTabbedPage());
             if (!RestService.isParking) pages[5] = new NavigationPage(new Contents.RemindersTabbedPage());
             if (!RestService.isParking) pages[6] = new NavigationPage(new Contents.SensorPage());
-            if (!RestService.isParking) pages[7] = new NavigationPage(new Contents.SecurityPage());
+            //if (!RestService.isParking) pages[7] = new NavigationPage(new Contents.SecurityPage());
             if (!RestService.isParking) pages[8] = new NavigationPage(new Contents.BluetoothPage());
             if (!RestService.isParking) pages[9] = new NavigationPage(new Contents.WarningPage());
 
