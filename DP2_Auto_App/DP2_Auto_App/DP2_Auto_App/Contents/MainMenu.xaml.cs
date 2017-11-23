@@ -37,7 +37,7 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Navegación y Viajes")) Detail = pages[3];
             else if (item.Title.Equals("Recordatorios")) Detail = pages[5];
             else if (item.Title.Equals("Estado del Auto")) Detail = pages[6];
-            else if (item.Title.Equals("Seguridad")) Detail = pages[7];
+            //else if (item.Title.Equals("Seguridad")) Detail = pages[7];
             else if (item.Title.Equals("Bluetooth")) Detail = pages[8];
             else if (item.Title.Equals("Alertas")) Detail = pages[9];
             else if (item.Title.Equals("Cerrar Sesión"))
