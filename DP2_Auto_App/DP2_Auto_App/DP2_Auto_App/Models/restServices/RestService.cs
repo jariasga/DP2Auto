@@ -233,14 +233,14 @@ namespace DP2_Auto_App.Models.RestServices
             {
                 var response = await webClient.PostAsync(uri, content);
 
-                var rString = await response.Content.ReadAsStringAsync();
+                //var rString = await response.Content.ReadAsStringAsync();
 
-                if (response.IsSuccessStatusCode)
-                {
-                    read = JsonConvert.DeserializeObject<Readings>(rString);
-                    Debug.WriteLine("Dato almacenado coorectamente!");
-                    return rString;
-                }
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    read = JsonConvert.DeserializeObject<Readings>(rString);
+                //    Debug.WriteLine("Dato almacenado coorectamente!");
+                //    return rString;
+                //}
             }
             catch (Exception ex)
             {

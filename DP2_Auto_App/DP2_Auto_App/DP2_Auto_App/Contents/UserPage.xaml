@@ -5,7 +5,7 @@
              Title="Usuario">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="10,0,0,0">
+            <StackLayout Margin="10,0,0,0" Padding="10">
                 <Image x:Name="image_photo" WidthRequest="130" HeightRequest="130"></Image>
                 <StackLayout Orientation="Horizontal">
                     <Label Font="Bold" FontSize="Large" Text="Nombre: "/>
