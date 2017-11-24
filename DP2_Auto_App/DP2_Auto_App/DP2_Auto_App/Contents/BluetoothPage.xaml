@@ -11,6 +11,7 @@
                 <Picker x:Name="picker1" Title="Dispositivos Emparejados" />
                 <Button x:Name="btn_Conectar" Text="Conectar" TextColor="Blue"/>
                 <Button x:Name="btn_Desconectar" Text="Desconectar" TextColor="Blue"/>
+                <!--
                 <Label x:Name="label2" Text="Manejar el auto" FontSize="18" TextColor="Brown" />
                 <StackLayout>
                     <TableView x:Name="tableview1" Intent="Menu">
@@ -23,19 +24,15 @@
                             </TableSection>
                         </TableRoot>
                     </TableView>
-                </StackLayout>
+                </St1ackLayout>
+                -->
+                <!--
+                
                 <Picker x:Name="picker2" Title="Mensajes Disponibles">
-                    <Picker.Items>
-                        <x:String>0</x:String>
-                        <x:String>1</x:String>
-                        <x:String>2</x:String>
-                        <x:String>3</x:String>
-                        <x:String>4</x:String>
-                    </Picker.Items>
                 </Picker>
 
                 <Button x:Name="btn_Enviar" Text="Enviar" TextColor="Blue"/>
-                <Button x:Name="btn_Verificar" Text="Verificar Trama" TextColor="Blue" />
+                <Button x:Name="btn_Verificar" Text="Verificar Trama" TextColor="Blue" />-->
                 <Button x:Name="btn_Generar" Text="Simular" TextColor="Blue" />
             </StackLayout>
         </ScrollView>

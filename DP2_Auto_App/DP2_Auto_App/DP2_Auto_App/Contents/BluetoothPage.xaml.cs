@@ -37,10 +37,19 @@ namespace DP2_Auto_App.Contents
             picker1.SelectedIndexChanged += Picker1_SelectedIndexChanged;
             btn_Conectar.Clicked += Btn_Conectar_Clicked;
             btn_Desconectar.Clicked += Btn_Desconectar_Clicked;
+            /*
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
             btn_Verificar.Clicked += Btn_Verificar_Clicked;
+            */
             btn_Generar.Clicked += Btn_Generar_Clicked;
+
+            /*
+            //añadiendo valores para enviar
+            for (int i = 0; i<5; i++)
+            {
+                picker2.Items.Add(i.ToString());
+            }*/
         }
 
         private void Btn_Generar_Clicked(object sender, EventArgs e)
@@ -62,9 +71,9 @@ namespace DP2_Auto_App.Contents
 
         private void Picker1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker2 = (Picker)sender;
-            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker2.SelectedIndex];
-        }
+            var picker1 = (Picker)sender;
+            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker1.SelectedIndex];
+        }//Seleccion del dispositivo
         
         private void Btn_Conectar_Clicked(object sender, EventArgs e)
         {
@@ -75,18 +84,18 @@ namespace DP2_Auto_App.Contents
         {
             ViewModel.Disconnect();
         }
-
+        /*
         private void Picker2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var picker2 = (Picker)sender;
-            ViewModel.Message = picker1.SelectedIndex.ToString();
-        }
-
+            ViewModel.Message = picker2.SelectedIndex.ToString();
+        }//enviando mensajes
+        */
         private void Btn_Enviar_Clicked(object sender, EventArgs e)
         {
             ViewModel.Send();
         }
-
+        /*
         private void Btn_Verificar_Clicked(object sender, EventArgs e)
         {
             try
@@ -97,7 +106,7 @@ namespace DP2_Auto_App.Contents
             {
                 Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
             }
-        }
+        }*/
         /*
         private async void List_Messages()
         {

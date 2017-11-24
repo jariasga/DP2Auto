@@ -33,6 +33,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             {
                 System.Diagnostics.Debug.WriteLine("Send a cancel to task!");
                 BTMessages.macBT = ""; //eliminado mac 
+                //Application.Current.MainPage.DisplayAlert("Attention", "Dispositivo Desconectado", "Ok");
                 _ct.Cancel();
             }
         }
@@ -90,7 +91,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                             if (bthSocket.IsConnected)
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!");
+                                System.Diagnostics.Debug.WriteLine("Recibiendo datos");
                                 BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
+                                //await Application.Current.MainPage.DisplayAlert("Attention", "Dispositivo Conextado", "Ok");
                                 byte[] buffer = new byte[1024];
                                 var valor = "";
                                 while (_ct.IsCancellationRequested == false)
@@ -101,8 +104,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                         if (buffer[i] == 0) buffer[i] = 90;
                                     }
                                     valor = System.Text.Encoding.ASCII.GetString(buffer);
-                                    //System.Diagnostics.Debug.WriteLine(valor);
+                                    System.Diagnostics.Debug.WriteLine(valor);
                                     DependencyService.Get<IConvertionsIT>().ConReceived(valor);
+                                    //Enviando mensajes*/
                                     /*
                                     if (MessageToSend != null)
                                     {
@@ -115,6 +119,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
 
                                         await bthSocket.OutputStream.WriteAsync(bytes.ToArray(), 0, bytes.Count);
                                         MessageToSend = null;
+                                        System.Diagnostics.Debug.WriteLine("Datos enviados");
+                                        System.Diagnostics.Debug.WriteLine(MessageToSend);
                                     }*/
                                 }
                             }
