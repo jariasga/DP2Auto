@@ -32,7 +32,9 @@ namespace DP2_Auto_App.Contents
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Click", "Recordatorio seleccionado.", "OK");
+            Reminder rec = MyListView.SelectedItem as Reminder;
+            await DisplayAlert("Detalles", string.Concat(rec.end_date, " -> ", rec.end_time), "OK");
+            //await DisplayAlert("Click", "Recordatorio seleccionado.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

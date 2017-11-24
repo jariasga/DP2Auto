@@ -20,6 +20,7 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
+        //public static Objective objetivo { get; private set; }
         public static bool isParking { get; private set; }
         public static List<Reminder> reminders;
         private string temporalTokenSave;
@@ -365,6 +366,7 @@ namespace DP2_Auto_App.Models.RestServices
 
             List<Objective> totalGoals = await webService.rest.listGoals();
             List<Objective> achievedGoals = new List<Objective>();
+
             int contador = totalGoals.Count();
 
             for (int i = 1; i<=contador; i++)
