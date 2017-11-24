@@ -2,31 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.GoalsAchieved">
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="20, 10, 0, 0">
-                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                    <Image Source="check.png"
-                           WidthRequest="35"
-                           HeightRequest="35"/>
-                    <Label Margin="10,0,0,0" WidthRequest="80" Text="Kilómetros recorridos" VerticalTextAlignment="Center"/>
-                    <Label WidthRequest="50" Text=" 15/20" VerticalTextAlignment="Center"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                    <Image Source="equis.png"
-                           WidthRequest="35"
-                           HeightRequest="35"/>
-                    <Label Margin="10,0,0,0" WidthRequest="80" Text="Ventas alcanzadas" VerticalTextAlignment="Center"/>
-                    <Label WidthRequest="50" Text=" 3/5" VerticalTextAlignment="Center"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
-                    <Image Source="equis.png"
-                           WidthRequest="35"
-                           HeightRequest="35"/>
-                    <Label Margin="10,0,0,0" WidthRequest="80" Text="Velocidad máxima" VerticalTextAlignment="Center"/>
-                    <Label WidthRequest="50" Text="30km/h" VerticalTextAlignment="Center"/>
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding objectives}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell Text="{Binding description}" 
+            Detail="{Binding end_date, StringFormat='Fin: {0}'}" ImageSource="equis.png"/>
+                <ImageCell.Detail>
+                    <!--<MultiBinding StringFormat="Inicio: {0} -   Fin: {1}">
+                        <Binding Path="start_date" />
+                        <Binding Path="end_date" />
+                    </MultiBinding>-->
+                </ImageCell.Detail>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <!--Custom View Cells-->
+
+        <!--<ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+            <ViewCell.ContextActions>
+                <MenuItem Clicked="MenuItem_Clicked" 
+                          Text="Delete" IsDestructive="True" />
+            </ViewCell.ContextActions>
+            <StackLayout>
+            <ImageCell Text="{Binding description}" 
+                       Detail="{Binding end_date, StringFormat='Fecha finalización: {0}'}" ImageSource="equis.png"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>-->
+
+    </ListView>
 </ContentPage>
