@@ -15,28 +15,24 @@ namespace DP2_Auto_App.Contents
 	public partial class GoalsAchieved : ContentPage
 	{
         private List<Objective> objectives { get; set; }
+        public static bool AchievedLoop;
         public GoalsAchieved ()
 		{
 			InitializeComponent ();
+            AchievedLoop = true;
             initializeValues();
         }
 
         private async void initializeValues()
         {
-            objectives = await webService.rest.listAchievedGoals();
-            /*achievedGoals = new List<Objective>();
-            int contador = objectives.Count();
-
-            for (int i = 1; i <= contador; i++)
+            while (AchievedLoop)
             {
-                if (objectives[i].goal <= 20)
-                {
-                    achievedGoals.Add(objectives[i]);
-                }
+                objectives = await webService.rest.listAchievedGoals();
+                MyListView.ItemsSource = objectives;
+                MyListView.IsPullToRefreshEnabled = true;
+
+                await Task.Delay(3000);
             }
-            MyListView.ItemsSource = achievedGoals;*/
-            MyListView.ItemsSource = objectives;
-            MyListView.IsPullToRefreshEnabled = true;
         }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {

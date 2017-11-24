@@ -15,18 +15,26 @@ namespace DP2_Auto_App.Contents
     public partial class ObjectivesListViewPage : ContentPage
     {
         private List<Objective> objectives { get; set; }
+        public static bool  actualLoop;
 
         public ObjectivesListViewPage()
         {
             InitializeComponent();
+            actualLoop = true;
             initializeValues();
         }
 
         private async void initializeValues()
         {
-            objectives = await webService.rest.listGoals();
-            MyListView.ItemsSource = objectives;
-            MyListView.IsPullToRefreshEnabled = true;
+            while (actualLoop)
+            {
+                objectives = await webService.rest.listGoals();
+                MyListView.ItemsSource = objectives;
+                MyListView.IsPullToRefreshEnabled = true;
+
+                await Task.Delay(3000);
+            }
+
         }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
