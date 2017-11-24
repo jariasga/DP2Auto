@@ -20,7 +20,9 @@ namespace DP2_Auto_App.Contents
             initizalizePages();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
 
-            App.Current.MainPage = new Contents.MapTabbedPage();
+            //App.Current.MainPage = new Contents.RemindersTabbedPage();
+            //App.Current.MainPage = new Contents.MainMenuDetail();
+            //App.Current.MainPage = new Contents.MapTabbedPage();
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
