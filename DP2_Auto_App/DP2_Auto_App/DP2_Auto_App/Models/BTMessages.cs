@@ -8,12 +8,25 @@ namespace DP2_Auto_App.Models
 {
     public class BTMessages
     {
-        public List<string> received{ get; set; }   //  Recibidos por el sensor
-        public List<string> send { get; set; }      //  Para enviar al sensor
+        public static string message;
+        public static string macBT;
         public BTMessages()
         {
-            received = new List<string>();
-            send = new List<string>();
+            message = "";
+        }
+        public static string addMessage(string value)
+        {
+            string tempMessage = value.Trim('Z');
+            message = string.Concat(message, tempMessage);
+            return message;
+        }
+        public static void deleteMessage(int charCount)
+        {
+            message = message.Remove(0, charCount);
+        }
+        public static void print()
+        {
+            System.Diagnostics.Debug.WriteLine("Cola de mensaje: " + message);
         }
     }
 }

@@ -2,11 +2,11 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.MapTabbedPage"
-             xmlns:mypages ="clr-namespace:DP2_Auto_App.Contents">
+             xmlns:mypages ="clr-namespace:DP2_Auto_App.Contents"
+            Title="Navegación">
   <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
         <mypages:MapPage Title="Mapa" />
         <mypages:MapStatisticsPage Title="Estadísticas" />
-    </TabbedPage.Children>
-    
+    </TabbedPage.Children>    
 </TabbedPage>

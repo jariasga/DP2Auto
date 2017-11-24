@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DP2_Auto_App.Models.RestServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,10 @@ namespace DP2_Auto_App.Contents
             InitializeComponent();
             initizalizePages();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+
+            //App.Current.MainPage = new Contents.RemindersTabbedPage();
+            //App.Current.MainPage = new Contents.MainMenuDetail();
+            //App.Current.MainPage = new Contents.MapTabbedPage();
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -39,6 +44,15 @@ namespace DP2_Auto_App.Contents
             else if (item.Title.Equals("Seguridad")) Detail = pages[7];
             else if (item.Title.Equals("Bluetooth")) Detail = pages[8];
             else if (item.Title.Equals("Alertas")) Detail = pages[9];
+            else if (item.Title.Equals("Cerrar Sesión"))
+            {
+                if (SensorPage.sensorLoop) DisplayAlert("Error", "Por favor detener la actualizacion de sensores", "Ok");
+                else
+                {
+                    DP2_Auto_App.Models.RestServices.RestService.logout();
+                    App.Current.MainPage = new Contents.Login();
+                }
+            }
             else Detail = new NavigationPage(page);
 
             Detail.Title = item.Title;
@@ -51,14 +65,15 @@ namespace DP2_Auto_App.Contents
         {
             pages = new NavigationPage[10];
             pages[0] = new NavigationPage(new Contents.UserPage());
-            pages[1] = new NavigationPage(new Contents.GoalsPage());
-            pages[2] = new NavigationPage(new Contents.Parking());
-            pages[3] = new NavigationPage(new Contents.MapTabbedPage());
-            pages[5] = new NavigationPage(new Contents.ReminderPage());
-            pages[6] = new NavigationPage(new Contents.SensorPage());
-            pages[7] = new NavigationPage(new Contents.SecurityPage());
-            pages[8] = new NavigationPage(new Bluetooth());
-            pages[9] = new NavigationPage(new Contents.WarningPage());
+            if (!RestService.isParking) pages[1] = new NavigationPage(new Contents.ObjectivesTabbedPage());
+            if (RestService.isParking) pages[2] = new NavigationPage(new Contents.ParkingTabbedPage());
+            if (!RestService.isParking) pages[3] = new NavigationPage(new Contents.MapTabbedPage());
+            if (!RestService.isParking) pages[5] = new NavigationPage(new Contents.RemindersTabbedPage());
+            if (!RestService.isParking) pages[6] = new NavigationPage(new Contents.SensorPage());
+            if (false) pages[7] = new NavigationPage(new Contents.SecurityPage());
+            if (!RestService.isParking) pages[8] = new NavigationPage(new Contents.BluetoothPage());
+            if (!RestService.isParking) pages[9] = new NavigationPage(new Contents.WarningPage());
+
         }
     }
 }

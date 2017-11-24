@@ -1,4 +1,5 @@
-﻿using DP2_Auto_App.Models.RestServices;
+﻿using DP2_Auto_App.Models;
+using DP2_Auto_App.Models.RestServices;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +15,7 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        RestService rest;
+        webService web;
         public Login()
         {
             InitializeComponent();
@@ -22,28 +23,32 @@ namespace DP2_Auto_App.Contents
 
         private void button_SignIn_Clicked(object sender, EventArgs e)
         {
+            button_SignIn.IsEnabled = false;
             authenticateAsync();
         }
 
         private async void authenticateAsync()
         {
-            rest = new RestService();
+            web = new webService();
             Users user = new Users
             {
                 email = label_Username.Text,
                 password = label_Password.Text
             };
 
-            string saber = await rest.getLoginToken(user);
+            string saber = await webService.rest.getLoginToken(user);
 
             if (saber.Equals("loginSuccess"))
             {
                 await DisplayAlert("Login", "Correcto", "Ok");
-                await rest.getClientInfo();
+                await webService.rest.getClientInfo();
+                BTMessages bt = new BTMessages();   // Initizalize for changes made in BT messages queue
                 App.Current.MainPage = new Contents.MainMenu();
             }
             else if (saber.Equals("connectionProblem")) await DisplayAlert("Error", "Verifique su conexión !", "Ok");
+            else if (saber.Equals("Unauthorized")) await DisplayAlert("Error", "Usuario Bloqueado !", "Ok");
             else await DisplayAlert("Error", "Usuario incorrecto", "Ok");
+            button_SignIn.IsEnabled = true;
         }
     }
 }

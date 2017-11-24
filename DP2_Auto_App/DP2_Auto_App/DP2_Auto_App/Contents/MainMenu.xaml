@@ -9,7 +9,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <pages:MainMenuDetail />
+                <pages:RemindersTabbedPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

@@ -3,31 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DP2_Auto_App.Contents.MapStatisticsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <TableView>
-                <TableView.Root>
-                    <TableSection Title="Resumen histórico">
-                        <TextCell Text="Recorrido" Detail="53.4 km"></TextCell>
-                        <TextCell Text="Tiempo" Detail="4:32:13 h"></TextCell>
-                    </TableSection>
-                    <TableSection Title="Resumen por viaje">
-                        <SwitchCell Text="GPS"></SwitchCell>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <Picker x:Name="pickerRecorridos" Title="Seleccione un viaje" HorizontalOptions="FillAndExpand">
-                                    <Picker.ItemsSource>
-                                        <x:Array Type="{x:Type x:String}">
-                                            <x:String>Viaje 1</x:String>
-                                            <x:String>Viaje 2</x:String>
-                                            <x:String>Viaje 3</x:String>
-                                        </x:Array>
-                                    </Picker.ItemsSource>
-                                </Picker>
-                            </ViewCell.View>
-                        </ViewCell>                        
-                    </TableSection>
-                </TableView.Root>
-            </TableView>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <TableView>
+                    <TableView.Root>
+                        <TableSection Title="Resumen histórico">
+                            <TextCell x:Name="recorrido_tot" Text="Recorrido" Detail="53.4 km"></TextCell>
+                            <TextCell x:Name="tiempo_tot" Text="Tiempo" Detail="4:32:13 h"></TextCell>
+                        </TableSection>
+                        <TableSection Title="Resumen por viaje">
+                            <SwitchCell Text="GPS"></SwitchCell>
+                            <TextCell x:Name="recorrido_viaje" Text="Recorrido" Detail="3.4 km"></TextCell>
+                            <TextCell x:Name="tiempo_viaje" Text="Tiempo" Detail="4:32:13 h"></TextCell>
+                       
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Picker x:Name="pickerRecorridos" Title="Seleccione un viaje" HorizontalOptions="FillAndExpand" SelectedIndexChanged="SeleccionaViaje">
+                                    
+                                    </Picker>
+                                </ViewCell.View>
+                            </ViewCell>
+                        
+                        </TableSection>
+                    </TableView.Root>
+                </TableView>
+                <Button Text="Actualizar" HorizontalOptions="Center" Clicked="actualizaPicker"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

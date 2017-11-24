@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DP2_Auto_App.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -9,6 +10,7 @@ namespace DP2_Auto_App
     class BluetoothViewModel
     {
         public List<string> ListOfDevices { get; set; } = new List<string>();
+        //public List<string> ListMessages { get; set; } = new List<string>();
         public string SelectedBthDevice { get; set; }
         public string Message { get; set; }
 
@@ -16,14 +18,25 @@ namespace DP2_Auto_App
         {
             try
             {
+
                 ListOfDevices = DependencyService.Get<IBth>().PairedDevices();
             }
             catch (Exception ex)
             {
                 Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
             }
-
-        }
+        }/*
+        public void GetMessagesData()
+        {
+            try
+            {
+                ListMessages = DependencyService.Get<IBth>().MessagesData();
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
+            }
+        }*/
 
         public void Connect()
         {

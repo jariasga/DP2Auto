@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DP2_Auto_App.Contents.ParkingPage"
+             Title="Estacionamiento">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Orientation="Vertical">
+                <Label Text="Datos de Sensores" TextColor="Brown" FontSize="Medium"/>
+
+                <Label FontSize="Large" Text="Sensor de Temperatura:" TextColor="Black"></Label>
+                <Label x:Name="label_Temperatura" FontSize="Medium" XAlign="End" Text="-- °C" TextColor="Brown"></Label>
+
+                <Label FontSize="Large" Text="Sensor de Humedad:" TextColor="Black"></Label>
+                <Label x:Name="label_Humedad" FontSize="Medium" XAlign="End" Text="-- %" TextColor="Brown"></Label>
+
+                <Label FontSize="Large" Text="Sensor de Iluminación:" TextColor="Black"></Label>
+                <Label x:Name="label_Iluminacion" FontSize="Medium" XAlign="End" Text="--- Lux" TextColor="Brown"></Label>
+
+                <Label FontSize="Large" Text="Sensor UV:" TextColor="Black"></Label>
+                <Label x:Name="label_Uv" FontSize="Medium" XAlign="End" Text="--- Uv" TextColor="Brown"></Label>
+
+                <Button x:Name="btn_actualizar" Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
