@@ -55,7 +55,7 @@ namespace DP2_Auto_App.Contents
             Viajes aux = RestService.getNTravel(id_viaje);
             if(aux != null)
             {
-                recorrido_viaje.Detail = "10 m.";
+                recorrido_viaje.Detail = ""+aux.total_distance;
                 DateTime inicio = DateTime.Parse(aux.started_at);
                 DateTime fin = DateTime.Parse(aux.ended_at);
                 TimeSpan difference = fin.TimeOfDay - inicio.TimeOfDay;

@@ -254,6 +254,40 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<string>storePosition(string mac, double lat, double longi)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "positions");
+
+            Position_to_send posi = new Position_to_send()
+            {
+                vehicle_mac = mac,
+                latitude = lat,
+                longitude = longi,
+            };
+
+            var json = JsonConvert.SerializeObject(posi);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Position posit = JsonConvert.DeserializeObject<Position>(rString);
+                    //Debug.WriteLine("Dato almacenado coorectamente!");
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
         public async Task<string> storeReadings(int sId, double value)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -287,6 +321,8 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        
 
         public async Task<Readings> getReadingInfo(int readingID)
         {
