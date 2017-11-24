@@ -89,6 +89,7 @@ namespace DP2_Auto_App.Models.RestServices
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
+        public string total_distance { get; set; }
     }
 
     public class Viajes
@@ -102,6 +103,8 @@ namespace DP2_Auto_App.Models.RestServices
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
+
+        public double total_distance { get; set; }
     }
 
 
@@ -185,6 +188,7 @@ namespace DP2_Auto_App.Models.RestServices
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
+        public int value { get; set; }
     }
 
     public class Reminder
@@ -198,5 +202,26 @@ namespace DP2_Auto_App.Models.RestServices
     {
         public string modo { get; set; }
         public string angulo { get; set; }
+    }
+
+    public class Position
+    {
+        public int id { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+        public int vehicle_id { get; set; }
+        public string deleted_at { get; set; }
+        public string created_at { get; set; }
+        public string updated_at { get; set; }
+        
+
+    }
+
+    public class Position_to_send
+    {
+        public string vehicle_mac { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+
     }
 }

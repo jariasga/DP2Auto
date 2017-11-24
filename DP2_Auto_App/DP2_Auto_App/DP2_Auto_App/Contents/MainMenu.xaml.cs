@@ -19,6 +19,10 @@ namespace DP2_Auto_App.Contents
             InitializeComponent();
             initizalizePages();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+
+            //App.Current.MainPage = new Contents.RemindersTabbedPage();
+            //App.Current.MainPage = new Contents.MainMenuDetail();
+            //App.Current.MainPage = new Contents.MapTabbedPage();
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -66,7 +70,11 @@ namespace DP2_Auto_App.Contents
             if (!RestService.isParking) pages[3] = new NavigationPage(new Contents.MapTabbedPage());
             if (!RestService.isParking) pages[5] = new NavigationPage(new Contents.RemindersTabbedPage());
             if (!RestService.isParking) pages[6] = new NavigationPage(new Contents.SensorPage());
+<<<<<<< HEAD
             //if (!RestService.isParking) pages[7] = new NavigationPage(new Contents.SecurityPage());
+=======
+            if (false) pages[7] = new NavigationPage(new Contents.SecurityPage());
+>>>>>>> b34f041c409561a0c458814eda42f65649186c56
             if (!RestService.isParking) pages[8] = new NavigationPage(new Contents.BluetoothPage());
             if (!RestService.isParking) pages[9] = new NavigationPage(new Contents.WarningPage());
 

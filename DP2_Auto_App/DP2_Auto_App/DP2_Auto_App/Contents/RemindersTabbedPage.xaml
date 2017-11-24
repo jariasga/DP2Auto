@@ -6,7 +6,7 @@
             Title="Recordatorios">
     <!--Pages can be added as references or inline-->
     <TabbedPage.Children>
-        <mypages:ReminderPage Title="Recordatorios" />
+        <mypages:RemindersListViewPage Title="Recordatorios" />
         <mypages:ReminderRegister Title="Nuevo" />
     </TabbedPage.Children>
 </TabbedPage>

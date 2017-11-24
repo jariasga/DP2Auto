@@ -20,6 +20,7 @@ namespace DP2_Auto_App.Models.RestServices
         HttpClient webClient;
         Uri baseAddress, uri;
         public static Client client { get; private set; }
+        //public static Objective objetivo { get; private set; }
         public static bool isParking { get; private set; }
         public static List<Reminder> reminders;
         private string temporalTokenSave;
@@ -253,6 +254,40 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<string>storePosition(string mac, double lat, double longi)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "positions");
+
+            Position_to_send posi = new Position_to_send()
+            {
+                vehicle_mac = mac,
+                latitude = lat,
+                longitude = longi,
+            };
+
+            var json = JsonConvert.SerializeObject(posi);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Position posit = JsonConvert.DeserializeObject<Position>(rString);
+                    //Debug.WriteLine("Dato almacenado coorectamente!");
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
         public async Task<string> storeReadings(int sId, double value)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -286,6 +321,8 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        
 
         public async Task<Readings> getReadingInfo(int readingID)
         {
@@ -357,6 +394,26 @@ namespace DP2_Auto_App.Models.RestServices
                 return null; ;
             }
             return null;
+        }
+
+        public async Task<List<Objective>> listAchievedGoals()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            List<Objective> totalGoals = await webService.rest.listGoals();
+            List<Objective> achievedGoals = new List<Objective>();
+
+            int contador = totalGoals.Count();
+
+            for (int i = 1; i<=contador; i++)
+            {
+                if (totalGoals[i].goal <= 20)
+                {
+                    achievedGoals.Add(totalGoals[i]);
+                }
+            }
+
+            return achievedGoals;
         }
 
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)

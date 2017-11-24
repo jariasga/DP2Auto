@@ -23,6 +23,9 @@ namespace DP2_Auto_App.Contents
         int flag_heart = 0;
         int min_near = 1;
         int flag_near = 0;
+        int flag_msg_heart = 0;
+        int flag_msg_near = 0;
+        int flag_msg_bat = 0;
         public WarningPage()
         {
             InitializeComponent();
@@ -41,6 +44,8 @@ namespace DP2_Auto_App.Contents
             DisplayAlert("Alerta " + a, "Desactivado", "Ok");
         }
 
+        //por ahora las alertas de cinturon y puertas no van 
+        /*
         void SwitchBelt(object sender, ToggledEventArgs e)
         {
             if (flag_belt == 0)
@@ -70,20 +75,24 @@ namespace DP2_Auto_App.Contents
                 flag_door = 0;
             }
         }
+
+        */
         void SwitchBattery(object sender, ToggledEventArgs e)
         {
             if (flag_battery == 0)
             {
                 MensajeActivado("Bateria");
                 flag_battery = 1;
-                BatteryEmulator();
+                
+                //Emulador de disminucion de bateria
+                //BatteryEmulator();
             }
             else
             {
                 MensajeDesactivado("Bateria");
                 flag_battery = 0;
             }
-
+            flag_msg_bat = 1;
         }
         void SwitchProximity(object sender, ToggledEventArgs e)
         {
@@ -97,6 +106,7 @@ namespace DP2_Auto_App.Contents
                 MensajeDesactivado("Proximidad");
                 flag_near = 0;
             }
+            flag_msg_near = 1;
         }
         void SwitchHeart(object sender, ToggledEventArgs e)
         {
@@ -110,6 +120,7 @@ namespace DP2_Auto_App.Contents
                 MensajeDesactivado("Ritmo Cardiaco");
                 flag_heart = 0;
             }
+            flag_msg_heart = 1;
         }
 
 
@@ -146,28 +157,45 @@ namespace DP2_Auto_App.Contents
                     if (r != null && r.Count > 0) battery = r.First();
                 }
 
+                //descomentar esto
+                
                 if (battery != null)
                 {
-                    if (battery.value < min_battery)
-                        DisplayAlert("Alerta", "Bateria Baja", "Ok");
-                }
-
-                /*if (batery > 0 && flag_battery==1)
-                {
-                    if(batery<min_battery)
+                    if (battery.value < min_battery && flag_msg_bat==1)
+                    {
                         await DisplayAlert("Alerta", "Bateria Baja", "Ok");
-                }*/
+                        flag_msg_bat = 0;
+                    }
+                }
+                
 
+                //comentar esto
+                /*
+                if (batery > 0 && flag_battery==1 && flag_msg_bat==1)
+                {
+                    if (batery < min_battery)
+                    {
+                        await DisplayAlert("Alerta", "Bateria Baja", "Ok");
+                        flag_msg_bat = 0;
+                    }
+                }
+                */
                 if(pulse != null)
                 {
-                    if (pulse.value < min_heart)
-                        DisplayAlert("Alerta", "Pulso Bajo", "Ok");
+                    if (pulse.value < min_heart && flag_msg_heart == 1)
+                    {
+                        await DisplayAlert("Alerta", "Pulso Bajo", "Ok");
+                        flag_msg_heart = 0;
+                    }
                 }
 
                 if(proximity!=null)
                 {
-                    if (proximity.value < min_near)
-                        DisplayAlert("Alerta", "Cuidado, Objeto cerca al vehiculo", "Ok");
+                    if (proximity.value < min_near && flag_msg_near == 1)
+                    {
+                        await DisplayAlert("Alerta", "Cuidado, Objeto cerca al vehiculo", "Ok");
+                        flag_msg_near = 0;
+                    }
                 }
 
                 await Task.Delay(1000);

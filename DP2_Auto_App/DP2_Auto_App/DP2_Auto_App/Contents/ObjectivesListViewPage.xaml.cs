@@ -33,7 +33,9 @@ namespace DP2_Auto_App.Contents
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Click", "Objetivo seleccionado.", "OK");
+            Objective obj = MyListView.SelectedItem as Objective;
+            //string objSelected = await webService.rest.getGoalInfo(goalID);
+            await DisplayAlert("Avance", string.Concat(obj.value.ToString(),"/",obj.goal.ToString()), "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
