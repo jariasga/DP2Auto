@@ -21,8 +21,8 @@
                 <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
                 <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
                 <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
-                <Button Text="Finalizar Viaje" Clicked="EndTravel"/>
-                <Button Text="gps" Clicked="getlocacion"/>
+                <Button x:Name="button_start" Text="Finalizar Viaje" Clicked="EndTravel"/>
+                <Button x:Name="button_end" Text="gps" Clicked="getlocacion"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
