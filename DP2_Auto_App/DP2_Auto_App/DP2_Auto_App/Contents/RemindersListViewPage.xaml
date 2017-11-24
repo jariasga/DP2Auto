@@ -12,7 +12,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ImageCell Text="{Binding description}" 
-            Detail="{Binding end_date, StringFormat='Fin: {0}'}" ImageSource="equis.png"/>
+            Detail="{Binding end_date, StringFormat='Fin: {0}'}" ImageSource="postick.png"/>
                 <ImageCell.Detail>
                     <!--<MultiBinding StringFormat="Inicio: {0} -   Fin: {1}">
                         <Binding Path="start_date" />

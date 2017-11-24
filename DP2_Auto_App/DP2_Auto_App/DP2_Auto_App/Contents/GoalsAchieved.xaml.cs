@@ -15,6 +15,7 @@ namespace DP2_Auto_App.Contents
 	public partial class GoalsAchieved : ContentPage
 	{
         private List<Objective> objectives { get; set; }
+        private List<Objective> achievedGoals { get; set; }
         public GoalsAchieved ()
 		{
 			InitializeComponent ();
@@ -24,6 +25,17 @@ namespace DP2_Auto_App.Contents
         private async void initializeValues()
         {
             objectives = await webService.rest.listGoals();
+            /*achievedGoals = new List<Objective>();
+            int contador = objectives.Count();
+
+            for (int i = 1; i <= contador; i++)
+            {
+                if (objectives[i].goal <= 20)
+                {
+                    achievedGoals.Add(objectives[i]);
+                }
+            }
+            MyListView.ItemsSource = achievedGoals;*/
             MyListView.ItemsSource = objectives;
             MyListView.IsPullToRefreshEnabled = true;
         }

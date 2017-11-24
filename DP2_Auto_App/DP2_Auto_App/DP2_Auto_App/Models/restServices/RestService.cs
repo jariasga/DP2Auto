@@ -359,6 +359,25 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<List<Objective>> listAchievedGoals()
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            List<Objective> totalGoals = await webService.rest.listGoals();
+            List<Objective> achievedGoals = new List<Objective>();
+            int contador = totalGoals.Count();
+
+            for (int i = 1; i<=contador; i++)
+            {
+                if (totalGoals[i].goal <= 20)
+                {
+                    achievedGoals.Add(totalGoals[i]);
+                }
+            }
+
+            return achievedGoals;
+        }
+
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
