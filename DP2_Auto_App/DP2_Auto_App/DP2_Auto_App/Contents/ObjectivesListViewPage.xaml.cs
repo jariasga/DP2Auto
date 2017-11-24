@@ -16,12 +16,15 @@ namespace DP2_Auto_App.Contents
     {
         private List<Objective> objectives { get; set; }
         public static bool  actualLoop;
+        public static bool unico;
 
         public ObjectivesListViewPage()
         {
             InitializeComponent();
             actualLoop = true;
+            unico = false;
             initializeValues();
+
         }
 
         private async void initializeValues()
@@ -32,7 +35,23 @@ namespace DP2_Auto_App.Contents
                 MyListView.ItemsSource = objectives;
                 MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(3000);
+                await Task.Delay(8000);
+                comprobarLogro();
+            }
+
+        }
+
+        public async void comprobarLogro()
+        {
+            objectives = await webService.rest.listAchievedGoals();
+            int count = objectives.Count() - 1;
+            for (int i = 0; i <= count; i++)
+            {
+                if (objectives[i].goal <= objectives[i].value && unico == false)
+                {
+                    await DisplayAlert("Felicitaciones!", string.Concat(objectives[i].description), " completado");
+                    unico = true;
+                }
             }
 
         }
