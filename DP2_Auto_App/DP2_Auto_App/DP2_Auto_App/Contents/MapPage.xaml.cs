@@ -25,6 +25,9 @@ namespace DP2_Auto_App.Contents
         double longInicial, longFinal, latInicial, latFinal, recorrido;
         double actualLong, actualLat;
 
+        private BluetoothViewModel ViewModel => _viewModel ?? (_viewModel = new BluetoothViewModel());
+        private BluetoothViewModel _viewModel;
+
         public MapPage()
         {
             InitializeComponent();
@@ -143,6 +146,9 @@ namespace DP2_Auto_App.Contents
         {
             if (BTMessages.macBT != "")
             {
+                //encender el vehiculo
+                ViewModel.Message = "7EAB00ACE9";//mensaje
+
                 await webService.rest.startTravel("00:21:13:01:D6:BB");   // En caso no tener BT real
                 //await webService.rest.startTravel(BTMessages.macBT);
                 inicio = RestService.currentTravel;
@@ -154,7 +160,11 @@ namespace DP2_Auto_App.Contents
                 button_start.IsEnabled = false;
                 button_end.IsEnabled = true;
             }
-            else await DisplayAlert("Atención", "Para iniciar un viaje debe conectarse a un vehiculo", "Ok");
+            else {
+                await DisplayAlert("Atención", "Para iniciar un viaje debe conectarse a un vehiculo", "Ok");
+                button_start.IsEnabled = false;
+
+            }
         }
         private async void EndTravel(object sender, EventArgs e)
         {

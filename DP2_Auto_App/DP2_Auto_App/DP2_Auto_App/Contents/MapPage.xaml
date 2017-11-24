@@ -22,7 +22,7 @@
                 <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
                 <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
                 <Button x:Name="button_start" Text="Finalizar Viaje" Clicked="EndTravel"/>
-                <Button x:Name="button_end" Text="gps" Clicked="getlocacion"/>
+                <Button x:Name="button_end" Text="gps" Clicked="getlocacion" IsEnabled="False"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
