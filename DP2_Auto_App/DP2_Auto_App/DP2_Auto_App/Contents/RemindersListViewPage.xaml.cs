@@ -41,19 +41,32 @@ namespace DP2_Auto_App.Contents
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
 
+            alertRemind();
+
+
+
+        }
+
+        private void alertRemind()
+        {
             string dia, hora, identificador, aux;
             dia = DateTime.Now.ToString("dd/MM/yyyy");
             identificador = DateTime.Now.ToString("tt", CultureInfo.InvariantCulture);
             aux = identificador.ToLower();
             hora = string.Concat(DateTime.Now.ToString("hh:mm "), aux);
             int contador = reminders.Count();
-            for (int i = 0; i <= (contador-1); i++)
+            for (int i = 0; i <= (contador - 1); i++)
             {
                 if (reminders[i].end_date == dia)
                 {
-                    await DisplayAlert("Click", string.Concat("Hoy: ", reminders[i].description), "OK");
+                    DisplayAlert("Atención!", string.Concat("Hoy: ", reminders[i].description), "OK");
                 }
             }
+        }
+
+        private void button_Remember_Clicked(object sender, EventArgs e)
+        {
+            alertRemind();
         }
 
         /*private void MenuItem_Clicked(object sender, EventArgs e)

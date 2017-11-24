@@ -38,6 +38,7 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>-->
-
     </ListView>
+    <!--<Button HeightRequest="30" WidthRequest="30" x:Name="button_Remember" Text="Hoy" Clicked="button_Remember_Clicked"/>-->
+    
 </ContentPage>

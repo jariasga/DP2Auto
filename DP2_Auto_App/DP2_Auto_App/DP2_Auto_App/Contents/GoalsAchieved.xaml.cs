@@ -15,7 +15,6 @@ namespace DP2_Auto_App.Contents
 	public partial class GoalsAchieved : ContentPage
 	{
         private List<Objective> objectives { get; set; }
-        private List<Objective> achievedGoals { get; set; }
         public GoalsAchieved ()
 		{
 			InitializeComponent ();
@@ -24,7 +23,7 @@ namespace DP2_Auto_App.Contents
 
         private async void initializeValues()
         {
-            objectives = await webService.rest.listGoals();
+            objectives = await webService.rest.listAchievedGoals();
             /*achievedGoals = new List<Objective>();
             int contador = objectives.Count();
 

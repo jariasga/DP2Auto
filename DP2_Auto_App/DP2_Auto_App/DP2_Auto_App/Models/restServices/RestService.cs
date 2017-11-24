@@ -342,7 +342,7 @@ namespace DP2_Auto_App.Models.RestServices
 
             try
             {
-                var response = await webClient.GetAsync("objectives?");
+                var response = await webClient.GetAsync("objectives?finished=false");
                 var rString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
@@ -364,20 +364,24 @@ namespace DP2_Auto_App.Models.RestServices
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
 
-            List<Objective> totalGoals = await webService.rest.listGoals();
-            List<Objective> achievedGoals = new List<Objective>();
-
-            int contador = totalGoals.Count();
-
-            for (int i = 1; i<=contador; i++)
+            try
             {
-                if (totalGoals[i].goal <= 20)
+                var response = await webClient.GetAsync("objectives?show_previous=true&finished=true");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
                 {
-                    achievedGoals.Add(totalGoals[i]);
+                    List<Objective> obj = new List<Objective>();
+                    obj = JsonConvert.DeserializeObject<List<Objective>>(rString);
+                    return obj;
                 }
             }
-
-            return achievedGoals;
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null; ;
+            }
+            return null;
         }
 
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
