@@ -63,7 +63,7 @@ namespace DP2_Auto_App.Contents
         private void Picker1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var picker1 = (Picker)sender;
-            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picke1.SelectedIndex];
+            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker1.SelectedIndex];
         }
         
         private void Btn_Conectar_Clicked(object sender, EventArgs e)
