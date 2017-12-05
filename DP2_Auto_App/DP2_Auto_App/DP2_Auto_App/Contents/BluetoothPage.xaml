@@ -11,19 +11,7 @@
                 <Picker x:Name="picker1" Title="Dispositivos Emparejados" />
                 <Button x:Name="btn_Conectar" Text="Conectar" TextColor="Blue"/>
                 <Button x:Name="btn_Desconectar" Text="Desconectar" TextColor="Blue"/>
-                <Label x:Name="label2" Text="Manejar el auto" FontSize="18" TextColor="Brown" />
-                <StackLayout>
-                    <TableView x:Name="tableview1" Intent="Menu">
-                        <TableRoot x:Name="tableroot1">
-                            <TableSection x:Name="tablesection1">
-                                <SwitchCell x:Name="switchcell1" Text="Encendido" On="True" />
-                                <SwitchCell x:Name="switchcell2" Text="Habilitado" On="False" />
-                                <SwitchCell x:Name="switchcell3" Text="Modo Robo" On="False" />
-                                <SwitchCell x:Name="switchcell4" Text="Cinturon" On="True" />
-                            </TableSection>
-                        </TableRoot>
-                    </TableView>
-                </StackLayout>
+                
                 <Picker x:Name="picker2" Title="Mensajes Disponibles">
                     <Picker.Items>
                         <x:String>0</x:String>
