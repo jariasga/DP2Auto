@@ -20,7 +20,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         
         public Bth()
         {
-            _ct = new CancellationTokenSource();
+           
         }
 
         public void Connect(string name)
@@ -46,6 +46,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             BluetoothDevice device = null;
             BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
             BluetoothSocket bthSocket = null;
+
+            _ct = new CancellationTokenSource();
             while (_ct.IsCancellationRequested == false)
             {
                 try
