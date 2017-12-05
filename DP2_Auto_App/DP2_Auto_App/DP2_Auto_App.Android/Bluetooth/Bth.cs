@@ -8,6 +8,8 @@ using Java.Util;
 using Application = Xamarin.Forms.Application;
 using DP2_Auto_App.Models;
 using Xamarin.Forms;
+using System;
+using Java.IO;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Bth))]
 namespace BuetoothToArduinoTest.Droid.BlueTooth
@@ -20,12 +22,11 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         
         public Bth()
         {
-           
         }
 
         public void Connect(string name)
         {
-            Task.Run(async () => await ConnectDevice(name));
+            Task.Run(async () => ConnectDevice(name));
         }
         public void Disconnect()
         {
@@ -93,38 +94,67 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!");
                                 BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
-                                byte[] buffer = new byte[1024];
-                                var valor = "";
+
+                                var mReader = new InputStreamReader(bthSocket.InputStream);
+                                var buffer = new BufferedReader(mReader);
+
                                 while (_ct.IsCancellationRequested == false)
                                 {
-                                    await bthSocket.InputStream.ReadAsync(buffer, 0, buffer.Length);
-                                    for (int i = 0; i < buffer.Length; i++)
+                                    if (buffer.Ready())
                                     {
-                                        if (buffer[i] == 0) buffer[i] = 90;
-                                    }
-                                    valor = System.Text.Encoding.ASCII.GetString(buffer);
-                                    //System.Diagnostics.Debug.WriteLine(valor);
-                                    DependencyService.Get<IConvertionsIT>().ConReceived(valor);
-                                    /*
-                                    if (MessageToSend != null)
-                                    {
-                                        var chars = MessageToSend.ToCharArray();
-                                        var bytes = new List<byte>();
-                                        foreach (var character in chars)
+                                        char[] chr = new char[100];
+                                        string barcode = "";
+                                        await buffer.ReadAsync(chr);
+                                        foreach (char c in chr)
                                         {
-                                            bytes.Add((byte)character);
+                                            if (c == '\0')
+                                                break;
+                                            barcode += c;
                                         }
+                                        if (barcode.Length > 0)
+                                        {
+                                            System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
+                                        }
+                                        else
+                                            System.Diagnostics.Debug.WriteLine("No data ...");
+                                    }
+                                    else
+                                    {
+                                        //System.Diagnostics.Debug.WriteLine("No data to read ...");
+                                        if (MessageToSend != null)
+                                        {
+                                            var chars = MessageToSend.ToCharArray();
+                                            var bytes = new List<byte>();
+                                            foreach (var character in chars)
+                                            {
+                                                bytes.Add((byte)character);
+                                            }
 
-                                        await bthSocket.OutputStream.WriteAsync(bytes.ToArray(), 0, bytes.Count);
-                                        MessageToSend = null;
-                                    }*/
+                                            await bthSocket.OutputStream.WriteAsync(bytes.ToArray(), 0, bytes.Count);
+                                            MessageToSend = null;
+                                        }
+                                    }
+                                        /*
+                                        await bthSocket.InputStream.ReadAsync(buffer, 0, buffer.Length);
+                                        for (int i = 0; i < buffer.Length; i++)
+                                        {
+                                            if (buffer[i] == 0) buffer[i] = 90;
+                                        }
+                                        valor = System.Text.Encoding.ASCII.GetString(buffer);
+                                        //System.Diagnostics.Debug.WriteLine(valor);
+                                        DependencyService.Get<IConvertionsIT>().ConReceived(valor);
+                                        */
                                 }
+                                System.Diagnostics.Debug.WriteLine("Exit the inner loop");
                             }
                         }
+                        else
+                            System.Diagnostics.Debug.WriteLine("bthSocket = null");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine("EXCEPTION: " + ex.Message);
                 }
                 finally
                 {
