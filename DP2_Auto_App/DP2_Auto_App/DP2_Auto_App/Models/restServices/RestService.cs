@@ -29,7 +29,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
         static List<Viajes> travels;
-
+        public static vehicleMAC vehicle { get; set; }
 
         public RestService()
         {
@@ -565,6 +565,28 @@ namespace DP2_Auto_App.Models.RestServices
             client.phone = phone;
             client.email = email;
             string result = await updateClientInfo();
+        }
+
+        public async Task<string> getVehicleInfo(int vehicleID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("vehicles/" + vehicleID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    vehicle = JsonConvert.DeserializeObject<vehicleMAC>(rString);
+                    return vehicle.mac;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
         }
     }
 }

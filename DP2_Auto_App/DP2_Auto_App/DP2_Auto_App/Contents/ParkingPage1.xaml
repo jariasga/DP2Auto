@@ -17,7 +17,7 @@
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                     <Button x:Name="btn_Restar" Text="-" />
-                    <Label x:Name="label_Angulo" Text="45°" FontSize="Medium"></Label>
+                    <Label x:Name="label_Angulo" Text="40°" FontSize="Medium"></Label>
                     <Button x:Name="btn_Sumar" Text="+"/>
                 </StackLayout>
                 <Button x:Name="btn_angulo" Text="Mover Persiana" HorizontalOptions="Center" Margin="0, 0, 0, 15" />

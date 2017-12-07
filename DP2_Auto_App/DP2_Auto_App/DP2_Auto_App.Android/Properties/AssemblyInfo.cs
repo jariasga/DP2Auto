@@ -34,3 +34,9 @@ using Android.App;
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
 [assembly: UsesPermission(Android.Manifest.Permission.AccessFineLocation)]
 [assembly: UsesPermission(Android.Manifest.Permission.AccessCoarseLocation)]
+
+#if DEBUG
+[assembly: Application(Debuggable = true)]
+#else
+[assembly: Application(Debuggable=false)]
+#endif

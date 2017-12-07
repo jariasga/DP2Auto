@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DP2_Auto_App.Models.RestServices;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace DP2_Auto_App.Contents
 
         private async void SendData()
         {
+            var r = await webService.rest.getVehicleInfo(284);
             if (vsw == 1)
             {
                 vmodo = "auto";
@@ -45,10 +47,10 @@ namespace DP2_Auto_App.Contents
                 vmodo = "manual";
                 vangulo = ang.ToString();
             }
-            await SendDataAsync();
+            await SendDataAsync(r);
         }
 
-        public async Task SendDataAsync()
+        public async Task SendDataAsync(string ip)
         {
             var values = new Dictionary<string, string>
             {
@@ -58,7 +60,7 @@ namespace DP2_Auto_App.Contents
 
             var content = new FormUrlEncodedContent(values);
 
-            var response = await client.PostAsync("http://192.168.1.104/prueba.php", content);
+            var response = await client.PostAsync("http://"+ip+"/prueba.php", content);
 
             var responseString = await response.Content.ReadAsStringAsync();
             if (responseString == "{\"estado\":\"exito\"}")
@@ -76,7 +78,7 @@ namespace DP2_Auto_App.Contents
         {
             if (ang != 90)
             {
-                ang += 5;
+                ang += 15;
                 label_Angulo.Text = ang.ToString() + "°";
             }
             else if (ang == 90)
@@ -89,7 +91,7 @@ namespace DP2_Auto_App.Contents
         {
             if (ang != 0)
             {
-                ang -= 5;
+                ang -= 15;
                 label_Angulo.Text = ang.ToString() + "°";
             }
             else if (ang == 0)

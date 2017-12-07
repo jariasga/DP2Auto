@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.DP2_Auto_App" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="pucp.edu.pe.DP2_Auto_App" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="DP2_Auto_App.Android">
+	<application android:label="DP2_Auto" android:icon="@drawable/auto">
 		<!--<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBLvdVRRcx3gXxiG-hWCdCglG6e6g4oUQw" />-->
 		<!--<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />-->
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCyg78z412NKzmCFumcj7P-EhCVXrvQyfY" />

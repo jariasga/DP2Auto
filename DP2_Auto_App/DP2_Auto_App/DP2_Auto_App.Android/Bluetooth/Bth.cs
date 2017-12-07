@@ -114,6 +114,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                         if (barcode.Length > 0)
                                         {
                                             System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
+                                            DependencyService.Get<IConvertionsIT>().ConReceived(barcode);
                                         }
                                         else
                                             System.Diagnostics.Debug.WriteLine("No data ...");
