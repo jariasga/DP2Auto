@@ -36,8 +36,7 @@ namespace DP2_Auto_App.Contents
                 MyListView.IsPullToRefreshEnabled = true;
 
                 await Task.Delay(8000);
-                comprobarLogro();
-                unico = false;
+                //comprobarLogro();
             }
 
         }
