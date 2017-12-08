@@ -37,6 +37,7 @@ namespace DP2_Auto_App.Contents
 
                 await Task.Delay(8000);
                 comprobarLogro();
+                unico = false;
             }
 
         }
@@ -53,6 +54,9 @@ namespace DP2_Auto_App.Contents
                     unico = true;
                 }
             }
+            //await Task.Delay(8000);
+
+
 
         }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
