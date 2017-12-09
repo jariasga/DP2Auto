@@ -22,10 +22,15 @@ namespace DP2_Auto_App.Contents
         {
             string date, hour;
             date = fecha.Date.ToString("dd/MM/yyyy");
-            hour = hora.Time.ToString();
-
+            hour = convertToFormat(hora);
+            
             recordatorio = await webService.rest.storeReminder(entry_Desc.Text, date, hour);
             await DisplayAlert("Actualizacion", "Actualizado", "Ok");
+        }
+
+        private string convertToFormat(TimePicker hora)
+        {
+            return "xd";
         }
     }
 }
