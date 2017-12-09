@@ -20,7 +20,11 @@ namespace DP2_Auto_App.Contents
         }
         private async void Button_ClickedCreate(object sender, EventArgs e)
         {
-            recordatorio = await webService.rest.storeReminder(entry_Desc.Text, entry_Date.Text, entry_Time.Text);
+            string date, hour;
+            date = fecha.Date.ToString("dd/MM/yyyy");
+            hour = hora.Time.ToString();
+
+            recordatorio = await webService.rest.storeReminder(entry_Desc.Text, date, hour);
             await DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }

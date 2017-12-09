@@ -10,7 +10,15 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Fecha: "/>
-                <Entry FontSize="Large" x:Name="entry_Date" Text="12/12/2017"/>
+                <DatePicker x:Name="fecha">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                </DatePicker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Hora: "/>
+                <TimePicker x:Name="hora">
+                    <TimePicker.Format>HH:mm</TimePicker.Format>
+                </TimePicker>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Hora: "/>

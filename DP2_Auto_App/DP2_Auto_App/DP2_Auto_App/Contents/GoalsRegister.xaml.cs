@@ -22,7 +22,7 @@ namespace DP2_Auto_App.Contents
         private async void Button_ClickedCreate(object sender, EventArgs e)
         {
             int sensor, value;
-            string sensorText, startDate, auxIni;
+            string sensorText, startDate, endDate;
 
             sensor = 0;
             value = Int32.Parse(entry_Value.Text);
@@ -34,11 +34,11 @@ namespace DP2_Auto_App.Contents
             else if (sensorText == "Velocidad") sensor = 5;
             else if (sensorText == "Humedad") sensor = 7;
 
-            auxIni = fechaInicio.Date.ToString("dd/MM/yyyy");
-            startDate = auxIni.Substring(0, auxIni.IndexOf(' '));
+            startDate = fechaInicio.Date.ToString("dd/MM/yyyy");
+            endDate = fechaFin.Date.ToString("dd/MM/yyyy");
 
             //objetivo = webService.rest.createGoal(sensor, value, entry_Start.Text, entry_End.Text, entry_Desc.Text);
-            objetivo = await webService.rest.storeGoals(sensor, value, startDate, entry_End.Text, entry_Desc.Text);
+            objetivo = await webService.rest.storeGoals(sensor, value, startDate, endDate, entry_Desc.Text);
             await DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
     }
