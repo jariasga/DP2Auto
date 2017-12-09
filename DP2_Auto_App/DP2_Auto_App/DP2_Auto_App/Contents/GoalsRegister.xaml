@@ -12,7 +12,17 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Large" Text="Sensor: "/>
-                    <Entry FontSize="Medium" x:Name="entry_Sensor" Text="1"/>
+                    <Picker x:Name="pickerSensors" WidthRequest="140">
+                        <Picker.Items>
+                            <x:String>Peso</x:String>
+                            <x:String>Ritmo Cardiaco</x:String>
+                            <x:String>Proximidad</x:String>
+                            <x:String>Temperatura</x:String>
+                            <x:String>Velocidad</x:String>
+                            <x:String>Humedad</x:String>
+                        </Picker.Items>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Large" Text="Objetivo: "/>
@@ -21,6 +31,12 @@
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Large" Text="Comienzo: "/>
                     <Entry FontSize="Large" x:Name="entry_Start" Text="25/11/2017"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" Text="Comienzo: "/>
+                    <DatePicker x:Name="fechaInicio">
+                        <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                    </DatePicker>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Large" Text="Fin: "/>

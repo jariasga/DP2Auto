@@ -36,7 +36,7 @@ namespace DP2_Auto_App.Contents
                 MyListView.IsPullToRefreshEnabled = true;
 
                 await Task.Delay(8000);
-                //comprobarLogro();
+                comprobarLogro();
             }
 
         }
@@ -52,6 +52,7 @@ namespace DP2_Auto_App.Contents
                     await DisplayAlert("Felicitaciones!", string.Concat(objectives[i].description), " completado");
                     unico = true;
                 }
+                break;
             }
             //await Task.Delay(8000);
 
