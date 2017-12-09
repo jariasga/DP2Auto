@@ -22,15 +22,29 @@ namespace DP2_Auto_App.Contents
         {
             string date, hour;
             date = fecha.Date.ToString("dd/MM/yyyy");
-            hour = convertToFormat(hora);
+            hour = convertToFormat(hora.Time.ToString());
             
             recordatorio = await webService.rest.storeReminder(entry_Desc.Text, date, hour);
             await DisplayAlert("Actualizacion", "Actualizado", "Ok");
         }
 
-        private string convertToFormat(TimePicker hora)
+        private string convertToFormat(string hora)
         {
-            return "xd";
+            int h, m, s;
+            string tiempo, cadena;
+            string[] tokens = hora.Split(':');
+            Int32.TryParse(tokens[0], out h);
+            Int32.TryParse(tokens[1], out m);
+            Int32.TryParse(tokens[2], out s);
+
+            if (h > 12)
+            {
+                h = h - 12;
+                tiempo = "pm";
+            }
+            else tiempo = "am";
+            cadena = h.ToString("00") + ':' + tokens[1] + ' ' + tiempo;
+            return cadena;
         }
     }
 }
