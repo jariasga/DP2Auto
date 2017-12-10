@@ -224,4 +224,9 @@ namespace DP2_Auto_App.Models.RestServices
         public double longitude { get; set; }
 
     }
+
+    public class vehicleMAC
+    {
+        public string mac { get; set; }
+    }
 }
