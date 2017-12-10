@@ -69,11 +69,16 @@ namespace DP2_Auto_App.Contents
             int contador = reminders.Count()-1;
             for (int i = 0; i <= contador; i++)
             {
-                if (reminders[i].end_date == dia)
+                if (reminders[i].end_date == dia && unico == false)
                 {
                     await DisplayAlert("Atención!", string.Concat("Hoy: ", reminders[i].description), "OK");
                 }
+                else if (reminders[i].end_date == dia && reminders[i].end_time == hora && unico == false)
+                {
+                    await DisplayAlert("Atención!", string.Concat("Ahora: ", reminders[i].description), "OK");
+                }
             }
+            unico = true;
         }
 
         private void button_Remember_Clicked(object sender, EventArgs e)

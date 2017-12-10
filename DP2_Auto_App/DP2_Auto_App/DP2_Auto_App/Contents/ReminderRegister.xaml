@@ -20,10 +20,6 @@
                     <TimePicker.Format>HH:mm</TimePicker.Format>
                 </TimePicker>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="Hora: "/>
-                <Entry FontSize="Large" x:Name="entry_Time" Text="02:00 pm"/>
-            </StackLayout>
             <Button Text="Crear" Clicked="Button_ClickedCreate"/>
         </StackLayout>
     </ContentPage.Content>
