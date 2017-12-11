@@ -395,7 +395,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
-
+        /*
         public async Task<List<Objective>> listAchievedGoals()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -419,7 +419,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
-
+        */
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);

@@ -36,11 +36,11 @@ namespace DP2_Auto_App.Contents
                 MyListView.IsPullToRefreshEnabled = true;
 
                 await Task.Delay(8000);
-                comprobarLogro();
+                //comprobarLogro();
             }
 
         }
-
+        /*
         public async void comprobarLogro()
         {
             objectives = await webService.rest.listAchievedGoals();
@@ -56,9 +56,7 @@ namespace DP2_Auto_App.Contents
             }
             //await Task.Delay(8000);
 
-
-
-        }
+        }*/
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)

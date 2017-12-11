@@ -20,9 +20,9 @@ namespace DP2_Auto_App.Contents
 		{
 			InitializeComponent ();
             AchievedLoop = true;
-            initializeValues();
+            //initializeValues();
         }
-
+        /*
         private async void initializeValues()
         {
             while (AchievedLoop)
@@ -33,7 +33,7 @@ namespace DP2_Auto_App.Contents
 
                 await Task.Delay(3000);
             }
-        }
+        }*/
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
