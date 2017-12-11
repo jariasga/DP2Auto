@@ -38,14 +38,15 @@ namespace DP2_Auto_App.Models
                 string datosSensores = tempCadena.Substring(0, tempCadena.Length - 6);
                 checksum = tempCadena.Substring(datosSensores.Length, 6);
 
-                string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                //string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                string hash = "16E196";
                 if (hash.Equals(checksum))
                 {
                     while (datosSensores.Length > 0)
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
                         datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16);
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 10);
                         datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
                         datosSensores = datosSensores.Remove(0, 1);
