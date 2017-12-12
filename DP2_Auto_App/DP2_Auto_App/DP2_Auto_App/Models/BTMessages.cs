@@ -34,7 +34,7 @@ namespace DP2_Auto_App.Models
             System.Diagnostics.Debug.WriteLine("Cola de mensaje: " + message);
         }
 
-        public class Messagess
+        public class Messages
         {
             public static readonly int START = 0;
             public static readonly int CONNECT = 1;

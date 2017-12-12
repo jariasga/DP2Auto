@@ -97,7 +97,7 @@ namespace DP2_Auto_App.Contents
         {
             while (true)
             {
-                string message = BTMessages.Messagess.returnMessage(BTMessages.statusBT);
+                string message = BTMessages.Messages.returnMessage(BTMessages.statusBT);
                 //Debug.WriteLine(message);
                 label2.Text = message;
                 //Debug.WriteLine(BTMessages.statusBT);
