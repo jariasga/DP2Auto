@@ -99,7 +99,7 @@ namespace DP2_Auto_App.Contents
                 string message = BTMessages.Messagess.returnMessage(BTMessages.statusBT);
                 //Debug.WriteLine(message);
                 label2.Text = message;
-                Debug.WriteLine(BTMessages.statusBT);
+                //Debug.WriteLine(BTMessages.statusBT);
                 if(BTMessages.statusBT == 0 || BTMessages.statusBT == 2)
                 {
                     btn_Conectar.IsEnabled = true;

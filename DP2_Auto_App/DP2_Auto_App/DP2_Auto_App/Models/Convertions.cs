@@ -20,7 +20,7 @@ namespace DP2_Auto_App.Models
             string cadena = BTMessages.addMessage(value);
             string checksum;
             
-            SHA_2 sha = new SHA_2();
+            //SHA_2 sha = new SHA_2();
             for(int i = 0; i < 20; i++)
             {
                 sensors[i] = 0;
@@ -46,7 +46,7 @@ namespace DP2_Auto_App.Models
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
                         datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 10); //cambiar a hexadecimal
                         datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
                         datosSensores = datosSensores.Remove(0, 1);
@@ -87,8 +87,9 @@ namespace DP2_Auto_App.Models
                     sensorData += Readings.returnCode(i + 1) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
                     countSensor++;
                 }
-            SHA_2 sha = new SHA_2();
-            checksum = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
+            //SHA_2 sha = new SHA_2();
+            //checksum = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
+            checksum = "16E196";
             finalMessage = initMessage + countSensor.ToString("D2") + basicVehicleVerification + sensorData + checksum;
             Debug.WriteLine(finalMessage);
             ConReceived(finalMessage);
@@ -98,7 +99,8 @@ namespace DP2_Auto_App.Models
         {
             int number = Convert.ToInt32(initialValue);
             int decimal_value = Convert.ToInt32(initialValue % 10);
-            return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
+            return number.ToString() + decimal_value.ToString();
+            //return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
         }
     }
 }
