@@ -46,7 +46,7 @@ namespace DP2_Auto_App.Models
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
                         datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 10);
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
                         datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
                         datosSensores = datosSensores.Remove(0, 1);

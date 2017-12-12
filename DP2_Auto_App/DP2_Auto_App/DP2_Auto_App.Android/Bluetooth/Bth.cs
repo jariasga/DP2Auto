@@ -18,6 +18,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
     {
         private CancellationTokenSource _ct { get; set; }
 
+        private BluetoothAdapter bAdapter;
+
         public string MessageToSend { get; set; }
         
         public Bth()
@@ -190,5 +192,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         {
             throw new NotImplementedException();
         }*/
+        public void ActivarBT()
+        {
+            
+        }
     }
 }
