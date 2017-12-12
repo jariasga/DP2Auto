@@ -28,35 +28,39 @@ namespace DP2_Auto_App.Models
             
             if (cadena.Contains("7EAB")){
                 int pos = cadena.IndexOf("7EAB");
+                int cantSensores = 0;
                 string tempCadena = cadena.Remove(0, pos + 4);
-                int cantSensores = Convert.ToInt32(tempCadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
-                tempCadena = tempCadena.Remove(0, 2); // Quitamos la longitud de la cadena
-                string datosBasicos = tempCadena.Substring(0, 4);   // Leemos los datos del vehiculo (cinturon)
-                tempCadena = tempCadena.Remove(0, 4);   // Llegamos a los sensores
-                tempCadena = tempCadena.Substring(0, 6 * cantSensores + 6);
-                   
-                string datosSensores = tempCadena.Substring(0, tempCadena.Length - 6);
-                checksum = tempCadena.Substring(datosSensores.Length, 6);
-
-                //string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
-                string hash = "16E196";
-                if (hash.Equals(checksum))
+                if (tempCadena.Length > 2) cantSensores = Convert.ToInt32(tempCadena.Substring(0, 2));  // TryParse.Int32 (intentar)              
+                if (tempCadena.Length >= 2 + 4 + 6 * cantSensores + 6 + 2)
                 {
-                    while (datosSensores.Length > 0)
+                    tempCadena = tempCadena.Remove(0, 2); // Quitamos la longitud de la cadena
+                    string datosBasicos = tempCadena.Substring(0, 4);   // Leemos los datos del vehiculo (cinturon)
+                    tempCadena = tempCadena.Remove(0, 4);   // Llegamos a los sensores
+                    tempCadena = tempCadena.Substring(0, 6 * cantSensores + 6);
+
+                    string datosSensores = tempCadena.Substring(0, tempCadena.Length - 6);
+                    checksum = tempCadena.Substring(datosSensores.Length, 6);
+
+                    //string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                    string hash = "16E196";
+                    if (hash.Equals(checksum))
                     {
-                        int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
-                        datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
-                        datosSensores = datosSensores.Remove(0, 2);
-                        int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
-                        datosSensores = datosSensores.Remove(0, 1);
-                        sensors[sensorID] = 1.0 * primerValor + 1.0 * segundoValor / 10;
+                        while (datosSensores.Length > 0)
+                        {
+                            int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
+                            datosSensores = datosSensores.Remove(0, 3);
+                            int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
+                            datosSensores = datosSensores.Remove(0, 2);
+                            int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
+                            datosSensores = datosSensores.Remove(0, 1);
+                            sensors[sensorID] = 1.0 * primerValor + 1.0 * segundoValor / 10;
+                        }
+                        BTMessages.deleteMessage(pos + 4 + 2 + 4 + 6 * cantSensores + checksum.Length);
+                        //BTMessages.print();
+                        saveDatatoWeb(sensors);
+                        Debug.WriteLine("$$$$$$$$$$$$$$$$ Datos enviados");
                     }
-                    BTMessages.deleteMessage(4 + 2 + 4 + 6 * cantSensores + checksum.Length + 2);
-                    //BTMessages.print();
-                    saveDatatoWeb(sensors);
-                    Debug.WriteLine("$$$$$$$$$$$$$$$$ Datos enviados");
-                }
+                }                
             }
         }
 
