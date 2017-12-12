@@ -24,9 +24,9 @@ namespace DP2_Auto_App.Models
         }
         public static void deleteMessage(int charCount)
         {
-            /*if (isSimulation) message = message.Remove(0, charCount - 2);
-            else message = message.Remove(0, charCount);*/
-            message = message.Remove(0, charCount);
+            if (isSimulation) message = message.Remove(0, charCount - 2);
+            else message = message.Remove(0, charCount);
+            //message = message.Remove(0, charCount);
             isSimulation = false;
         }
         public static void print()
