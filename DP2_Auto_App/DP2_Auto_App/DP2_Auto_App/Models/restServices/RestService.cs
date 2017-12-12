@@ -29,7 +29,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
         static List<Viajes> travels;
-
+        public static vehicleMAC vehicle { get; set; }
 
         public RestService()
         {
@@ -254,6 +254,40 @@ namespace DP2_Auto_App.Models.RestServices
             return null;
         }
 
+        public async Task<string>storePosition(string mac, double lat, double longi)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+            uri = new Uri(baseAddress, "positions");
+
+            Position_to_send posi = new Position_to_send()
+            {
+                vehicle_mac = mac,
+                latitude = lat,
+                longitude = longi,
+            };
+
+            var json = JsonConvert.SerializeObject(posi);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await webClient.PostAsync(uri, content);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Position posit = JsonConvert.DeserializeObject<Position>(rString);
+                    //Debug.WriteLine("Dato almacenado coorectamente!");
+                    return rString;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
+        }
+
         public async Task<string> storeReadings(int sId, double value)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -287,6 +321,8 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
+
+        
 
         public async Task<Readings> getReadingInfo(int readingID)
         {
@@ -342,7 +378,7 @@ namespace DP2_Auto_App.Models.RestServices
 
             try
             {
-                var response = await webClient.GetAsync("objectives?");
+                var response = await webClient.GetAsync("objectives?finished=false");
                 var rString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
@@ -359,27 +395,31 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
-
+        /*
         public async Task<List<Objective>> listAchievedGoals()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
 
-            List<Objective> totalGoals = await webService.rest.listGoals();
-            List<Objective> achievedGoals = new List<Objective>();
-
-            int contador = totalGoals.Count();
-
-            for (int i = 1; i<=contador; i++)
+            try
             {
-                if (totalGoals[i].goal <= 20)
+                var response = await webClient.GetAsync("objectives?show_previous=true&finished=true");
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
                 {
-                    achievedGoals.Add(totalGoals[i]);
+                    List<Objective> obj = new List<Objective>();
+                    obj = JsonConvert.DeserializeObject<List<Objective>>(rString);
+                    return obj;
                 }
             }
-
-            return achievedGoals;
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null; ;
+            }
+            return null;
         }
-
+        */
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -529,6 +569,28 @@ namespace DP2_Auto_App.Models.RestServices
             client.phone = phone;
             client.email = email;
             string result = await updateClientInfo();
+        }
+
+        public async Task<string> getVehicleInfo(int vehicleID)
+        {
+            webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
+
+            try
+            {
+                var response = await webClient.GetAsync("vehicles/" + vehicleID);
+                var rString = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    vehicle = JsonConvert.DeserializeObject<vehicleMAC>(rString);
+                    return vehicle.mac;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return null;
         }
     }
 }

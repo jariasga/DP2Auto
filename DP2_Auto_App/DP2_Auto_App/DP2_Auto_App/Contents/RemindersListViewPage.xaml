@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DP2_Auto_App.Contents.RemindersListViewPage">
+             x:Class="DP2_Auto_App.Contents.RemindersListViewPage"
+             Title="Recordatorios">
 
     <ListView x:Name="MyListView"
             ItemsSource="{Binding reminders}"
@@ -38,6 +39,7 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>-->
-
     </ListView>
+    <!--<Button HeightRequest="30" WidthRequest="30" x:Name="button_Remember" Text="Hoy" Clicked="button_Remember_Clicked"/>-->
+    
 </ContentPage>

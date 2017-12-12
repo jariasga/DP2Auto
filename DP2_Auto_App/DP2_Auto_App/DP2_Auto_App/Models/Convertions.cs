@@ -20,7 +20,7 @@ namespace DP2_Auto_App.Models
             string cadena = BTMessages.addMessage(value);
             string checksum;
             
-            SHA_2 sha = new SHA_2();
+            //SHA_2 sha = new SHA_2();
             for(int i = 0; i < 20; i++)
             {
                 sensors[i] = 0;
@@ -38,20 +38,21 @@ namespace DP2_Auto_App.Models
                 string datosSensores = tempCadena.Substring(0, tempCadena.Length - 6);
                 checksum = tempCadena.Substring(datosSensores.Length, 6);
 
-                string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                //string hash = sha.encrypt(datosSensores).Substring(0, 6).ToUpper();
+                string hash = "16E196";
                 if (hash.Equals(checksum))
                 {
                     while (datosSensores.Length > 0)
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
                         datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16);
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
                         datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
                         datosSensores = datosSensores.Remove(0, 1);
                         sensors[sensorID] = 1.0 * primerValor + 1.0 * segundoValor / 10;
                     }
-                    BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4 + 2);
+                    BTMessages.deleteMessage(4 + 2 + 4 + 6 * cantSensores + checksum.Length + 2);
                     //BTMessages.print();
                     saveDatatoWeb(sensors);
                     Debug.WriteLine("$$$$$$$$$$$$$$$$ Datos enviados");
@@ -86,8 +87,9 @@ namespace DP2_Auto_App.Models
                     sensorData += Readings.returnCode(i + 1) + convertToHex(sValues[i]);    //Devuelve ya la cadena con el codigo F0X y el valor en HEX
                     countSensor++;
                 }
-            SHA_2 sha = new SHA_2();
-            checksum = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
+            //SHA_2 sha = new SHA_2();
+            //checksum = sha.encrypt(sensorData).Substring(0, 6).ToUpper();
+            checksum = "16E196";
             finalMessage = initMessage + countSensor.ToString("D2") + basicVehicleVerification + sensorData + checksum;
             Debug.WriteLine(finalMessage);
             ConReceived(finalMessage);

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DP2_Auto_App.Contents.ReminderRegister">
+             x:Class="DP2_Auto_App.Contents.ReminderRegister"
+             Title="Recordatorios">
     <ContentPage.Content>
         <StackLayout Margin="10,0,0,0">
             <StackLayout Orientation="Horizontal">
@@ -10,11 +11,15 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Fecha: "/>
-                <Entry FontSize="Large" x:Name="entry_Date" Text="12/12/2017"/>
+                <DatePicker x:Name="fecha">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                </DatePicker>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label FontSize="Large" Text="Hora: "/>
-                <Entry FontSize="Large" x:Name="entry_Time" Text="02:00 pm"/>
+                <TimePicker x:Name="hora">
+                    <TimePicker.Format>HH:mm</TimePicker.Format>
+                </TimePicker>
             </StackLayout>
             <Button Text="Crear" Clicked="Button_ClickedCreate"/>
         </StackLayout>

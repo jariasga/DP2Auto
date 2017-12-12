@@ -39,13 +39,14 @@ namespace DP2_Auto_App.Contents
             btn_Desconectar.Clicked += Btn_Desconectar_Clicked;
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
-            btn_Verificar.Clicked += Btn_Verificar_Clicked;
             btn_Generar.Clicked += Btn_Generar_Clicked;
+            Messages();
         }
 
         private void Btn_Generar_Clicked(object sender, EventArgs e)
         {
             double[] sValues = new double[6];
+            BTMessages.isSimulation = true;
             for (int i = 0; i < 6; i++)
             {
                 sValues[i] = Randomizer.NextNumber(0,100);
@@ -62,8 +63,8 @@ namespace DP2_Auto_App.Contents
 
         private void Picker1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var picker2 = (Picker)sender;
-            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker2.SelectedIndex];
+            var picker1 = (Picker)sender;
+            ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker1.SelectedIndex];
         }
         
         private void Btn_Conectar_Clicked(object sender, EventArgs e)
@@ -79,42 +80,40 @@ namespace DP2_Auto_App.Contents
         private void Picker2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var picker2 = (Picker)sender;
-            ViewModel.Message = picker1.SelectedIndex.ToString();
+            ViewModel.Message = picker2.SelectedIndex.ToString();
         }
 
         private void Btn_Enviar_Clicked(object sender, EventArgs e)
         {
             ViewModel.Send();
         }
-
-        private void Btn_Verificar_Clicked(object sender, EventArgs e)
+        
+        private async void Messages()
         {
-            try
-            {
-                DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");
-            }
-            catch (Exception ex)
-            {
-                Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
-            }
-        }
-        /*
-        private async void List_Messages()
-        {
-            await List_MessagesAsync();
+            await MessagesAsync();
         }
 
-        private async Task List_MessagesAsync()
+        private async Task MessagesAsync()
         {
             while (true)
             {
-                foreach (var data in ViewModel.ListMessages)
+                string message = BTMessages.Messagess.returnMessage(BTMessages.statusBT);
+                //Debug.WriteLine(message);
+                label2.Text = message;
+                //Debug.WriteLine(BTMessages.statusBT);
+                if(BTMessages.statusBT == 0 || BTMessages.statusBT == 2)
                 {
-                    Debug.WriteLine(data);
+                    btn_Conectar.IsEnabled = true;
+                    btn_Desconectar.IsEnabled = false;
+                }
+                else
+                {
+                    btn_Conectar.IsEnabled = false;
+                    btn_Desconectar.IsEnabled = true;
                 }
                 await Task.Delay(500);
             }            
-        }*/
+        }
 
     }
 }
