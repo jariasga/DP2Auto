@@ -52,7 +52,7 @@ namespace DP2_Auto_App.Models
                         datosSensores = datosSensores.Remove(0, 1);
                         sensors[sensorID] = 1.0 * primerValor + 1.0 * segundoValor / 10;
                     }
-                    BTMessages.deleteMessage(4 + 2 + 6 * cantSensores + checksum.Length + 4 + 2);
+                    BTMessages.deleteMessage(4 + 2 + 4 + 6 * cantSensores + checksum.Length + 2);
                     //BTMessages.print();
                     saveDatatoWeb(sensors);
                     Debug.WriteLine("$$$$$$$$$$$$$$$$ Datos enviados");

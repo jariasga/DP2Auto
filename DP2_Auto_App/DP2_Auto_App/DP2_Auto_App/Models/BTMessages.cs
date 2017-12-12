@@ -8,6 +8,7 @@ namespace DP2_Auto_App.Models
 {
     public class BTMessages
     {
+        public static bool isSimulation;
         public static string message;
         public static string macBT;
         public static int statusBT = 0;
@@ -23,7 +24,9 @@ namespace DP2_Auto_App.Models
         }
         public static void deleteMessage(int charCount)
         {
-            message = message.Remove(0, charCount);
+            if (isSimulation) message = message.Remove(0, charCount - 2);
+            else message = message.Remove(0, charCount);
+            isSimulation = false;
         }
         public static void print()
         {
