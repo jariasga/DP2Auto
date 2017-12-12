@@ -18,6 +18,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
     {
         private CancellationTokenSource _ct { get; set; }
 
+        private BluetoothAdapter bAdapter;
+
         public string MessageToSend { get; set; }
         
         public Bth()
@@ -33,8 +35,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             if (_ct != null)
             {
                 System.Diagnostics.Debug.WriteLine("Send a cancel to task!");
-                BTMessages.macBT = ""; //eliminado mac 
+                BTMessages.macBT = ""; //eliminado mac
                 _ct.Cancel();
+                BTMessages.statusBT = 2;
             }
         }
         public void Send(string message)
@@ -54,7 +57,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                 try
                 {
                     Thread.Sleep(250);
-
+                    BTMessages.statusBT = 3; // Estado de conectando
                     adapter = BluetoothAdapter.DefaultAdapter;
 
                     if (adapter == null)
@@ -94,6 +97,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                             {
                                 System.Diagnostics.Debug.WriteLine("Connected!");
                                 BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
+                                BTMessages.statusBT = 1; //Estado de conectado
 
                                 var mReader = new InputStreamReader(bthSocket.InputStream);
                                 var buffer = new BufferedReader(mReader);
@@ -113,11 +117,15 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                         }
                                         if (barcode.Length > 0)
                                         {
+                                            BTMessages.statusBT = 4; //Estado de enviando datos
                                             System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
                                             DependencyService.Get<IConvertionsIT>().ConReceived(barcode);
                                         }
                                         else
+                                        {
+                                            BTMessages.statusBT = 2; //Estatus de conectado
                                             System.Diagnostics.Debug.WriteLine("No data ...");
+                                        }
                                     }
                                     else
                                     {
@@ -175,8 +183,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
             {
                 foreach (var bd in adapter.BondedDevices)
                     devices.Add(bd.Name);
-            }
-                
+            }                
 
             return devices;
         }
@@ -185,6 +192,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         {
             throw new NotImplementedException();
         }*/
-        
+        public void ActivarBT()
+        {
+            
+        }
     }
 }

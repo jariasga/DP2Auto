@@ -18,7 +18,7 @@ namespace DP2_Auto_App.Models.RestServices
         Task<Objective> storeGoals(int sId, int goal, string dateIni, string dateEnd, string desc);
         Task<string> getGoalInfo(int goalID);
         Task<List<Objective>> listGoals();
-        Task<List<Objective>> listAchievedGoals();
+        //Task<List<Objective>> listAchievedGoals();
         //Task<List<Objective>> listTotalGoals();
         Task<Reminder> storeReminder(string desc, string date, string time);
         Task<string> getReminderInfo(int reminderID);
