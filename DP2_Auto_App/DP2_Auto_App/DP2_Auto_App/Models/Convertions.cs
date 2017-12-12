@@ -46,7 +46,7 @@ namespace DP2_Auto_App.Models
                     {
                         int sensorID = Readings.returnSensorID(datosSensores.Substring(0, 3));
                         datosSensores = datosSensores.Remove(0, 3);
-                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 10); //cambiar a hexadecimal
+                        int primerValor = Convert.ToInt32(datosSensores.Substring(0, 2), 16); //cambiar a hexadecimal
                         datosSensores = datosSensores.Remove(0, 2);
                         int segundoValor = Convert.ToInt32(datosSensores.Substring(0, 1));
                         datosSensores = datosSensores.Remove(0, 1);
@@ -99,8 +99,7 @@ namespace DP2_Auto_App.Models
         {
             int number = Convert.ToInt32(initialValue);
             int decimal_value = Convert.ToInt32(initialValue % 10);
-            return number.ToString() + decimal_value.ToString();
-            //return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
+            return number.ToString("X2") + decimal_value.ToString("X1");    // X4 representa a HEXA con 2 digitos de longitud
         }
     }
 }
