@@ -39,8 +39,8 @@ namespace DP2_Auto_App.Contents
             btn_Desconectar.Clicked += Btn_Desconectar_Clicked;
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
-            btn_Verificar.Clicked += Btn_Verificar_Clicked;
             btn_Generar.Clicked += Btn_Generar_Clicked;
+            Messages();
         }
 
         private void Btn_Generar_Clicked(object sender, EventArgs e)
@@ -86,35 +86,33 @@ namespace DP2_Auto_App.Contents
         {
             ViewModel.Send();
         }
-
-        private void Btn_Verificar_Clicked(object sender, EventArgs e)
+        
+        private async void Messages()
         {
-            try
-            {
-                DependencyService.Get<IConvertionsIT>().ConReceived("7EAB04ACE9F01564F04584F05828F064837E0404");
-            }
-            catch (Exception ex)
-            {
-                Application.Current.MainPage.DisplayAlert("Attention", ex.Message, "Ok");
-            }
-        }
-        /*
-        private async void List_Messages()
-        {
-            await List_MessagesAsync();
+            await MessagesAsync();
         }
 
-        private async Task List_MessagesAsync()
+        private async Task MessagesAsync()
         {
             while (true)
             {
-                foreach (var data in ViewModel.ListMessages)
+                string message = BTMessages.Messagess.returnMessage(BTMessages.statusBT);
+                //Debug.WriteLine(message);
+                label2.Text = message;
+                Debug.WriteLine(BTMessages.statusBT);
+                if(BTMessages.statusBT == 0 || BTMessages.statusBT == 2)
                 {
-                    Debug.WriteLine(data);
+                    btn_Conectar.IsEnabled = true;
+                    btn_Desconectar.IsEnabled = false;
+                }
+                else
+                {
+                    btn_Conectar.IsEnabled = false;
+                    btn_Desconectar.IsEnabled = true;
                 }
                 await Task.Delay(500);
             }            
-        }*/
+        }
 
     }
 }
