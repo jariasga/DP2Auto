@@ -190,6 +190,5 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
         {
             throw new NotImplementedException();
         }*/
-        
     }
 }
