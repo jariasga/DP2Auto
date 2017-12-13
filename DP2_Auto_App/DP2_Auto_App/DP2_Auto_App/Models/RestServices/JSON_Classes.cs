@@ -35,6 +35,7 @@ namespace DP2_Auto_App.Models.RestServices
         public Organization organization { get; set; }
         public List<Sensors> sensors { get; set; }
         public string token { get; set; }
+        public string parking_ip { get; set; }
     }
     public class Sensors
     {
