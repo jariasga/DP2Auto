@@ -24,7 +24,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static bool isParking { get; private set; }
         public static List<Reminder> reminders;
         private string temporalTokenSave;
-        public static startTravel currentTravel { get; private set; }
+        public static startTravel currentTravel { get; set; }
         public static Objective currentObjective { get; private set;}
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }

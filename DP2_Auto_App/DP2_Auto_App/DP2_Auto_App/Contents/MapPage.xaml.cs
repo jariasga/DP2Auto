@@ -36,7 +36,7 @@ namespace DP2_Auto_App.Contents
             isBTConnected = false;
             travelOnGoing = false;
             
-            if (RestService.travels[0].ended_at == null)
+            if (RestService.travels.Count > 0 && RestService.travels[0].ended_at == null)
             {
                 travelOnGoing = true;
                 inicio = new startTravel
@@ -48,6 +48,7 @@ namespace DP2_Auto_App.Contents
                     id = RestService.travels[0].id
                 };
                 DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok");
+                RestService.currentTravel = inicio;
             }
             RetreiveLoc();
             changeConnectionStatus();
