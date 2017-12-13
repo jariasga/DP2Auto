@@ -38,7 +38,7 @@ namespace DP2_Auto_App.Contents
 
         public async void sendPosition()
         {
-            while (true)
+            while (RestService.client != null)
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;

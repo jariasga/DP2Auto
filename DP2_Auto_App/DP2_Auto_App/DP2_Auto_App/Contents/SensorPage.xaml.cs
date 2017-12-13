@@ -131,7 +131,7 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Proximidad: " + proximity.value);
                     label_proximity.Text = proximity.value + " m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
-
+                    
                     if (proximity.value < 5) bt_proximity.BackgroundColor = Color.Red;
                     else if (proximity.value < 15) bt_proximity.BackgroundColor = Color.Yellow;
                     else bt_proximity.BackgroundColor = Color.Green;
