@@ -26,8 +26,11 @@
                         <x:String>4</x:String>
                     </Picker.Items>
                 </Picker>
-
                 <Button x:Name="btn_Enviar" Text="Enviar" TextColor="Blue" IsEnabled="False"/>
+                <StackLayout>
+                    <Label Text="Encender/Apagar el auto" FontSize="18" TextColor="Brown" />
+                    <Switch x:Name="switch1" IsEnabled="False"/>
+                </StackLayout>
                 <Button x:Name="btn_Generar" Text="Simular" TextColor="Blue" IsEnabled="False"/>
             </StackLayout>
         </ScrollView>

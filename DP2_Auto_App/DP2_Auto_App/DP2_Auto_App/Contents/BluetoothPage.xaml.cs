@@ -17,6 +17,9 @@ namespace DP2_Auto_App.Contents
     {
         private BluetoothViewModel ViewModel => _viewModel ?? (_viewModel = new BluetoothViewModel());
         private BluetoothViewModel _viewModel;
+
+        public int vsw = 0; //estado en el que esta el switch de modo automatico
+
         public BluetoothPage()
         {
             InitializeComponent();
@@ -40,8 +43,31 @@ namespace DP2_Auto_App.Contents
             btn_Desconectar.Clicked += Btn_Desconectar_Clicked;
             picker2.SelectedIndexChanged += Picker2_SelectedIndexChanged;
             btn_Enviar.Clicked += Btn_Enviar_Clicked;
+            switch1.Toggled += Switch1_Toggled; 
             btn_Generar.Clicked += Btn_Generar_Clicked;
             Messages();
+
+
+            //Eliminar antes de simular
+            picker2.IsVisible = false;
+            btn_Enviar.IsVisible = false;
+        }
+
+        private void Switch1_Toggled(object sender, ToggledEventArgs e)
+        {
+            var value = e.Value.ToString();
+            if (value == "True")
+            {
+                vsw = 1;
+                DisplayAlert("Atencion", "El Auto ha sido encendido", "Ok");
+            }
+            else if (value == "False")
+            {
+                vsw = 0;
+                DisplayAlert("Atencion", "El Auto ha sido apagado", "Ok");
+            }
+            ViewModel.Message = vsw.ToString(); // enviando el mensaje en string
+            ViewModel.Send(); // evento para enviar 
         }
 
         private void Btn_Generar_Clicked(object sender, EventArgs e)
@@ -113,6 +139,7 @@ namespace DP2_Auto_App.Contents
                     picker1.IsEnabled = false;
                     picker2.IsEnabled = true;
                     btn_Enviar.IsEnabled = true;
+                    switch1.IsEnabled = true;
                     btn_Generar.IsEnabled = false;
                 }
                 else if (BTMessages.statusBT == 2)
@@ -122,6 +149,7 @@ namespace DP2_Auto_App.Contents
                     btn_Conectar.IsEnabled = true;
                     btn_Desconectar.IsEnabled = false;
                     btn_Enviar.IsEnabled = false;
+                    switch1.IsEnabled = false;
                     btn_Generar.IsEnabled = true;
                 }
                 else if (BTMessages.statusBT == 3)
