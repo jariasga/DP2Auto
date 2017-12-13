@@ -94,8 +94,8 @@ namespace DP2_Auto_App.Contents
                     label_weight.Text = weight.value + " Kg";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
 
-                    if (weight.value < 30) bt_weight.BackgroundColor = Color.Green;
-                    else if (weight.value < 60) bt_weight.BackgroundColor = Color.Yellow;
+                    if (weight.value < 50) bt_weight.BackgroundColor = Color.Green;
+                    else if (weight.value < 90) bt_weight.BackgroundColor = Color.Yellow;
                     else bt_weight.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Peso NO actualizado");
@@ -106,8 +106,10 @@ namespace DP2_Auto_App.Contents
                     label_pulse.Text = pulse.value + " p/m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
 
-                    if (pulse.value < 30) bt_pulse.BackgroundColor = Color.Green;
-                    else if (pulse.value < 60) bt_pulse.BackgroundColor = Color.Yellow;
+                    if (pulse.value < 60) bt_pulse.BackgroundColor = Color.Red;
+                    else if (pulse.value < 80) bt_pulse.BackgroundColor = Color.Yellow;
+                    else if (pulse.value < 120) bt_pulse.BackgroundColor = Color.Green;
+                    else if (pulse.value < 160) bt_pulse.BackgroundColor = Color.Yellow;
                     else bt_pulse.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Pulso NO actualizado");
@@ -118,9 +120,9 @@ namespace DP2_Auto_App.Contents
                     label_proximity.Text = proximity.value + " m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
 
-                    if (proximity.value < 30) bt_proximity.BackgroundColor = Color.Green;
-                    else if (proximity.value < 60) bt_proximity.BackgroundColor = Color.Yellow;
-                    else bt_proximity.BackgroundColor = Color.Red;
+                    if (proximity.value < 5) bt_proximity.BackgroundColor = Color.Red;
+                    else if (proximity.value < 15) bt_proximity.BackgroundColor = Color.Yellow;
+                    else bt_proximity.BackgroundColor = Color.Green;
                 }
                 else Debug.WriteLine(" ---> Proximidad NO actualizada");
 
