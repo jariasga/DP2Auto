@@ -57,21 +57,28 @@ namespace DP2_Auto_App.Contents
                 { "modo", vmodo },
                 { "angulo", vangulo }
             };
-
-            var content = new FormUrlEncodedContent(values);
-
-            var response = await client.PostAsync("http://"+ip+"/prueba.php", content);
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (responseString == "{\"estado\":\"exito\"}")
+            try
             {
-                Mensaje(6);
+                var content = new FormUrlEncodedContent(values);
+
+                var response = await client.PostAsync("http://" + ip + "/prueba.php", content);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+                if (responseString == "{\"estado\":\"exito\"}")
+                {
+                    Mensaje(6);
+                }
+                else if (responseString == "{\"estado\":\"error\"}")
+                {
+                    Mensaje(5);
+                }
+                Debug.WriteLine(responseString);
             }
-            else if (responseString == "{\"estado\":\"error\"}")
+            catch
             {
-                Mensaje(5);
+                Mensaje(7);
             }
-            Debug.WriteLine(responseString);
+            
         }
 
         private void Btn_Sumar_Clicked(object sender, EventArgs e)
@@ -143,6 +150,9 @@ namespace DP2_Auto_App.Contents
                     break;
                 case 6:
                     DisplayAlert("Atención", "Datos enviados correctamente", "OK");
+                    break;
+                case 7:
+                    DisplayAlert("Atención", "Servicio No disponible", "OK");
                     break;
             }
         }
