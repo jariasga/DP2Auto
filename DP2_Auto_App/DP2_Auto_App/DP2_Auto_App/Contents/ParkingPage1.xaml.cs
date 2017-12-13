@@ -36,7 +36,7 @@ namespace DP2_Auto_App.Contents
 
         private async void SendData()
         {
-            var r = await webService.rest.getVehicleInfo(284);
+            //var r = await webService.rest.getVehicleInfo(284);
             if (vsw == 1)
             {
                 vmodo = "auto";
@@ -47,7 +47,7 @@ namespace DP2_Auto_App.Contents
                 vmodo = "manual";
                 vangulo = ang.ToString();
             }
-            await SendDataAsync(r);
+            await SendDataAsync(RestService.parking_ip);
         }
 
         public async Task SendDataAsync(string ip)

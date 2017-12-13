@@ -33,6 +33,8 @@ namespace DP2_Auto_App.Models.RestServices
         
         public static int[] sensor_valid;
 
+        public static string parking_ip;
+
         public RestService()
         {
             baseAddress = new Uri("http://dp2.iamallama.com/api/");
@@ -131,6 +133,8 @@ namespace DP2_Auto_App.Models.RestServices
                     {
                         sensor_valid[i] = client.sensors[i].id;
                     }
+                    //ip de parking
+                    parking_ip = client.parking_ip;
 
                     initializeTravels();
                     return "loginSuccess";
