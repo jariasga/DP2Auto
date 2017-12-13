@@ -29,7 +29,7 @@ namespace DP2_Auto_App.Contents
         public WarningPage()
         {
             InitializeComponent();
-            ThreadWarnings();
+            //ThreadWarnings();
             minLatidos.Text = ""+min_heart;
             minProximidad.Text = ""+min_near;
             minBatt.Text = ""+min_battery;

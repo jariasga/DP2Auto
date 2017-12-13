@@ -29,13 +29,13 @@ namespace DP2_Auto_App.Contents
 
         private async void initializeValues()
         {
-            while (actualLoop)
+            while (actualLoop && RestService.client != null)
             {
                 objectives = await webService.rest.listGoals();
                 MyListView.ItemsSource = objectives;
                 MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(8000);
+                await Task.Delay(5000);
                 //comprobarLogro();
             }
 

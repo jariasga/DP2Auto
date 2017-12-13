@@ -17,28 +17,28 @@ namespace DP2_Auto_App.Contents
     {
         private List<Reminder> reminders { get; set; }
         public static bool actualLoop;
-        public static bool unico;
+        bool[] remindersParsed;
         public RemindersListViewPage()
         {
             InitializeComponent();
             actualLoop = true;
-            unico = false;
             initializeValues();
         }
 
         private async void initializeValues()
         {
-            while (actualLoop)
+            remindersParsed = new bool[1000];
+            for (int i = 0; i < remindersParsed.Count(); i++)
+                remindersParsed[i] = false;
+            while (actualLoop && RestService.client != null)
             {
                 reminders = await webService.rest.listReminders();
                 MyListView.ItemsSource = reminders;
                 MyListView.IsPullToRefreshEnabled = true;
-
-                await Task.Delay(8000);
+                
+                await Task.Delay(1000);
                 comprobarRecordatorio();
             }
-
-
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -67,18 +67,20 @@ namespace DP2_Auto_App.Contents
             aux = identificador.ToLower();
             hora = string.Concat(DateTime.Now.ToString("hh:mm "), aux);
             int contador = reminders.Count()-1;
+            
             for (int i = 0; i <= contador; i++)
             {
-                if (reminders[i].end_date == dia && unico == false)
+                if (reminders[i].end_date == dia && !remindersParsed[i])
                 {
-                    await DisplayAlert("Atención!", string.Concat("Hoy: ", reminders[i].description), "OK");
+                    remindersParsed[i] = true;
+                    await DisplayAlert("Atención!", string.Concat("Hoy: ", reminders[i].description), "OK");                    
                 }
-                else if (reminders[i].end_date == dia && reminders[i].end_time == hora && unico == false)
+                else if (reminders[i].end_date == dia && reminders[i].end_time == hora && !remindersParsed[i])
                 {
-                    await DisplayAlert("Atención!", string.Concat("Ahora: ", reminders[i].description), "OK");
+                    remindersParsed[i] = true;
+                    await DisplayAlert("Atención!", string.Concat("Ahora: ", reminders[i].description), "OK");                    
                 }
             }
-            unico = true;
         }
 
         private void button_Remember_Clicked(object sender, EventArgs e)

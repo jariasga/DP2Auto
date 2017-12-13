@@ -29,12 +29,26 @@ namespace DP2_Auto_App.Contents
         public MapPage()
         {
             InitializeComponent();
-            initializeMap();
+            
             longInicial = longFinal = latInicial = latFinal = recorrido = 0.0;
             actualLong = actualLat = 0.0;
             sendPosition();
             isBTConnected = false;
-            travelOnGoing = false;            
+            travelOnGoing = false;
+            
+            if (RestService.travels[0].ended_at == null)
+            {
+                travelOnGoing = true;
+                inicio = new startTravel
+                {
+                    client_id = RestService.travels[0].client_id,
+                    vehicle_id = RestService.travels[0].vehicle_id,
+                    updated_at = RestService.travels[0].updated_at,
+                    created_at = RestService.travels[0].created_at,
+                    id = RestService.travels[0].id
+                };
+                DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok");
+            }
             RetreiveLoc();
             changeConnectionStatus();
         }
@@ -93,6 +107,8 @@ namespace DP2_Auto_App.Contents
 
                     latitude.Text = "" + position.Latitude;
                     longitude.Text = "" + position.Longitude;
+
+                    initializeMap(position.Latitude, position.Longitude);
                 }
                 else
                 {
@@ -116,21 +132,21 @@ namespace DP2_Auto_App.Contents
             map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
         }
 
-        private void initializeMap()
+        private void initializeMap(double Latitude, double Longitude)
         {
-            var position = new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947); // Latitude, Longitude
-            var pin = new Pin
+            var position = new Xamarin.Forms.Maps.Position(Latitude, Longitude); // Latitude, Longitude
+            /*var pin = new Pin
             {
                 Type = PinType.Place,
                 Position = position,
-                Label = "custom pin",
+                Label = "Usted está aqui",
                 Address = "custom detail info"
             };
-            map.Pins.Add(pin);
-
+            map.Pins.Add(pin);*/
+            
             map.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
+                new Xamarin.Forms.Maps.Position(Latitude, Longitude), Distance.FromMiles(0.4)));
 
         }
 
