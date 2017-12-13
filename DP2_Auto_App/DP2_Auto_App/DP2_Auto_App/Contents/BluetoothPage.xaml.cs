@@ -65,6 +65,7 @@ namespace DP2_Auto_App.Contents
         {
             var picker1 = (Picker)sender;
             ViewModel.SelectedBthDevice = ViewModel.ListOfDevices[picker1.SelectedIndex];
+            btn_Conectar.IsEnabled = true;
         }
         
         private void Btn_Conectar_Clicked(object sender, EventArgs e)
@@ -101,15 +102,23 @@ namespace DP2_Auto_App.Contents
                 //Debug.WriteLine(message);
                 label2.Text = message;
                 //Debug.WriteLine(BTMessages.statusBT);
-                if(BTMessages.statusBT == 0 || BTMessages.statusBT == 2)
+                if(BTMessages.statusBT == 0)
+                {
+                    //btn_Conectar.IsEnabled = false;
+                    btn_Desconectar.IsEnabled = false;
+                    btn_Generar.IsEnabled = true;
+                }
+                else if (BTMessages.statusBT == 2)
                 {
                     btn_Conectar.IsEnabled = true;
                     btn_Desconectar.IsEnabled = false;
+                    btn_Generar.IsEnabled = true;
                 }
                 else
                 {
                     btn_Conectar.IsEnabled = false;
                     btn_Desconectar.IsEnabled = true;
+                    btn_Generar.IsEnabled = false;
                 }
                 await Task.Delay(500);
             }            
