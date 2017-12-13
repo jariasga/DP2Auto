@@ -19,7 +19,7 @@
                 <Entry Text="" x:Name="latitude" Keyboard="Numeric"/>
                 <Label Text="Longitud: "/>
                 <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
-                <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
+                <!--<Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>-->
                 <Button x:Name="button_start" Text="Comenzar Viaje" Clicked="StartTravel" IsEnabled="False"/>
                 <Button x:Name="button_end" Text="Finalizar Viaje" Clicked="EndTravel" IsEnabled="False"/>
             </StackLayout>

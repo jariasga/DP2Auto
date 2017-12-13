@@ -52,7 +52,7 @@ namespace DP2_Auto_App.Contents
         {
             List<Readings> r;
             int counter = 0;
-            while (estado)
+            while (RestService.client != null && estado)
             {
                 temperature = iluminity = humidity = uv = null;
                 r = await webService.rest.getReadingList(Readings.HUMIDITY);

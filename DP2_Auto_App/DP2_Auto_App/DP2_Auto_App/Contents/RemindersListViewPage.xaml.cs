@@ -30,11 +30,11 @@ namespace DP2_Auto_App.Contents
             remindersParsed = new bool[1000];
             for (int i = 0; i < remindersParsed.Count(); i++)
                 remindersParsed[i] = false;
-            while (actualLoop && RestService.client != null)
+            while (RestService.client != null && actualLoop)
             {
                 reminders = await webService.rest.listReminders();
                 MyListView.ItemsSource = reminders;
-                MyListView.IsPullToRefreshEnabled = true;
+                //MyListView.IsPullToRefreshEnabled = true;
                 
                 await Task.Delay(1000);
                 comprobarRecordatorio();

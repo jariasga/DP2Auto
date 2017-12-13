@@ -136,7 +136,7 @@ namespace DP2_Auto_App.Contents
         private async void ThreadWarnings()
         {
             List<Readings> r;
-            while (true)
+            while (RestService.client != null && true)
             {
                 battery = pulse = proximity= null;
                 if (flag_heart == 1)
