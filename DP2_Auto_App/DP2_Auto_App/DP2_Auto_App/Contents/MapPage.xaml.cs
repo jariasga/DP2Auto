@@ -195,7 +195,7 @@ namespace DP2_Auto_App.Contents
                 DateTime horaFin = DateTime.Parse(fin.ended_at.date);
                 DateTime horaIni = DateTime.Parse(fin.started_at);
                 await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH:mm:ss") + "\n Fin: " + horaFin.ToString("HH::mm::ss"), "Ok");
-
+                travelOnGoing = false;
                 //button_start.IsEnabled = true;
                 //button_end.IsEnabled = false;
             }
