@@ -39,12 +39,15 @@ namespace DP2_Auto_App.Contents
             if (RestService.travels[0].ended_at == null)
             {
                 travelOnGoing = true;
-                inicio = new startTravel();
-                inicio.client_id = RestService.travels[0].client_id;
-                inicio.vehicle_id = RestService.travels[0].vehicle_id;
-                inicio.updated_at = RestService.travels[0].updated_at;
-                inicio.created_at = RestService.travels[0].created_at;
-                inicio.id = RestService.travels[0].id;
+                inicio = new startTravel
+                {
+                    client_id = RestService.travels[0].client_id,
+                    vehicle_id = RestService.travels[0].vehicle_id,
+                    updated_at = RestService.travels[0].updated_at,
+                    created_at = RestService.travels[0].created_at,
+                    id = RestService.travels[0].id
+                };
+                DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok");
             }
             changeConnectionStatus();
             RetreiveLoc();
