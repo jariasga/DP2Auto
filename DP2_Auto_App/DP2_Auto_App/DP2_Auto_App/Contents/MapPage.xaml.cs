@@ -77,7 +77,7 @@ namespace DP2_Auto_App.Contents
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            while (true)
+            while (RestService.client != null)
             {
                 if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
                 {
