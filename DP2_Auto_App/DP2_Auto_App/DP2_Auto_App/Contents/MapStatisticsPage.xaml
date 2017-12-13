@@ -7,23 +7,18 @@
             <StackLayout Orientation="Vertical">
                 <TableView>
                     <TableView.Root>
-                        <TableSection Title="Resumen histórico">
-                            <TextCell x:Name="recorrido_tot" Text="Recorrido" Detail="53.4 km"></TextCell>
-                            <TextCell x:Name="tiempo_tot" Text="Tiempo" Detail="4:32:13 h"></TextCell>
-                        </TableSection>
+                        
                         <TableSection Title="Resumen por viaje">
-                            <SwitchCell Text="GPS"></SwitchCell>
-                            <TextCell x:Name="recorrido_viaje" Text="Recorrido" Detail="3.4 km"></TextCell>
-                            <TextCell x:Name="tiempo_viaje" Text="Tiempo" Detail="4:32:13 h"></TextCell>
-                       
                             <ViewCell>
                                 <ViewCell.View>
                                     <Picker x:Name="pickerRecorridos" Title="Seleccione un viaje" HorizontalOptions="FillAndExpand" SelectedIndexChanged="SeleccionaViaje">
-                                    
                                     </Picker>
                                 </ViewCell.View>
                             </ViewCell>
-                        
+
+                            <TextCell x:Name="recorrido_viaje" Text="Recorrido" Detail="3.4 km"></TextCell>
+                            <TextCell x:Name="tiempo_viaje" Text="Tiempo" Detail="4:32:13 h"></TextCell>
+
                         </TableSection>
                     </TableView.Root>
                 </TableView>
