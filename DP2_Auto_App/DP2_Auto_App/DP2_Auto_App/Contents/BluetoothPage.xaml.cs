@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models;
 using System.Diagnostics;
+using DP2_Auto_App.Models.RestServices;
 
 namespace DP2_Auto_App.Contents
 {
@@ -96,7 +97,7 @@ namespace DP2_Auto_App.Contents
 
         private async Task MessagesAsync()
         {
-            while (true)
+            while (RestService.client != null)
             {
                 string message = BTMessages.Messages.returnMessage(BTMessages.statusBT);
                 //Debug.WriteLine(message);
@@ -104,17 +105,26 @@ namespace DP2_Auto_App.Contents
                 //Debug.WriteLine(BTMessages.statusBT);
                 if(BTMessages.statusBT == 0)
                 {
-                    //btn_Conectar.IsEnabled = false;
                     btn_Desconectar.IsEnabled = false;
                     btn_Generar.IsEnabled = true;
+                }
+                else if (BTMessages.statusBT == 1 || BTMessages.statusBT == 4)
+                {
+                    picker1.IsEnabled = false;
+                    picker2.IsEnabled = true;
+                    btn_Enviar.IsEnabled = true;
+                    btn_Generar.IsEnabled = false;
                 }
                 else if (BTMessages.statusBT == 2)
                 {
+                    picker1.IsEnabled = true;
+                    picker2.IsEnabled = false;
                     btn_Conectar.IsEnabled = true;
                     btn_Desconectar.IsEnabled = false;
+                    btn_Enviar.IsEnabled = false;
                     btn_Generar.IsEnabled = true;
                 }
-                else
+                else if (BTMessages.statusBT == 3)
                 {
                     btn_Conectar.IsEnabled = false;
                     btn_Desconectar.IsEnabled = true;

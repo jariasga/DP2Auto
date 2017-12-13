@@ -27,8 +27,8 @@
                     </Picker.Items>
                 </Picker>
 
-                <Button x:Name="btn_Enviar" Text="Enviar" TextColor="Blue"/>
-                <Button x:Name="btn_Generar" Text="Simular" TextColor="Blue" />
+                <Button x:Name="btn_Enviar" Text="Enviar" TextColor="Blue" IsEnabled="False"/>
+                <Button x:Name="btn_Generar" Text="Simular" TextColor="Blue" IsEnabled="False"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
