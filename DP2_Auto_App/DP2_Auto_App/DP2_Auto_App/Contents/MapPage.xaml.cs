@@ -19,11 +19,12 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
-
+        public static bool isBTConnected;
         startTravel inicio;
         endTravel fin;
         double longInicial, longFinal, latInicial, latFinal, recorrido;
         double actualLong, actualLat;
+        bool travelOnGoing;
 
         public MapPage()
         {
@@ -32,6 +33,9 @@ namespace DP2_Auto_App.Contents
             longInicial = longFinal = latInicial = latFinal = recorrido = 0.0;
             actualLong = actualLat = 0.0;
             sendPosition();
+            isBTConnected = false;
+            travelOnGoing = false;
+            changeConnectionStatus();
             RetreiveLoc();
         }
 
@@ -159,8 +163,9 @@ namespace DP2_Auto_App.Contents
                     await RetreiveLoc();
                     longInicial = double.Parse(longitude.Text);
                     latInicial = double.Parse(latitude.Text);
-                    button_start.IsEnabled = false;
-                    button_end.IsEnabled = true;
+                    travelOnGoing = true;
+                    //button_start.IsEnabled = false;
+                    //button_end.IsEnabled = true;
                 }
                 catch (Exception)
                 {
@@ -191,8 +196,8 @@ namespace DP2_Auto_App.Contents
                 DateTime horaIni = DateTime.Parse(fin.started_at);
                 await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH:mm:ss") + "\n Fin: " + horaFin.ToString("HH::mm::ss"), "Ok");
 
-                button_start.IsEnabled = true;
-                button_end.IsEnabled = false;
+                //button_start.IsEnabled = true;
+                //button_end.IsEnabled = false;
             }
             catch (Exception)
             {
@@ -222,6 +227,28 @@ namespace DP2_Auto_App.Contents
 
             return d;
 
+        }
+
+        public async void changeConnectionStatus()
+        {
+            while (RestService.client != null)
+            {
+                if (isBTConnected && travelOnGoing)
+                {
+                    button_start.IsEnabled = false;
+                    button_end.IsEnabled = true;
+                }
+                else if (isBTConnected && !travelOnGoing)
+                {
+                    button_start.IsEnabled = true;
+                    button_end.IsEnabled = false;
+                }
+                else if (!isBTConnected)
+                {
+                    button_start.IsEnabled = false;
+                    button_end.IsEnabled = false;
+                }
+            }
         }
     }
 }
