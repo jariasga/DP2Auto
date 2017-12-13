@@ -33,8 +33,17 @@ namespace DP2_Auto_App.Models.RestServices
         public string tools { get; set; }
         public int blocked { get; set; }
         public Organization organization { get; set; }
-        public List<object> sensors { get; set; }
+        public List<Sensors> sensors { get; set; }
         public string token { get; set; }
+    }
+    public class Sensors
+    {
+        public int id { get; set; }
+        public string slug { get; set; }
+        public string unit { get; set; }
+        public string code { get; set; }
+        public string description { get; set; }
+        public object pivot { get; set; }
     }
     public class Organization
     {
@@ -133,12 +142,24 @@ namespace DP2_Auto_App.Models.RestServices
         public static readonly string PROXIMITY_CODE = "F03";
         public static readonly string TEMPERATURE_CODE = "F04";
         public static readonly string SPEED_CODE = "F05";
-        public static readonly string BATTERY_CODE= "F06";
+        public static readonly string BATTERY_CODE = "F06";
         public static readonly string HUMIDITY_CODE = "F07";
         public static readonly string POSITION_CODE = "F08";
         public static readonly string ILUMINITY_CODE = "F09";
         public static readonly string UV_CODE = "F10";
         public static readonly string ANGLE_CODE = "F11";
+
+        public static readonly string WEIGHT_NAME = "WEIGHT";
+        public static readonly string PULSE_NAME = "PULSE";
+        public static readonly string PROXIMITY_NAME = "PROXIMITY";
+        public static readonly string TEMPERATURE_NAME = "TEMPERATURE";
+        public static readonly string SPEED_NAME = "SPEED";
+        public static readonly string BATTERY_NAME = "BATTERY";
+        public static readonly string HUMIDITY_NAME = "HUMIDITY";
+        public static readonly string POSITION_NAME = "POSITION";
+        public static readonly string ILUMINITY_NAME = "ILUMINITY";
+        public static readonly string UV_NAME = "UV";
+        public static readonly string ANGLE_NAME = "ANGLE";
 
         public static string returnCode(int sensorID)
         {
@@ -166,6 +187,18 @@ namespace DP2_Auto_App.Models.RestServices
             else if (code.Equals(UV_CODE)) return UV;
             else if (code.Equals(ANGLE_CODE)) return ANGLE;
             else return 0;
+        }
+        public static string returnSensorNAME(int sensorID)
+        {
+            if (sensorID == WEIGHT) return WEIGHT_NAME;
+            else if (sensorID == PULSE) return PULSE_NAME;
+            else if (sensorID == PROXIMITY) return PROXIMITY_NAME;
+            else if (sensorID == TEMPERATURE) return TEMPERATURE_NAME;
+            else if (sensorID == SPEED) return SPEED_NAME;
+            else if (sensorID == BATTERY) return BATTERY_NAME;
+            else if (sensorID == HUMIDITY) return HUMIDITY_NAME;
+            else if (sensorID == POSITION) return POSITION_NAME;
+            else return "NO_SENSOR_ID";
         }
 
         public double value { get; set; }

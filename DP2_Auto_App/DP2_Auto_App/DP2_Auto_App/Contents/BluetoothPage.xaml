@@ -14,10 +14,10 @@
                 <Label x:Name="datos"/>
                 <Label x:Name="label1" Text="Seleccione un Dispositivo" FontSize="18" TextColor="Brown"/>
                 <Picker x:Name="picker1" Title="Dispositivos Emparejados" />
-                <Button x:Name="btn_Conectar" Text="Conectar" TextColor="Blue"/>
+                <Button x:Name="btn_Conectar" Text="Conectar" TextColor="Blue" IsEnabled="False"/>
                 <Button x:Name="btn_Desconectar" Text="Desconectar" TextColor="Blue" IsEnabled="False"/>
                 <Label x:Name="label2" Text="" FontSize="18" TextColor="Brown"/>
-                <Picker x:Name="picker2" Title="Mensajes Disponibles">
+                <Picker x:Name="picker2" Title="Mensajes Disponibles" IsEnabled="False">
                     <Picker.Items>
                         <x:String>0</x:String>
                         <x:String>1</x:String>
