@@ -248,6 +248,7 @@ namespace DP2_Auto_App.Contents
                     button_start.IsEnabled = false;
                     button_end.IsEnabled = false;
                 }
+                await Task.Delay(100);
             }
         }
     }
