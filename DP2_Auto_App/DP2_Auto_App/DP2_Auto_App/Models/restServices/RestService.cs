@@ -30,6 +30,8 @@ namespace DP2_Auto_App.Models.RestServices
         public static endTravel end { get; private set; }
         static List<Viajes> travels;
         public static vehicleMAC vehicle { get; set; }
+        
+        public static int[] sensor_valid;
 
         public RestService()
         {
@@ -123,6 +125,13 @@ namespace DP2_Auto_App.Models.RestServices
                     client = JsonConvert.DeserializeObject<Client>(rString);
                     if (client.organization.is_parking == 1) isParking = true;
                     else isParking = false;
+                    //Obtencion de cod de sensores para filtrar sensorpage
+                    sensor_valid = new int[client.sensors.Count];
+                    for (int i = 0; i < client.sensors.Count; i++)
+                    {
+                        sensor_valid[i] = client.sensors[i].id;
+                    }
+
                     initializeTravels();
                     return "loginSuccess";
                 }

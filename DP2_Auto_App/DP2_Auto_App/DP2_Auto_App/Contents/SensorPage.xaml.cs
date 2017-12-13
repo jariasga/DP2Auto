@@ -15,14 +15,26 @@ namespace DP2_Auto_App.Contents
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SensorPage : ContentPage
     {
+        int[] sensor_valid = RestService.sensor_valid;
+        
         Readings speed, temperature, weight, pulse, proximity, battery;
         public static bool sensorLoop;
         public SensorPage()
         {
             InitializeComponent();
             sensorLoop = false;
+            //VALIDANDO LOS SENSORES QUE APARECEN EN PANTALLA
+            foreach (int id in sensor_valid)
+            {
+                string name = Readings.returnSensorNAME(id);
+                if (name == "SPEED") SPEED.IsVisible = true;
+                else if (name == "TEMPERATURE") TEMPERATURE.IsVisible = true;
+                else if (name == "WEIGHT") WEIGHT.IsVisible = true;
+                else if (name == "HEART") HEART.IsVisible = true;
+                else if (name == "PROXIMITY") PROXIMITY.IsVisible = true;
+                else if (name == "BATTERY") BATTERY.IsVisible = true;
+            }
         }
-
         private void Button_Clicked(object sender, EventArgs e)
         {
             if (sensorLoop)
