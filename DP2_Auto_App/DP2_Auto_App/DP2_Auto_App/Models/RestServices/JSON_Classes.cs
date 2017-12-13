@@ -222,7 +222,7 @@ namespace DP2_Auto_App.Models.RestServices
         public object deleted_at { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
-        public int value { get; set; }
+        public double value { get; set; }
     }
 
     public class Reminder

@@ -20,20 +20,20 @@ namespace DP2_Auto_App.Contents
 		{
 			InitializeComponent ();
             AchievedLoop = true;
-            //initializeValues();
+            initializeValues();
         }
-        /*
+        
         private async void initializeValues()
         {
-            while (AchievedLoop)
+            while (RestService.client != null && AchievedLoop)
             {
                 objectives = await webService.rest.listAchievedGoals();
                 MyListView.ItemsSource = objectives;
-                MyListView.IsPullToRefreshEnabled = true;
+                //MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(3000);
+                await Task.Delay(1000);
             }
-        }*/
+        }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
