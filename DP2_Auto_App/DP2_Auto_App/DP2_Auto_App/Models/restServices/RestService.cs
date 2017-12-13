@@ -24,12 +24,16 @@ namespace DP2_Auto_App.Models.RestServices
         public static bool isParking { get; private set; }
         public static List<Reminder> reminders;
         private string temporalTokenSave;
-        public static startTravel currentTravel { get; private set; }
+        public static startTravel currentTravel { get; set; }
         public static Objective currentObjective { get; private set;}
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
-        static List<Viajes> travels;
+        public static List<Viajes> travels;
         public static vehicleMAC vehicle { get; set; }
+        
+        public static int[] sensor_valid;
+
+        public static string parking_ip;
 
         public RestService()
         {
@@ -44,7 +48,7 @@ namespace DP2_Auto_App.Models.RestServices
         }
 
 
-        public  async void initializeTravels()
+        public async void initializeTravels()
         {
             //travels = new List<Travel>();
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy
@@ -123,6 +127,15 @@ namespace DP2_Auto_App.Models.RestServices
                     client = JsonConvert.DeserializeObject<Client>(rString);
                     if (client.organization.is_parking == 1) isParking = true;
                     else isParking = false;
+                    //Obtencion de cod de sensores para filtrar sensorpage
+                    sensor_valid = new int[client.sensors.Count];
+                    for (int i = 0; i < client.sensors.Count; i++)
+                    {
+                        sensor_valid[i] = client.sensors[i].id;
+                    }
+                    //ip de parking
+                    parking_ip = client.parking_ip;
+
                     initializeTravels();
                     return "loginSuccess";
                 }
@@ -395,7 +408,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
-        /*
+        
         public async Task<List<Objective>> listAchievedGoals()
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);
@@ -419,7 +432,7 @@ namespace DP2_Auto_App.Models.RestServices
             }
             return null;
         }
-        */
+        
         public async Task<Objective> storeGoals(int sensorId, int goalValue, string dateIni, string dateEnd, string desc)
         {
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);

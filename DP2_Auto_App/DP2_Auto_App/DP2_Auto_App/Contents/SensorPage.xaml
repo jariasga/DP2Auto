@@ -7,47 +7,47 @@
         <ScrollView>
             <StackLayout Margin="20, 10, 0, 0">
                 <Label Text="Sensores" />
-                <StackLayout Orientation="Horizontal" >
+                <StackLayout x:Name="SPEED" Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorSpeed.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- km/h" VerticalTextAlignment="Center" x:Name="label_speed"/>
-                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_speed"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout x:Name="TEMPERATURE" Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorTemperature.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- C" VerticalTextAlignment="Center" x:Name="label_temperature"/>
-                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_temperature"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout x:Name="WEIGHT" Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorWeight.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- kg" VerticalTextAlignment="Center" x:Name="label_weight"/>
-                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_weight"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout x:Name="HEART" Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorHeart.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- p/m" VerticalTextAlignment="Center" x:Name="label_pulse"/>
-                    <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_pulse"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout x:Name="PROXIMITY" Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorProximity.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- m" VerticalTextAlignment="Center" x:Name="label_proximity"/>
-                    <Button IsEnabled="False" BackgroundColor="Red" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_proximity"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout x:Name="BATTERY"  Orientation="Horizontal" IsVisible="False">
                     <Image Source="sensorBattery.jpg"
                            WidthRequest="35"
                            HeightRequest="35"/>
                     <Label WidthRequest="80" Text="-- %" VerticalTextAlignment="Center" x:Name="label_battery"/>
-                    <Button IsEnabled="False" BackgroundColor="Green" Margin="20, 0 , 0, 0"/>
+                    <Button IsEnabled="False" BackgroundColor="White" Margin="20, 0 , 0, 0" x:Name="bt_battery"/>
                 </StackLayout>
                 <Label x:Name="label_actualizado"></Label>
                 <Button Text="Actualizar" HorizontalOptions="Center" Margin="0, 0, 0, 15" Clicked ="Button_Clicked" x:Name="button_Actualizar"/>

@@ -11,33 +11,54 @@ using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models;
-
-
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapPage : ContentPage
     {
-
+        public static bool isBTConnected;
         startTravel inicio;
         endTravel fin;
         double longInicial, longFinal, latInicial, latFinal, recorrido;
         double actualLong, actualLat;
+        bool travelOnGoing;
 
         public MapPage()
         {
             InitializeComponent();
-            initializeMap();
+            
             longInicial = longFinal = latInicial = latFinal = recorrido = 0.0;
             actualLong = actualLat = 0.0;
             sendPosition();
+            isBTConnected = false;
+            travelOnGoing = false;
+            
+            if (RestService.travels.Count > 0 && RestService.travels[0].ended_at == null)
+            {
+                travelOnGoing = true;
+                inicio = new startTravel
+                {
+                    client_id = RestService.travels[0].client_id,
+                    vehicle_id = RestService.travels[0].vehicle_id,
+                    updated_at = RestService.travels[0].updated_at,
+                    created_at = RestService.travels[0].created_at,
+                    id = RestService.travels[0].id
+                };
+                Device.BeginInvokeOnMainThread (() => { DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok"); });
+                RestService.currentTravel = inicio;
+            }
+            RetreiveLoc();
+            changeConnectionStatus();
         }
 
 
         public async void sendPosition()
         {
-                while (true)
+            while (RestService.client != null)
+            {
+                try
                 {
                     var locator = CrossGeolocator.Current;
                     locator.DesiredAccuracy = 50;
@@ -61,7 +82,11 @@ namespace DP2_Auto_App.Contents
                     }
                     await Task.Delay(1000);
                 }
-            
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("SendPosition: " + ex.Message);
+                }                
+            }
         }
 
 
@@ -76,22 +101,34 @@ namespace DP2_Auto_App.Contents
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+            while (RestService.client != null)
             {
+                try
+                {
+                    if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                    {
 
-                var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
-                if (position == null)
-                    return;
+                        var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
+                        if (position == null)
+                            return;
 
 
-                latitude.Text = "" + position.Latitude;
-                longitude.Text = "" + position.Longitude;
+                        latitude.Text = "" + position.Latitude;
+                        longitude.Text = "" + position.Longitude;
+
+                        initializeMap(position.Latitude, position.Longitude);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Home", "OK");
+                    }
+                    await Task.Delay(1000);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("RetrieveLoc: " + ex.Message);
+                }
             }
-            else
-            {
-                await DisplayAlert("Error", "Home", "OK");
-            }
-
         }
 
 
@@ -107,21 +144,21 @@ namespace DP2_Auto_App.Contents
             map.MoveToRegion(new MapSpan(map.VisibleRegion.Center, latlongdegrees, latlongdegrees));
         }
 
-        private void initializeMap()
+        private void initializeMap(double Latitude, double Longitude)
         {
-            var position = new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947); // Latitude, Longitude
-            var pin = new Pin
+            var position = new Xamarin.Forms.Maps.Position(Latitude, Longitude); // Latitude, Longitude
+            /*var pin = new Pin
             {
                 Type = PinType.Place,
                 Position = position,
-                Label = "custom pin",
+                Label = "Usted está aqui",
                 Address = "custom detail info"
             };
-            map.Pins.Add(pin);
-
+            map.Pins.Add(pin);*/
+            
             map.MoveToRegion(
                 MapSpan.FromCenterAndRadius(
-                new Xamarin.Forms.Maps.Position(-12.0689857, -77.078947), Distance.FromMiles(0.5)));
+                new Xamarin.Forms.Maps.Position(Latitude, Longitude), Distance.FromMiles(0.4)));
 
         }
 
@@ -146,13 +183,23 @@ namespace DP2_Auto_App.Contents
                 await webService.rest.startTravel("00:21:13:01:D6:BB");   // En caso no tener BT real
                 //await webService.rest.startTravel(BTMessages.macBT);
                 inicio = RestService.currentTravel;
-                DateTime horaIni = DateTime.Parse(inicio.started_at.date);
-                await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
-                await RetreiveLoc();
-                longInicial = double.Parse(longitude.Text);
-                latInicial = double.Parse(latitude.Text);
-                button_start.IsEnabled = false;
-                button_end.IsEnabled = true;
+
+                try
+                {
+                    travelOnGoing = true;
+                    DateTime horaIni = DateTime.Parse(inicio.started_at.date);
+                    await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
+                    await RetreiveLoc();
+                    longInicial = double.Parse(longitude.Text);
+                    latInicial = double.Parse(latitude.Text);                    
+                    //button_start.IsEnabled = false;
+                    //button_end.IsEnabled = true;
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Atención", "Error al iniciar el viaje, posiblemente la dirección MAC sea errada", "Ok");
+                }
+
             }
             else await DisplayAlert("Atención", "Para iniciar un viaje debe conectarse a un vehiculo", "Ok");
         }
@@ -160,28 +207,34 @@ namespace DP2_Auto_App.Contents
         {
             inicio = RestService.currentTravel;
 
-            //recorrido
-            longFinal = double.Parse(longitude.Text);
-            latFinal = double.Parse(latitude.Text);
+            try
+            {
+                //recorrido
+                longFinal = double.Parse(longitude.Text);
+                latFinal = double.Parse(latitude.Text);
 
-            recorrido = hallaRecorrido();
-            await DisplayAlert("Recorrido", "" + recorrido + " Km", "Ok");
+                /*recorrido = hallaRecorrido();
+                await DisplayAlert("Recorrido", "" + recorrido + " Km", "Ok");*/
 
-            await webService.rest.endTravel(inicio);
-            //Travel auxTravel = RestService.getLastTrip();
-            //DateTime horaIni = auxTravel.started;
-            fin = RestService.end;
-            DateTime horaFin = DateTime.Parse(fin.ended_at.date);
-            DateTime horaIni = DateTime.Parse(fin.started_at);
-            await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH:mm:ss") + "\n Fin: " + horaFin.ToString("HH::mm::ss"), "Ok");
-
-            button_start.IsEnabled = true;
-            button_end.IsEnabled = false;
-
+                await webService.rest.endTravel(inicio);
+                //Travel auxTravel = RestService.getLastTrip();
+                //DateTime horaIni = auxTravel.started;
+                fin = RestService.end;
+                DateTime horaFin = DateTime.Parse(fin.ended_at.date);
+                DateTime horaIni = DateTime.Parse(fin.started_at);
+                await DisplayAlert("Resumen del viaje", "Inicio: " + horaIni.ToString("HH:mm:ss") + "\nFin: " + horaFin.ToString("HH::mm::ss") + "\nRecorrido: " + fin.total_distance, "Ok");
+                travelOnGoing = false;
+                //button_start.IsEnabled = true;
+                //button_end.IsEnabled = false;
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Atención", "Error al finalizar el vehiculo", "Ok");
+            }
             //descomentar esto si se quiere posiciones reales dl gps
             //await RetreiveLoc();
 
-            
+
         }
 
         private double hallaRecorrido()
@@ -202,6 +255,29 @@ namespace DP2_Auto_App.Contents
 
             return d;
 
+        }
+
+        public async void changeConnectionStatus()
+        {
+            while (RestService.client != null)
+            {
+                if (isBTConnected && travelOnGoing)
+                {
+                    button_start.IsEnabled = false;
+                    button_end.IsEnabled = true;
+                }
+                else if (isBTConnected && !travelOnGoing)
+                {
+                    button_start.IsEnabled = true;
+                    button_end.IsEnabled = false;
+                }
+                else if (!isBTConnected)
+                {
+                    button_start.IsEnabled = false;
+                    button_end.IsEnabled = false;
+                }
+                await Task.Delay(100);
+            }
         }
     }
 }

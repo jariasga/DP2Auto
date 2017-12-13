@@ -29,18 +29,18 @@ namespace DP2_Auto_App.Contents
 
         private async void initializeValues()
         {
-            while (actualLoop)
+            while (RestService.client != null && actualLoop)
             {
                 objectives = await webService.rest.listGoals();
                 MyListView.ItemsSource = objectives;
-                MyListView.IsPullToRefreshEnabled = true;
+                //MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(8000);
+                await Task.Delay(5000);
                 //comprobarLogro();
             }
 
         }
-        /*
+        
         public async void comprobarLogro()
         {
             objectives = await webService.rest.listAchievedGoals();
@@ -56,7 +56,7 @@ namespace DP2_Auto_App.Contents
             }
             //await Task.Delay(8000);
 
-        }*/
+        }
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)

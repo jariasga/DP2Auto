@@ -29,7 +29,7 @@ namespace DP2_Auto_App.Contents
         public WarningPage()
         {
             InitializeComponent();
-            ThreadWarnings();
+            //ThreadWarnings();
             minLatidos.Text = ""+min_heart;
             minProximidad.Text = ""+min_near;
             minBatt.Text = ""+min_battery;
@@ -136,7 +136,7 @@ namespace DP2_Auto_App.Contents
         private async void ThreadWarnings()
         {
             List<Readings> r;
-            while (true)
+            while (RestService.client != null && true)
             {
                 battery = pulse = proximity= null;
                 if (flag_heart == 1)

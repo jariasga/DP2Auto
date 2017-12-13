@@ -38,6 +38,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                 BTMessages.macBT = ""; //eliminado mac
                 _ct.Cancel();
                 BTMessages.statusBT = 2;
+                DP2_Auto_App.Contents.MapPage.isBTConnected = false;
             }
         }
         public void Send(string message)
@@ -99,6 +100,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                 BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
                                 BTMessages.statusBT = 1; //Estado de conectado
 
+                                DP2_Auto_App.Contents.MapPage.isBTConnected = true;
+
                                 var mReader = new InputStreamReader(bthSocket.InputStream);
                                 var buffer = new BufferedReader(mReader);
 
@@ -106,8 +109,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                 {
                                     if (buffer.Ready())
                                     {
-                                        char[] chr = new char[100];
+                                        char[] chr = new char[1000];
                                         string barcode = "";
+                                        Thread.Sleep(250);
                                         await buffer.ReadAsync(chr);
                                         foreach (char c in chr)
                                         {
@@ -118,7 +122,9 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                         if (barcode.Length > 0)
                                         {
                                             BTMessages.statusBT = 4; //Estado de enviando datos
-                                            System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
+                                            //System.Diagnostics.Debug.WriteLine("Letto: " + barcode);
+                                            barcode = barcode.Replace('\n','Z');
+                                            barcode = barcode.Replace('\r', 'Z');
                                             DependencyService.Get<IConvertionsIT>().ConReceived(barcode);
                                         }
                                         else
