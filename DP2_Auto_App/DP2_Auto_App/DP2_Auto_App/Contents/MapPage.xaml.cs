@@ -202,8 +202,8 @@ namespace DP2_Auto_App.Contents
                 longFinal = double.Parse(longitude.Text);
                 latFinal = double.Parse(latitude.Text);
 
-                recorrido = hallaRecorrido();
-                await DisplayAlert("Recorrido", "" + recorrido + " Km", "Ok");
+                /*recorrido = hallaRecorrido();
+                await DisplayAlert("Recorrido", "" + recorrido + " Km", "Ok");*/
 
                 await webService.rest.endTravel(inicio);
                 //Travel auxTravel = RestService.getLastTrip();
