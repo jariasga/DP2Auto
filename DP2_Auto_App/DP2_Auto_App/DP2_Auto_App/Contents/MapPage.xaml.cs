@@ -47,7 +47,7 @@ namespace DP2_Auto_App.Contents
                     created_at = RestService.travels[0].created_at,
                     id = RestService.travels[0].id
                 };
-                DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok");
+                Device.BeginInvokeOnMainThread (() => { DisplayAlert("Viaje", "Se ha cargado su viaje anterior", "Ok"); });
                 RestService.currentTravel = inicio;
             }
             RetreiveLoc();
