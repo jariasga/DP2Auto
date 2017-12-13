@@ -28,13 +28,13 @@ namespace DP2_Auto_App.Contents
 
         private async void initializeValues()
         {
-            while (actualLoop)
+            while (actualLoop && RestService.client != null)
             {
                 reminders = await webService.rest.listReminders();
                 MyListView.ItemsSource = reminders;
                 MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(8000);
+                await Task.Delay(1000);
                 comprobarRecordatorio();
             }
 

@@ -29,7 +29,7 @@ namespace DP2_Auto_App.Contents
 
         private async void initializeValues()
         {
-            while (actualLoop)
+            while (actualLoop && RestService.client != null)
             {
                 objectives = await webService.rest.listGoals();
                 MyListView.ItemsSource = objectives;
