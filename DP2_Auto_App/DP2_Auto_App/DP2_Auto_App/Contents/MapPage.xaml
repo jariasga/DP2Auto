@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="StartAndExpand" Padding="30">
-                <maps:Map WidthRequest="320" HeightRequest="200"
+                <maps:Map WidthRequest="700" HeightRequest="320"
                     x:Name="map"
                     IsShowingUser="true"
                     MapType="Street"
@@ -20,9 +20,8 @@
                 <Label Text="Longitud: "/>
                 <Entry Text="" x:Name="longitude" Keyboard="Numeric"/>
                 <Button Text="Asignar" HorizontalOptions="Center" Clicked="Nuevo_destino"/>
-                <Button Text="Comenzar Viaje" Clicked="StartTravel"/>
-                <Button x:Name="button_start" Text="Finalizar Viaje" Clicked="EndTravel"/>
-                <Button x:Name="button_end" Text="gps" Clicked="getlocacion"/>
+                <Button x:Name="button_start" Text="Comenzar Viaje" Clicked="StartTravel"/>
+                <Button x:Name="button_end" Text="Finalizar Viaje" Clicked="EndTravel"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
