@@ -11,8 +11,7 @@ using Plugin.Geolocator;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using DP2_Auto_App.Models;
-
-
+using System.Diagnostics;
 
 namespace DP2_Auto_App.Contents
 {
@@ -59,29 +58,35 @@ namespace DP2_Auto_App.Contents
         {
             while (RestService.client != null)
             {
-                var locator = CrossGeolocator.Current;
-                locator.DesiredAccuracy = 50;
-
-                if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                try
                 {
+                    var locator = CrossGeolocator.Current;
+                    locator.DesiredAccuracy = 50;
 
-                    var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
-                    if (position == null)
-                        return;
+                    if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                    {
+
+                        var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
+                        if (position == null)
+                            return;
 
 
-                    actualLat = position.Latitude;
-                    actualLong = position.Longitude;
-                    //await webService.rest.storePosition(BTMessages.macBT, actualLat, actualLong); // si hay modulo bt
-                    await webService.rest.storePosition("00:21:13:01:D6:BB", actualLat, actualLong);
+                        actualLat = position.Latitude;
+                        actualLong = position.Longitude;
+                        //await webService.rest.storePosition(BTMessages.macBT, actualLat, actualLong); // si hay modulo bt
+                        await webService.rest.storePosition("00:21:13:01:D6:BB", actualLat, actualLong);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Home", "OK");
+                    }
+                    await Task.Delay(1000);
                 }
-                else
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Error", "Home", "OK");
-                }
-                await Task.Delay(1000);
+                    Debug.WriteLine("SendPosition: " + ex.Message);
+                }                
             }
-
         }
 
 
@@ -98,26 +103,32 @@ namespace DP2_Auto_App.Contents
 
             while (RestService.client != null)
             {
-                if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                try
                 {
+                    if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                    {
 
-                    var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
-                    if (position == null)
-                        return;
+                        var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
+                        if (position == null)
+                            return;
 
 
-                    latitude.Text = "" + position.Latitude;
-                    longitude.Text = "" + position.Longitude;
+                        latitude.Text = "" + position.Latitude;
+                        longitude.Text = "" + position.Longitude;
 
-                    initializeMap(position.Latitude, position.Longitude);
+                        initializeMap(position.Latitude, position.Longitude);
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Home", "OK");
+                    }
+                    await Task.Delay(1000);
                 }
-                else
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Error", "Home", "OK");
+                    Debug.WriteLine("RetrieveLoc: " + ex.Message);
                 }
-                await Task.Delay(1000);
             }
-
         }
 
 
