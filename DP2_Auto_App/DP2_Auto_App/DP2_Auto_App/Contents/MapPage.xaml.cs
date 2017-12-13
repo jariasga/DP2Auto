@@ -34,9 +34,9 @@ namespace DP2_Auto_App.Contents
             actualLong = actualLat = 0.0;
             sendPosition();
             isBTConnected = false;
-            travelOnGoing = false;
-            changeConnectionStatus();
+            travelOnGoing = false;            
             RetreiveLoc();
+            changeConnectionStatus();
         }
 
 
@@ -158,12 +158,12 @@ namespace DP2_Auto_App.Contents
 
                 try
                 {
+                    travelOnGoing = true;
                     DateTime horaIni = DateTime.Parse(inicio.started_at.date);
                     await DisplayAlert("Viaje", "el viaje comenzó a las " + horaIni.ToString("HH:mm:ss"), "Ok");
                     await RetreiveLoc();
                     longInicial = double.Parse(longitude.Text);
-                    latInicial = double.Parse(latitude.Text);
-                    travelOnGoing = true;
+                    latInicial = double.Parse(latitude.Text);                    
                     //button_start.IsEnabled = false;
                     //button_end.IsEnabled = true;
                 }
