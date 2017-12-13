@@ -28,7 +28,7 @@ namespace DP2_Auto_App.Models.RestServices
         public static Objective currentObjective { get; private set;}
         public static Reminder currentReminder { get; private set; }
         public static endTravel end { get; private set; }
-        static List<Viajes> travels;
+        public static List<Viajes> travels;
         public static vehicleMAC vehicle { get; set; }
         
         public static int[] sensor_valid;
@@ -48,7 +48,7 @@ namespace DP2_Auto_App.Models.RestServices
         }
 
 
-        public  async void initializeTravels()
+        public async void initializeTravels()
         {
             //travels = new List<Travel>();
             webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.token);  //Copy

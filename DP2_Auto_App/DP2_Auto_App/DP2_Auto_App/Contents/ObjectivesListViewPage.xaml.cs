@@ -35,7 +35,7 @@ namespace DP2_Auto_App.Contents
                 MyListView.ItemsSource = objectives;
                 MyListView.IsPullToRefreshEnabled = true;
 
-                await Task.Delay(8000);
+                await Task.Delay(5000);
                 //comprobarLogro();
             }
 
