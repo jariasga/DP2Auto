@@ -38,6 +38,7 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                 BTMessages.macBT = ""; //eliminado mac
                 _ct.Cancel();
                 BTMessages.statusBT = 2;
+                DP2_Auto_App.Contents.MapPage.isBTConnected = false;
             }
         }
         public void Send(string message)
@@ -98,6 +99,8 @@ namespace BuetoothToArduinoTest.Droid.BlueTooth
                                 System.Diagnostics.Debug.WriteLine("Connected!");
                                 BTMessages.macBT = device.Address; //Estrayendo la vac del vehiculo;
                                 BTMessages.statusBT = 1; //Estado de conectado
+
+                                DP2_Auto_App.Contents.MapPage.isBTConnected = true;
 
                                 var mReader = new InputStreamReader(bthSocket.InputStream);
                                 var buffer = new BufferedReader(mReader);
