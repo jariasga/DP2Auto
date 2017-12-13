@@ -69,6 +69,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Velocidad: " + speed.value);
                     label_speed.Text = speed.value + " km/h";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (speed.value < 30) bt_speed.BackgroundColor = Color.Green;
+                    else if (speed.value < 60) bt_speed.BackgroundColor = Color.Yellow;
+                    else bt_speed.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Velocidad NO actualizada");
 
@@ -77,6 +81,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Temperatura: " + temperature.value);
                     label_temperature.Text = temperature.value + " C";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (temperature.value < 30) bt_temperature.BackgroundColor = Color.Green;
+                    else if (temperature.value < 60) bt_temperature.BackgroundColor = Color.Yellow;
+                    else bt_temperature.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Temperatura NO actualizada");
 
@@ -85,6 +93,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Peso: " + weight.value);
                     label_weight.Text = weight.value + " Kg";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (weight.value < 30) bt_weight.BackgroundColor = Color.Green;
+                    else if (weight.value < 60) bt_weight.BackgroundColor = Color.Yellow;
+                    else bt_weight.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Peso NO actualizado");
 
@@ -93,6 +105,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Pulso: " + pulse.value);
                     label_pulse.Text = pulse.value + " p/m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (pulse.value < 30) bt_pulse.BackgroundColor = Color.Green;
+                    else if (pulse.value < 60) bt_pulse.BackgroundColor = Color.Yellow;
+                    else bt_pulse.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Pulso NO actualizado");
 
@@ -101,6 +117,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Proximidad: " + proximity.value);
                     label_proximity.Text = proximity.value + " m";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (proximity.value < 30) bt_proximity.BackgroundColor = Color.Green;
+                    else if (proximity.value < 60) bt_proximity.BackgroundColor = Color.Yellow;
+                    else bt_proximity.BackgroundColor = Color.Red;
                 }
                 else Debug.WriteLine(" ---> Proximidad NO actualizada");
 
@@ -109,6 +129,10 @@ namespace DP2_Auto_App.Contents
                     Debug.WriteLine("Bateria: " + battery.value);
                     label_battery.Text = battery.value + " %";
                     updatedAt = DateTime.Now.ToString("h:mm:ss tt");
+
+                    if (battery.value < 30) bt_battery.BackgroundColor = Color.Red;
+                    else if (battery.value < 60) bt_battery.BackgroundColor = Color.Yellow;
+                    else bt_battery.BackgroundColor = Color.Green;
                 }
                 else Debug.WriteLine(" ---> Bateria NO actualizada");
 
